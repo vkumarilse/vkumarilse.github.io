@@ -1,0 +1,218 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "background": "white",
+  "padding": 5,
+  "height": 300,
+  "data": [
+    {
+      "name": "source_1",
+      "url": "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/M2SL.csv",
+      "format": {"type": "csv"}
+    },
+    {
+      "name": "source_0",
+      "url": "data/cars.json",
+      "format": {"type": "json"},
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Horsepower\"]) && isFinite(+datum[\"Horsepower\"]) && isValid(datum[\"Miles_per_Gallon\"]) && isFinite(+datum[\"Miles_per_Gallon\"])"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {"name": "concat_0_width", "value": 300},
+    {"name": "concat_1_x_step", "value": 20},
+    {
+      "name": "concat_1_width",
+      "update": "bandspace(domain('concat_1_x').length, 1, 0.5) * concat_1_x_step"
+    }
+  ],
+  "layout": {"padding": 20, "bounds": "full", "align": "each"},
+  "marks": [
+    {
+      "type": "group",
+      "name": "concat_0_group",
+      "style": "cell",
+      "encode": {
+        "update": {
+          "width": {"signal": "concat_0_width"},
+          "height": {"signal": "height"}
+        }
+      },
+      "marks": [
+        {
+          "name": "concat_0_marks",
+          "type": "symbol",
+          "style": ["point"],
+          "from": {"data": "source_0"},
+          "encode": {
+            "update": {
+              "opacity": {"value": 0.7},
+              "fill": {"value": "transparent"},
+              "stroke": {"value": "#4c78a8"},
+              "ariaRoleDescription": {"value": "point"},
+              "description": {
+                "signal": "\"Horsepower: \" + (format(datum[\"Horsepower\"], \"\")) + \"; Miles_per_Gallon: \" + (format(datum[\"Miles_per_Gallon\"], \"\"))"
+              },
+              "x": {"scale": "concat_0_x", "field": "Horsepower"},
+              "y": {"scale": "concat_0_y", "field": "Miles_per_Gallon"}
+            }
+          }
+        }
+      ],
+      "axes": [
+        {
+          "scale": "concat_0_x",
+          "orient": "bottom",
+          "gridScale": "concat_0_y",
+          "grid": true,
+          "tickCount": {"signal": "ceil(concat_0_width/40)"},
+          "domain": false,
+          "labels": false,
+          "aria": false,
+          "maxExtent": 0,
+          "minExtent": 0,
+          "ticks": false,
+          "zindex": 0
+        },
+        {
+          "scale": "concat_0_y",
+          "orient": "left",
+          "gridScale": "concat_0_x",
+          "grid": true,
+          "tickCount": {"signal": "ceil(height/40)"},
+          "domain": false,
+          "labels": false,
+          "aria": false,
+          "maxExtent": 0,
+          "minExtent": 0,
+          "ticks": false,
+          "zindex": 0
+        },
+        {
+          "scale": "concat_0_x",
+          "orient": "bottom",
+          "grid": false,
+          "title": "Horsepower",
+          "labelFlush": true,
+          "labelOverlap": true,
+          "tickCount": {"signal": "ceil(concat_0_width/40)"},
+          "zindex": 0
+        },
+        {
+          "scale": "concat_0_y",
+          "orient": "left",
+          "grid": false,
+          "title": "Miles_per_Gallon",
+          "labelOverlap": true,
+          "tickCount": {"signal": "ceil(height/40)"},
+          "zindex": 0
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "concat_1_group",
+      "style": "cell",
+      "encode": {
+        "update": {
+          "width": {"signal": "concat_1_width"},
+          "height": {"signal": "height"}
+        }
+      },
+      "marks": [
+        {
+          "name": "concat_1_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "x"},
+          "from": {"data": "source_1"},
+          "encode": {
+            "update": {
+              "stroke": {"value": "#4c78a8"},
+              "description": {
+                "signal": "\"observation_date: \" + (isValid(datum[\"observation_date\"]) ? datum[\"observation_date\"] : \"\"+datum[\"observation_date\"]) + \"; Money Supply-M2: \" + (format(datum[\"Money Supply-M2\"], \"\"))"
+              },
+              "x": {"scale": "concat_1_x", "field": "observation_date"},
+              "y": {"scale": "concat_1_y", "field": "Money Supply-M2"},
+              "defined": {
+                "signal": "isValid(datum[\"Money Supply-M2\"]) && isFinite(+datum[\"Money Supply-M2\"])"
+              }
+            }
+          }
+        }
+      ],
+      "axes": [
+        {
+          "scale": "concat_1_y",
+          "orient": "left",
+          "gridScale": "concat_1_x",
+          "grid": true,
+          "tickCount": {"signal": "ceil(height/40)"},
+          "domain": false,
+          "labels": false,
+          "aria": false,
+          "maxExtent": 0,
+          "minExtent": 0,
+          "ticks": false,
+          "zindex": 0
+        },
+        {
+          "scale": "concat_1_x",
+          "orient": "bottom",
+          "grid": false,
+          "title": "observation_date",
+          "labelAlign": "right",
+          "labelAngle": 270,
+          "labelBaseline": "middle",
+          "zindex": 0
+        },
+        {
+          "scale": "concat_1_y",
+          "orient": "left",
+          "grid": false,
+          "title": "Money Supply-M2",
+          "labelOverlap": true,
+          "tickCount": {"signal": "ceil(height/40)"},
+          "zindex": 0
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "concat_0_x",
+      "type": "linear",
+      "domain": {"data": "source_0", "field": "Horsepower"},
+      "range": [0, {"signal": "concat_0_width"}],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "concat_0_y",
+      "type": "linear",
+      "domain": {"data": "source_0", "field": "Miles_per_Gallon"},
+      "range": [{"signal": "height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "concat_1_x",
+      "type": "point",
+      "domain": {"data": "source_1", "field": "observation_date", "sort": true},
+      "range": {"step": {"signal": "concat_1_x_step"}},
+      "padding": 0.5
+    },
+    {
+      "name": "concat_1_y",
+      "type": "linear",
+      "domain": {"data": "source_1", "field": "Money Supply-M2"},
+      "range": [{"signal": "height"}, 0],
+      "domainMin": 18000,
+      "zero": true
+    }
+  ],
+  "config": {}
+}
