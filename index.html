@@ -96,6 +96,16 @@
         </div>
         <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
+       <section>
+        <div class="chart-description">
+            <h2>Section 5: Chart from Vega Editor</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
+                As a first example, we're using a basic chart from our repo.
+            </p>
+        </div>
+        <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
     <!-- Do you want to add more sections? -->
         <!-- Try copying pasting the section above -->
         <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
@@ -112,6 +122,7 @@
         
         let figure_3_spec = "https://raw.githubusercontent.com/EconomicsObservatory/datavis/refs/heads/main/newsletters/2025-04-05-liberation-day/visualisation/fig5_survey-tariff-harm.json"
         let figure_4_spec = "wk1_chart1.json"
+        let figure_5_spec = "visualization.vg.json"
         // We're storing the URL of the graph we want to display in a variable
         
         
@@ -119,6 +130,7 @@
         vegaEmbed('#Location2',figure_2_spec)// Vegaembed for Chart 2
         vegaEmbed('#Location3',figure_3_spec)
         vegaEmbed('#Location4',figure_4_spec)
+        vegaEmbed('#Location5',figure_5_spec)
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
         // e.g. 
         // let figure_3_spec = ...
