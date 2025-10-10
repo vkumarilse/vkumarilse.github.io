@@ -1,0 +1,59 @@
+{
+  "vconcat": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/CBOEGoldvol.csv"
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "Date", "type": "temporal", "axis": {"title": "Date"}},
+        "y": {
+          "field": "CBOE gold volatility",
+          "type": "quantitative",
+          "axis": {"title": "CBOE Gold Volatility"}
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/CPIUS.csv"
+      },
+      "layer": [
+        {
+          "mark": {"type": "line", "color": "#E4572E"},
+          "encoding": {
+            "x": {"field": "Date", "type": "temporal"},
+            "y": {
+              "field": "CPIUS",
+              "type": "quantitative",
+              "axis": {"title": "CPI (US)"}
+            }
+          }
+        },
+        {
+          "params": [
+            {
+              "name": "hover",
+              "select": {
+                "type": "point",
+                "on": "pointerover",
+                "clear": "pointerout"
+              }
+            }
+          ],
+          "mark": {"type": "circle", "tooltip": true, "color": "#E4572E"},
+          "encoding": {
+            "x": {"field": "Date", "type": "temporal"},
+            "y": {"field": "CPIUS", "type": "quantitative"},
+            "opacity": {
+              "condition": {"param": "hover", "value": 1},
+              "value": 0
+            },
+            "size": {"condition": {"param": "hover", "value": 80}, "value": 20}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
