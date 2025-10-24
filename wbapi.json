@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/IN;CN;US/indicator/NE.GDI.TOTL.ZS?format=json&date=2009:2024",
+    "format": {"property": "[1]"}
+  },
+  "width": 500,
+  "height": 350,
+  "mark": "line",
+  "title": {
+    "text": "Gross capital formation (% of GDP) - India, China, World, United States",
+    "subtitle": "Source-World Bank Data"
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "",
+      "axis": {"grid": false}
+    },
+    "y": {"field": "value", "type": "quantitative", "title": ""},
+    "color": {"field": "country.value", "type": "nominal", "title": "Country"}
+  },
+  "config": {}
+}
