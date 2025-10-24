@@ -116,6 +116,16 @@
         </div>
         <figure id="Location6"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
     </section>
+     <section>
+        <div class="chart-description">
+            <h2>Section 6: Chart from World Bank </h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Gross capital formation includes acquisitions less disposals of produced assets for purposes of fixed capital formation, inventories or valuables. 
+                This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period.
+            </p>
+        </div>
+        <figure id="Location7"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
     <!-- Do you want to add more sections? -->
         <!-- Try copying pasting the section above -->
         <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
@@ -134,6 +144,7 @@
         let figure_4_spec = "wk1_chart1.json"
         let figure_5_spec = "verticalcharts.json"
         let figure_6_spec ="shiller_pe_ratio_chart.json"
+        let figure_7_spec="https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/wbapi.json"
         // We're storing the URL of the graph we want to display in a variable
         
         
@@ -143,6 +154,7 @@
         vegaEmbed('#Location4',figure_4_spec)
         vegaEmbed('#Location5',figure_5_spec)
         vegaEmbed('#Location6',figure_6_spec)
+        vegaEmbed('#Location7',figure_7_spec)
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
         // e.g. 
         // let figure_3_spec = ...
