@@ -1,0 +1,737 @@
+{
+  "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}},
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "color": "darkblue",
+        "opacity": 0.7,
+        "size": 60
+      },
+      "encoding": {
+        "tooltip": [
+          {"field": "areaName", "type": "nominal"},
+          {
+            "field": "incomeDeprevation",
+            "format": ".1%",
+            "type": "quantitative"
+          },
+          {"field": "femaleLE", "format": ".1f", "type": "quantitative"},
+          {
+            "field": "predicted_femaleLE",
+            "format": ".1f",
+            "title": "Predicted",
+            "type": "quantitative"
+          },
+          {"field": "residual", "format": ".2f", "type": "quantitative"}
+        ],
+        "x": {
+          "axis": {"format": "%"},
+          "field": "incomeDeprevation",
+          "title": "Income deprivation rate",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "femaleLE",
+          "scale": {"zero": false},
+          "title": "Female life expectancy (years)",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "red",
+        "size": 2,
+        "strokeDash": [10, 5]
+      },
+      "encoding": {
+        "x": {
+          "axis": {"format": "%"},
+          "field": "incomeDeprevation",
+          "title": "Income deprivation rate",
+          "type": "quantitative"
+        },
+        "y": {"field": "predicted_femaleLE", "type": "quantitative"}
+      }
+    }
+  ],
+  "data": {"name": "data-5bd9cd290b2492d2d6e0bd41a2583187"},
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "datasets": {
+    "data-5bd9cd290b2492d2d6e0bd41a2583187": [
+      {
+        "areaName": "Anniesland, Jordanhill and Whiteinch",
+        "incomeDeprevation": 0.14,
+        "employmentDeprivation": 0.15,
+        "childPoverty": 0.14,
+        "femaleLE": 80.8,
+        "maleLE": 75.8,
+        "disabilityRate": 0.19,
+        "predicted_femaleLE": 80.00275314594847,
+        "residual": 0.7972468540515223
+      },
+      {
+        "areaName": "Arden and Carnwadric",
+        "incomeDeprevation": 0.26,
+        "employmentDeprivation": 0.25,
+        "childPoverty": 0.34,
+        "femaleLE": 76,
+        "maleLE": 72.8,
+        "disabilityRate": 0.22,
+        "predicted_femaleLE": 77.53590144654827,
+        "residual": -1.5359014465482659
+      },
+      {
+        "areaName": "Baillieston and Garrowhill",
+        "incomeDeprevation": 0.12,
+        "employmentDeprivation": 0.12,
+        "childPoverty": 0.14,
+        "femaleLE": 81.6,
+        "maleLE": 76,
+        "disabilityRate": 0.21,
+        "predicted_femaleLE": 80.41389509584852,
+        "residual": 1.1861049041514775
+      },
+      {
+        "areaName": "Balornock and Barmulloch",
+        "incomeDeprevation": 0.29,
+        "employmentDeprivation": 0.27,
+        "childPoverty": 0.38,
+        "femaleLE": 78.2,
+        "maleLE": 70.8,
+        "disabilityRate": 0.3,
+        "predicted_femaleLE": 76.91918852169822,
+        "residual": 1.2808114783017857
+      },
+      {
+        "areaName": "Bellahouston, Craigton and Mosspark",
+        "incomeDeprevation": 0.2,
+        "employmentDeprivation": 0.18,
+        "childPoverty": 0.22,
+        "femaleLE": 80.5,
+        "maleLE": 73.9,
+        "disabilityRate": 0.29,
+        "predicted_femaleLE": 78.76932729624838,
+        "residual": 1.7306727037516225
+      },
+      {
+        "areaName": "Blackhill and Hogganfield",
+        "incomeDeprevation": 0.24,
+        "employmentDeprivation": 0.23,
+        "childPoverty": 0.33,
+        "femaleLE": 77.5,
+        "maleLE": 75,
+        "disabilityRate": 0.25,
+        "predicted_femaleLE": 77.94704339644831,
+        "residual": -0.4470433964483078
+      },
+      {
+        "areaName": "Blairdardie",
+        "incomeDeprevation": 0.18,
+        "employmentDeprivation": 0.16,
+        "childPoverty": 0.2,
+        "femaleLE": 79.4,
+        "maleLE": 75,
+        "disabilityRate": 0.25,
+        "predicted_femaleLE": 79.1804692461484,
+        "residual": 0.21953075385160048
+      },
+      {
+        "areaName": "Broomhill and Partick West",
+        "incomeDeprevation": 0.12,
+        "employmentDeprivation": 0.11,
+        "childPoverty": 0.19,
+        "femaleLE": 79.7,
+        "maleLE": 75.4,
+        "disabilityRate": 0.17,
+        "predicted_femaleLE": 80.41389509584852,
+        "residual": -0.713895095848514
+      },
+      {
+        "areaName": "Calton and Bridgeton",
+        "incomeDeprevation": 0.25,
+        "employmentDeprivation": 0.21,
+        "childPoverty": 0.47,
+        "femaleLE": 76.6,
+        "maleLE": 67.8,
+        "disabilityRate": 0.24,
+        "predicted_femaleLE": 77.74147242149829,
+        "residual": -1.1414724214982925
+      },
+      {
+        "areaName": "Carmunnock",
+        "incomeDeprevation": 0.15,
+        "employmentDeprivation": 0.1,
+        "childPoverty": 0.18,
+        "femaleLE": 81.2,
+        "maleLE": 75.4,
+        "disabilityRate": 0.21,
+        "predicted_femaleLE": 79.79718217099845,
+        "residual": 1.402817829001549
+      },
+      {
+        "areaName": "Castlemilk",
+        "incomeDeprevation": 0.36,
+        "employmentDeprivation": 0.33,
+        "childPoverty": 0.44,
+        "femaleLE": 76.8,
+        "maleLE": 68.9,
+        "disabilityRate": 0.31,
+        "predicted_femaleLE": 75.48019169704808,
+        "residual": 1.3198083029519125
+      },
+      {
+        "areaName": "Cathcart and Simshill",
+        "incomeDeprevation": 0.07,
+        "employmentDeprivation": 0.08,
+        "childPoverty": 0.07,
+        "femaleLE": 84.3,
+        "maleLE": 81.7,
+        "disabilityRate": 0.17,
+        "predicted_femaleLE": 81.44174997059861,
+        "residual": 2.8582500294013897
+      },
+      {
+        "areaName": "City Centre and Merchant City",
+        "incomeDeprevation": 0.14,
+        "employmentDeprivation": 0.12,
+        "childPoverty": 0.37,
+        "femaleLE": 76.4,
+        "maleLE": 69.7,
+        "disabilityRate": 0.15,
+        "predicted_femaleLE": 80.00275314594847,
+        "residual": -3.602753145948469
+      },
+      {
+        "areaName": "Corkerhill and North Pollok",
+        "incomeDeprevation": 0.29,
+        "employmentDeprivation": 0.26,
+        "childPoverty": 0.37,
+        "femaleLE": 76.7,
+        "maleLE": 70.7,
+        "disabilityRate": 0.24,
+        "predicted_femaleLE": 76.91918852169822,
+        "residual": -0.21918852169821434
+      },
+      {
+        "areaName": "Croftfoot",
+        "incomeDeprevation": 0.14,
+        "employmentDeprivation": 0.12,
+        "childPoverty": 0.25,
+        "femaleLE": 79.4,
+        "maleLE": 75.6,
+        "disabilityRate": 0.16,
+        "predicted_femaleLE": 80.00275314594847,
+        "residual": -0.6027531459484692
+      },
+      {
+        "areaName": "Crookston and South Cardonald",
+        "incomeDeprevation": 0.2,
+        "employmentDeprivation": 0.17,
+        "childPoverty": 0.27,
+        "femaleLE": 79.8,
+        "maleLE": 75.3,
+        "disabilityRate": 0.24,
+        "predicted_femaleLE": 78.76932729624838,
+        "residual": 1.0306727037516197
+      },
+      {
+        "areaName": "Dennistoun",
+        "incomeDeprevation": 0.19,
+        "employmentDeprivation": 0.15,
+        "childPoverty": 0.41,
+        "femaleLE": 76.7,
+        "maleLE": 70.8,
+        "disabilityRate": 0.19,
+        "predicted_femaleLE": 78.97489827119838,
+        "residual": -2.2748982711983814
+      },
+      {
+        "areaName": "Drumchapel",
+        "incomeDeprevation": 0.36,
+        "employmentDeprivation": 0.31,
+        "childPoverty": 0.48,
+        "femaleLE": 73.9,
+        "maleLE": 68.9,
+        "disabilityRate": 0.27,
+        "predicted_femaleLE": 75.48019169704808,
+        "residual": -1.580191697048079
+      },
+      {
+        "areaName": "Easterhouse",
+        "incomeDeprevation": 0.32,
+        "employmentDeprivation": 0.29,
+        "childPoverty": 0.42,
+        "femaleLE": 77.5,
+        "maleLE": 69.7,
+        "disabilityRate": 0.27,
+        "predicted_femaleLE": 76.30247559684815,
+        "residual": 1.1975244031518457
+      },
+      {
+        "areaName": "Glasgow",
+        "incomeDeprevation": 0.21,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.32,
+        "femaleLE": 78.2,
+        "maleLE": 72.3,
+        "disabilityRate": 0.23,
+        "predicted_femaleLE": 78.56375632129836,
+        "residual": -0.36375632129835367
+      },
+      {
+        "areaName": "Glasgow North East",
+        "incomeDeprevation": 0.25,
+        "employmentDeprivation": 0.22,
+        "childPoverty": 0.37,
+        "femaleLE": 78,
+        "maleLE": 72.5,
+        "disabilityRate": 0.25,
+        "predicted_femaleLE": 77.74147242149829,
+        "residual": 0.25852757850171315
+      },
+      {
+        "areaName": "Glasgow North West",
+        "incomeDeprevation": 0.19,
+        "employmentDeprivation": 0.17,
+        "childPoverty": 0.32,
+        "femaleLE": 77.6,
+        "maleLE": 71.3,
+        "disabilityRate": 0.21,
+        "predicted_femaleLE": 78.97489827119838,
+        "residual": -1.37489827119839
+      },
+      {
+        "areaName": "Glasgow South",
+        "incomeDeprevation": 0.21,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.29,
+        "femaleLE": 78.8,
+        "maleLE": 72.9,
+        "disabilityRate": 0.22,
+        "predicted_femaleLE": 78.56375632129836,
+        "residual": 0.23624367870164065
+      },
+      {
+        "areaName": "Govanhill",
+        "incomeDeprevation": 0.24,
+        "employmentDeprivation": 0.22,
+        "childPoverty": 0.33,
+        "femaleLE": 78.1,
+        "maleLE": 71.4,
+        "disabilityRate": 0.23,
+        "predicted_femaleLE": 77.94704339644831,
+        "residual": 0.1529566035516865
+      },
+      {
+        "areaName": "Greater Gorbals",
+        "incomeDeprevation": 0.3,
+        "employmentDeprivation": 0.27,
+        "childPoverty": 0.45,
+        "femaleLE": 77.9,
+        "maleLE": 68.7,
+        "disabilityRate": 0.29,
+        "predicted_femaleLE": 76.7136175467482,
+        "residual": 1.1863824532518095
+      },
+      {
+        "areaName": "Greater Govan",
+        "incomeDeprevation": 0.28,
+        "employmentDeprivation": 0.27,
+        "childPoverty": 0.36,
+        "femaleLE": 74.6,
+        "maleLE": 66.7,
+        "disabilityRate": 0.27,
+        "predicted_femaleLE": 77.12475949664822,
+        "residual": -2.5247594966482296
+      },
+      {
+        "areaName": "Haghill and Carntyne",
+        "incomeDeprevation": 0.28,
+        "employmentDeprivation": 0.26,
+        "childPoverty": 0.43,
+        "femaleLE": 75.4,
+        "maleLE": 69.9,
+        "disabilityRate": 0.31,
+        "predicted_femaleLE": 77.12475949664822,
+        "residual": -1.7247594966482183
+      },
+      {
+        "areaName": "Hillhead and Woodlands",
+        "incomeDeprevation": 0.15,
+        "employmentDeprivation": 0.12,
+        "childPoverty": 0.31,
+        "femaleLE": 79.3,
+        "maleLE": 72.4,
+        "disabilityRate": 0.15,
+        "predicted_femaleLE": 79.79718217099845,
+        "residual": -0.49718217099845674
+      },
+      {
+        "areaName": "Hyndland, Dowanhill and Partick East",
+        "incomeDeprevation": 0.08,
+        "employmentDeprivation": 0.08,
+        "childPoverty": 0.11,
+        "femaleLE": 80.9,
+        "maleLE": 76.7,
+        "disabilityRate": 0.14,
+        "predicted_femaleLE": 81.23617899564859,
+        "residual": -0.3361789956485808
+      },
+      {
+        "areaName": "Ibrox and Kingston",
+        "incomeDeprevation": 0.21,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.38,
+        "femaleLE": 74,
+        "maleLE": 70.2,
+        "disabilityRate": 0.2,
+        "predicted_femaleLE": 78.56375632129836,
+        "residual": -4.5637563212983565
+      },
+      {
+        "areaName": "Kelvindale and Kelvinside",
+        "incomeDeprevation": 0.06,
+        "employmentDeprivation": 0.05,
+        "childPoverty": 0.11,
+        "femaleLE": 84.3,
+        "maleLE": 79.9,
+        "disabilityRate": 0.14,
+        "predicted_femaleLE": 81.64732094554861,
+        "residual": 2.652679054451383
+      },
+      {
+        "areaName": "Kingspark and Mount Florida",
+        "incomeDeprevation": 0.12,
+        "employmentDeprivation": 0.11,
+        "childPoverty": 0.16,
+        "femaleLE": 82.8,
+        "maleLE": 74.4,
+        "disabilityRate": 0.17,
+        "predicted_femaleLE": 80.41389509584852,
+        "residual": 2.3861049041514804
+      },
+      {
+        "areaName": "Knightswood",
+        "incomeDeprevation": 0.23,
+        "employmentDeprivation": 0.23,
+        "childPoverty": 0.3,
+        "femaleLE": 77.6,
+        "maleLE": 71.6,
+        "disabilityRate": 0.29,
+        "predicted_femaleLE": 78.15261437139831,
+        "residual": -0.5526143713983203
+      },
+      {
+        "areaName": "Lambhill and Milton",
+        "incomeDeprevation": 0.29,
+        "employmentDeprivation": 0.28,
+        "childPoverty": 0.39,
+        "femaleLE": 77,
+        "maleLE": 69.8,
+        "disabilityRate": 0.3,
+        "predicted_femaleLE": 76.91918852169822,
+        "residual": 0.08081147830178281
+      },
+      {
+        "areaName": "Langside and Battlefield",
+        "incomeDeprevation": 0.13,
+        "employmentDeprivation": 0.11,
+        "childPoverty": 0.24,
+        "femaleLE": 81.4,
+        "maleLE": 74.6,
+        "disabilityRate": 0.16,
+        "predicted_femaleLE": 80.2083241208985,
+        "residual": 1.1916758791015098
+      },
+      {
+        "areaName": "Maryhill Road Corridor",
+        "incomeDeprevation": 0.22,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.39,
+        "femaleLE": 76.1,
+        "maleLE": 70.1,
+        "disabilityRate": 0.22,
+        "predicted_femaleLE": 78.35818534634834,
+        "residual": -2.2581853463483412
+      },
+      {
+        "areaName": "Mount Vernon and East Shettleston",
+        "incomeDeprevation": 0.17,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.17,
+        "femaleLE": 79.7,
+        "maleLE": 77.1,
+        "disabilityRate": 0.29,
+        "predicted_femaleLE": 79.38604022109843,
+        "residual": 0.31395977890157667
+      },
+      {
+        "areaName": "Newlands and Cathcart",
+        "incomeDeprevation": 0.09,
+        "employmentDeprivation": 0.08,
+        "childPoverty": 0.11,
+        "femaleLE": 81.8,
+        "maleLE": 79.2,
+        "disabilityRate": 0.17,
+        "predicted_femaleLE": 81.03060802069857,
+        "residual": 0.7693919793014317
+      },
+      {
+        "areaName": "North Cardonald and Penilee",
+        "incomeDeprevation": 0.23,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.33,
+        "femaleLE": 78.5,
+        "maleLE": 73.5,
+        "disabilityRate": 0.25,
+        "predicted_femaleLE": 78.15261437139831,
+        "residual": 0.3473856286016854
+      },
+      {
+        "areaName": "North Maryhill and Summerston",
+        "incomeDeprevation": 0.21,
+        "employmentDeprivation": 0.19,
+        "childPoverty": 0.31,
+        "femaleLE": 79.5,
+        "maleLE": 72,
+        "disabilityRate": 0.23,
+        "predicted_femaleLE": 78.56375632129836,
+        "residual": 0.9362436787016435
+      },
+      {
+        "areaName": "Parkhead and Dalmarnock",
+        "incomeDeprevation": 0.38,
+        "employmentDeprivation": 0.36,
+        "childPoverty": 0.52,
+        "femaleLE": 75.8,
+        "maleLE": 67.6,
+        "disabilityRate": 0.32,
+        "predicted_femaleLE": 75.06904974714806,
+        "residual": 0.7309502528519403
+      },
+      {
+        "areaName": "Pollok",
+        "incomeDeprevation": 0.17,
+        "employmentDeprivation": 0.16,
+        "childPoverty": 0.25,
+        "femaleLE": 80.6,
+        "maleLE": 73.8,
+        "disabilityRate": 0.21,
+        "predicted_femaleLE": 79.38604022109843,
+        "residual": 1.2139597789015681
+      },
+      {
+        "areaName": "Pollokshaws and Mansewood",
+        "incomeDeprevation": 0.22,
+        "employmentDeprivation": 0.2,
+        "childPoverty": 0.29,
+        "femaleLE": 80,
+        "maleLE": 73.1,
+        "disabilityRate": 0.24,
+        "predicted_femaleLE": 78.35818534634834,
+        "residual": 1.6418146536516645
+      },
+      {
+        "areaName": "Pollokshields East",
+        "incomeDeprevation": 0.21,
+        "employmentDeprivation": 0.16,
+        "childPoverty": 0.34,
+        "femaleLE": 80.9,
+        "maleLE": 74.4,
+        "disabilityRate": 0.18,
+        "predicted_femaleLE": 78.56375632129836,
+        "residual": 2.336243678701649
+      },
+      {
+        "areaName": "Pollokshields West",
+        "incomeDeprevation": 0.08,
+        "employmentDeprivation": 0.06,
+        "childPoverty": 0.1,
+        "femaleLE": 82.3,
+        "maleLE": 80.6,
+        "disabilityRate": 0.16,
+        "predicted_femaleLE": 81.23617899564859,
+        "residual": 1.0638210043514107
+      },
+      {
+        "areaName": "Priesthill and Househillwood",
+        "incomeDeprevation": 0.32,
+        "employmentDeprivation": 0.29,
+        "childPoverty": 0.43,
+        "femaleLE": 79.4,
+        "maleLE": 71.3,
+        "disabilityRate": 0.29,
+        "predicted_femaleLE": 76.30247559684815,
+        "residual": 3.0975244031518514
+      },
+      {
+        "areaName": "Riddrie and Cranhill",
+        "incomeDeprevation": 0.28,
+        "employmentDeprivation": 0.27,
+        "childPoverty": 0.4,
+        "femaleLE": 78.8,
+        "maleLE": 71.4,
+        "disabilityRate": 0.32,
+        "predicted_femaleLE": 77.12475949664822,
+        "residual": 1.6752405033517732
+      },
+      {
+        "areaName": "Robroyston and Millerston",
+        "incomeDeprevation": 0.07,
+        "employmentDeprivation": 0.07,
+        "childPoverty": 0.09,
+        "femaleLE": 80,
+        "maleLE": 75.9,
+        "disabilityRate": 0.13,
+        "predicted_femaleLE": 81.44174997059861,
+        "residual": -1.4417499705986074
+      },
+      {
+        "areaName": "Ruchazie and Garthamlock",
+        "incomeDeprevation": 0.3,
+        "employmentDeprivation": 0.27,
+        "childPoverty": 0.41,
+        "femaleLE": 78.6,
+        "maleLE": 70.4,
+        "disabilityRate": 0.25,
+        "predicted_femaleLE": 76.7136175467482,
+        "residual": 1.886382453251798
+      },
+      {
+        "areaName": "Ruchill and Possilpark",
+        "incomeDeprevation": 0.35,
+        "employmentDeprivation": 0.33,
+        "childPoverty": 0.47,
+        "femaleLE": 73.1,
+        "maleLE": 66.2,
+        "disabilityRate": 0.3,
+        "predicted_femaleLE": 75.6857626719981,
+        "residual": -2.5857626719981113
+      },
+      {
+        "areaName": "Scotland",
+        "incomeDeprevation": 0.13,
+        "employmentDeprivation": 0.13,
+        "childPoverty": 0.18,
+        "femaleLE": 80.6,
+        "maleLE": 76.2,
+        "disabilityRate": 0.2,
+        "predicted_femaleLE": 80.2083241208985,
+        "residual": 0.3916758791014985
+      },
+      {
+        "areaName": "Shawlands and Strathbungo",
+        "incomeDeprevation": 0.1,
+        "employmentDeprivation": 0.09,
+        "childPoverty": 0.16,
+        "femaleLE": 80.3,
+        "maleLE": 76.1,
+        "disabilityRate": 0.14,
+        "predicted_femaleLE": 80.82503704574854,
+        "residual": -0.5250370457485474
+      },
+      {
+        "areaName": "Sighthill, Roystonhill and Germiston",
+        "incomeDeprevation": 0.32,
+        "employmentDeprivation": 0.29,
+        "childPoverty": 0.49,
+        "femaleLE": 74.2,
+        "maleLE": 69.9,
+        "disabilityRate": 0.24,
+        "predicted_femaleLE": 76.30247559684815,
+        "residual": -2.1024755968481514
+      },
+      {
+        "areaName": "South Nitshill and Darnley",
+        "incomeDeprevation": 0.14,
+        "employmentDeprivation": 0.12,
+        "childPoverty": 0.17,
+        "femaleLE": 76.3,
+        "maleLE": 71.4,
+        "disabilityRate": 0.17,
+        "predicted_femaleLE": 80.00275314594847,
+        "residual": -3.7027531459484777
+      },
+      {
+        "areaName": "Springboig and Barlanark",
+        "incomeDeprevation": 0.31,
+        "employmentDeprivation": 0.29,
+        "childPoverty": 0.43,
+        "femaleLE": 78.3,
+        "maleLE": 71.5,
+        "disabilityRate": 0.3,
+        "predicted_femaleLE": 76.50804657179818,
+        "residual": 1.791953428201822
+      },
+      {
+        "areaName": "Springburn",
+        "incomeDeprevation": 0.3,
+        "employmentDeprivation": 0.28,
+        "childPoverty": 0.46,
+        "femaleLE": 76.4,
+        "maleLE": 69.1,
+        "disabilityRate": 0.28,
+        "predicted_femaleLE": 76.7136175467482,
+        "residual": -0.31361754674819053
+      },
+      {
+        "areaName": "Temple and Anniesland",
+        "incomeDeprevation": 0.19,
+        "employmentDeprivation": 0.17,
+        "childPoverty": 0.31,
+        "femaleLE": 78.8,
+        "maleLE": 72.4,
+        "disabilityRate": 0.24,
+        "predicted_femaleLE": 78.97489827119838,
+        "residual": -0.17489827119838708
+      },
+      {
+        "areaName": "Tollcross and West Shettleston",
+        "incomeDeprevation": 0.27,
+        "employmentDeprivation": 0.26,
+        "childPoverty": 0.37,
+        "femaleLE": 76.2,
+        "maleLE": 69.8,
+        "disabilityRate": 0.27,
+        "predicted_femaleLE": 77.33033047159824,
+        "residual": -1.130330471598242
+      },
+      {
+        "areaName": "Toryglen",
+        "incomeDeprevation": 0.3,
+        "employmentDeprivation": 0.28,
+        "childPoverty": 0.38,
+        "femaleLE": 77.9,
+        "maleLE": 72.5,
+        "disabilityRate": 0.29,
+        "predicted_femaleLE": 76.7136175467482,
+        "residual": 1.1863824532518095
+      },
+      {
+        "areaName": "Yoker and Scotstoun",
+        "incomeDeprevation": 0.24,
+        "employmentDeprivation": 0.21,
+        "childPoverty": 0.35,
+        "femaleLE": 80.2,
+        "maleLE": 74,
+        "disabilityRate": 0.21,
+        "predicted_femaleLE": 77.94704339644831,
+        "residual": 2.252956603551695
+      },
+      {
+        "areaName": "Yorkhill and Anderston",
+        "incomeDeprevation": 0.12,
+        "employmentDeprivation": 0.1,
+        "childPoverty": 0.34,
+        "femaleLE": 75.9,
+        "maleLE": 67.4,
+        "disabilityRate": 0.12,
+        "predicted_femaleLE": 80.41389509584852,
+        "residual": -4.513895095848511
+      }
+    ]
+  }
+}
