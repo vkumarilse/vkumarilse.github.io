@@ -1,0 +1,183 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "War on Europe",
+    "subtitle": "US investment positions by region, 2024",
+    "anchor": "start",
+    "font": "Georgia",
+    "fontSize": 15,
+    "fontWeight": "bold",
+    "subtitleFont": "Arial",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666666"
+  },
+  "width": 350,
+  "height": 350,
+  "background": "#fff1e5",
+  "data": {
+    "values": [
+      {
+        "region": "Europe",
+        "type": "US investment abroad",
+        "value": 3900,
+        "order": 1
+      },
+      {
+        "region": "Europe",
+        "type": "Foreign investment in US",
+        "value": 3600,
+        "order": 1
+      },
+      {
+        "region": "Asia-Pacific",
+        "type": "US investment abroad",
+        "value": 1080,
+        "order": 2
+      },
+      {
+        "region": "Asia-Pacific",
+        "type": "Foreign investment in US",
+        "value": 1280,
+        "order": 2
+      },
+      {
+        "region": "Canada",
+        "type": "US investment abroad",
+        "value": 460,
+        "order": 3
+      },
+      {
+        "region": "Canada",
+        "type": "Foreign investment in US",
+        "value": 730,
+        "order": 3
+      },
+      {
+        "region": "Latin America",
+        "type": "US investment abroad",
+        "value": 430,
+        "order": 4
+      },
+      {
+        "region": "Latin America",
+        "type": "Foreign investment in US",
+        "value": 130,
+        "order": 4
+      },
+      {
+        "region": "Middle East",
+        "type": "US investment abroad",
+        "value": 80,
+        "order": 5
+      },
+      {
+        "region": "Middle East",
+        "type": "Foreign investment in US",
+        "value": 40,
+        "order": 5
+      },
+      {
+        "region": "Africa",
+        "type": "US investment abroad",
+        "value": 50,
+        "order": 6
+      },
+      {
+        "region": "Africa",
+        "type": "Foreign investment in US",
+        "value": 30,
+        "order": 6
+      }
+    ]
+  },
+  "layer": [
+    {
+      "transform": [
+        {"pivot": "type", "value": "value", "groupby": ["region", "order"]}
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1.5,
+        "strokeDash": [4, 4],
+        "color": "#999999"
+      },
+      "encoding": {
+        "x": {
+          "field": "region",
+          "type": "nominal",
+          "sort": {"field": "order"},
+          "title": null,
+          "axis": {
+            "labelFontSize": 9,
+            "labelFont": "Arial",
+            "labelColor": "#333333",
+            "labelAngle": 0,
+            "labelPadding": 10,
+            "domainColor": "#999999",
+            "tickColor": "#999999",
+            "tickSize": 5
+          }
+        },
+        "y": {
+          "field": "US investment abroad",
+          "type": "quantitative",
+          "title": "Investment position ($bn)",
+          "axis": {
+            "labelFontSize": 11,
+            "labelFont": "Arial",
+            "labelColor": "#666666",
+            "titleFont": "Arial",
+            "titleFontSize": 12,
+            "titleColor": "#666666",
+            "gridColor": "#e0e0e0",
+            "gridDash": [2, 2],
+            "domainColor": "#999999",
+            "tickColor": "#999999",
+            "format": ",.0f"
+          }
+        },
+        "y2": {"field": "Foreign investment in US"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 120},
+      "encoding": {
+        "x": {"field": "region", "type": "nominal", "sort": {"field": "order"}},
+        "y": {"field": "value", "type": "quantitative"},
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["US investment abroad", "Foreign investment in US"],
+            "range": ["#d4756e", "#6da7bf"]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "labelFontSize": 11,
+            "labelFont": "Arial",
+            "symbolSize": 80,
+            "symbolType": "square",
+            "symbolStrokeWidth": 0
+          }
+        },
+        "tooltip": [
+          {"field": "region", "type": "nominal", "title": "Region"},
+          {"field": "type", "type": "nominal", "title": "Type"},
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Value ($bn)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFont": "Arial", "titleFont": "Arial"},
+    "legend": {"labelFont": "Arial", "titleFont": "Arial"}
+  }
+}

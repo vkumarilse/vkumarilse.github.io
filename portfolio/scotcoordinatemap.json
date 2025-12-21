@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.2.0.json",
+  "description": "Map showing Scottish Local Authority District boundaries with UC data bubbles.",
+  "title": {
+    "text": "Scotland: Universal Credit Claimants by Constituency",
+    "subtitle": "National Average: 9.05%",
+    "fontSize": 16
+  },
+  "width": 400,
+  "height": 500,
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/LAD_SCT_2025_05.topojson",
+        "format": {"type": "topojson", "feature": "object_name"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e2d5d5",
+        "stroke": "#413e3e",
+        "strokeWidth": 0.3
+      },
+      "projection": {"type": "mercator"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/portfolio/scotland_uc_data.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.9,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "uc_percentage",
+          "type": "quantitative",
+          "scale": {"range": [100, 1000]},
+          "legend": null
+        },
+        "color": {
+          "field": "vs_national",
+          "type": "quantitative",
+          "scale": {
+            "domain": [-4, 0, 4],
+            "range": ["#2166ac", "#f7f7f7", "#b2182b"]
+          },
+          "legend": {"title": "vs National Avg (9.05%)", "orient": "bottom"}
+        },
+        "tooltip": [
+          {
+            "field": "constituency_name",
+            "type": "nominal",
+            "title": "Constituency"
+          },
+          {
+            "field": "uc_percentage",
+            "type": "quantitative",
+            "title": "UC Claimants (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "uc_claimants",
+            "type": "quantitative",
+            "title": "UC Claimants",
+            "format": ","
+          },
+          {
+            "field": "population_16_64",
+            "type": "quantitative",
+            "title": "Population 16-64",
+            "format": ","
+          },
+          {
+            "field": "vs_national",
+            "type": "quantitative",
+            "title": "vs National Avg",
+            "format": "+.1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
