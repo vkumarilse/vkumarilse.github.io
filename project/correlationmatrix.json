@@ -1,0 +1,314 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.2.json",
+  "title": {
+    "text": "Correlation Matrix: PMJDY vs UPI Metrics",
+    "fontSize": 14,
+    "font": "Georgia"
+  },
+  "width": 400,
+  "height": 400,
+  "data": {
+    "values": [
+      {
+        "var1": "UPI Volume",
+        "var2": "UPI Volume",
+        "correlation": 1,
+        "order1": 0,
+        "order2": 0
+      },
+      {
+        "var1": "UPI Volume",
+        "var2": "UPI Value",
+        "correlation": 0.99,
+        "order1": 0,
+        "order2": 1
+      },
+      {
+        "var1": "UPI Volume",
+        "var2": "PMJDY Accounts",
+        "correlation": 0.558,
+        "order1": 0,
+        "order2": 2
+      },
+      {
+        "var1": "UPI Volume",
+        "var2": "PMJDY Balance",
+        "correlation": 0.632,
+        "order1": 0,
+        "order2": 3
+      },
+      {
+        "var1": "UPI Volume",
+        "var2": "Urban Accounts",
+        "correlation": 0.823,
+        "order1": 0,
+        "order2": 4
+      },
+      {
+        "var1": "UPI Volume",
+        "var2": "Rural Accounts",
+        "correlation": 0.462,
+        "order1": 0,
+        "order2": 5
+      },
+      {
+        "var1": "UPI Value",
+        "var2": "UPI Volume",
+        "correlation": 0.99,
+        "order1": 1,
+        "order2": 0
+      },
+      {
+        "var1": "UPI Value",
+        "var2": "UPI Value",
+        "correlation": 1,
+        "order1": 1,
+        "order2": 1
+      },
+      {
+        "var1": "UPI Value",
+        "var2": "PMJDY Accounts",
+        "correlation": 0.58,
+        "order1": 1,
+        "order2": 2
+      },
+      {
+        "var1": "UPI Value",
+        "var2": "PMJDY Balance",
+        "correlation": 0.655,
+        "order1": 1,
+        "order2": 3
+      },
+      {
+        "var1": "UPI Value",
+        "var2": "Urban Accounts",
+        "correlation": 0.844,
+        "order1": 1,
+        "order2": 4
+      },
+      {
+        "var1": "UPI Value",
+        "var2": "Rural Accounts",
+        "correlation": 0.484,
+        "order1": 1,
+        "order2": 5
+      },
+      {
+        "var1": "PMJDY Accounts",
+        "var2": "UPI Volume",
+        "correlation": 0.558,
+        "order1": 2,
+        "order2": 0
+      },
+      {
+        "var1": "PMJDY Accounts",
+        "var2": "UPI Value",
+        "correlation": 0.58,
+        "order1": 2,
+        "order2": 1
+      },
+      {
+        "var1": "PMJDY Accounts",
+        "var2": "PMJDY Accounts",
+        "correlation": 1,
+        "order1": 2,
+        "order2": 2
+      },
+      {
+        "var1": "PMJDY Accounts",
+        "var2": "PMJDY Balance",
+        "correlation": 0.962,
+        "order1": 2,
+        "order2": 3
+      },
+      {
+        "var1": "PMJDY Accounts",
+        "var2": "Urban Accounts",
+        "correlation": 0.859,
+        "order1": 2,
+        "order2": 4
+      },
+      {
+        "var1": "PMJDY Accounts",
+        "var2": "Rural Accounts",
+        "correlation": 0.991,
+        "order1": 2,
+        "order2": 5
+      },
+      {
+        "var1": "PMJDY Balance",
+        "var2": "UPI Volume",
+        "correlation": 0.632,
+        "order1": 3,
+        "order2": 0
+      },
+      {
+        "var1": "PMJDY Balance",
+        "var2": "UPI Value",
+        "correlation": 0.655,
+        "order1": 3,
+        "order2": 1
+      },
+      {
+        "var1": "PMJDY Balance",
+        "var2": "PMJDY Accounts",
+        "correlation": 0.962,
+        "order1": 3,
+        "order2": 2
+      },
+      {
+        "var1": "PMJDY Balance",
+        "var2": "PMJDY Balance",
+        "correlation": 1,
+        "order1": 3,
+        "order2": 3
+      },
+      {
+        "var1": "PMJDY Balance",
+        "var2": "Urban Accounts",
+        "correlation": 0.919,
+        "order1": 3,
+        "order2": 4
+      },
+      {
+        "var1": "PMJDY Balance",
+        "var2": "Rural Accounts",
+        "correlation": 0.929,
+        "order1": 3,
+        "order2": 5
+      },
+      {
+        "var1": "Urban Accounts",
+        "var2": "UPI Volume",
+        "correlation": 0.823,
+        "order1": 4,
+        "order2": 0
+      },
+      {
+        "var1": "Urban Accounts",
+        "var2": "UPI Value",
+        "correlation": 0.844,
+        "order1": 4,
+        "order2": 1
+      },
+      {
+        "var1": "Urban Accounts",
+        "var2": "PMJDY Accounts",
+        "correlation": 0.859,
+        "order1": 4,
+        "order2": 2
+      },
+      {
+        "var1": "Urban Accounts",
+        "var2": "PMJDY Balance",
+        "correlation": 0.919,
+        "order1": 4,
+        "order2": 3
+      },
+      {
+        "var1": "Urban Accounts",
+        "var2": "Urban Accounts",
+        "correlation": 1,
+        "order1": 4,
+        "order2": 4
+      },
+      {
+        "var1": "Urban Accounts",
+        "var2": "Rural Accounts",
+        "correlation": 0.782,
+        "order1": 4,
+        "order2": 5
+      },
+      {
+        "var1": "Rural Accounts",
+        "var2": "UPI Volume",
+        "correlation": 0.462,
+        "order1": 5,
+        "order2": 0
+      },
+      {
+        "var1": "Rural Accounts",
+        "var2": "UPI Value",
+        "correlation": 0.484,
+        "order1": 5,
+        "order2": 1
+      },
+      {
+        "var1": "Rural Accounts",
+        "var2": "PMJDY Accounts",
+        "correlation": 0.991,
+        "order1": 5,
+        "order2": 2
+      },
+      {
+        "var1": "Rural Accounts",
+        "var2": "PMJDY Balance",
+        "correlation": 0.929,
+        "order1": 5,
+        "order2": 3
+      },
+      {
+        "var1": "Rural Accounts",
+        "var2": "Urban Accounts",
+        "correlation": 0.782,
+        "order1": 5,
+        "order2": 4
+      },
+      {
+        "var1": "Rural Accounts",
+        "var2": "Rural Accounts",
+        "correlation": 1,
+        "order1": 5,
+        "order2": 5
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect"},
+      "encoding": {
+        "x": {
+          "field": "var1",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "order1"}
+        },
+        "y": {
+          "field": "var2",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "order2"}
+        },
+        "color": {
+          "field": "correlation",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "redyellowblue",
+            "domain": [-1, 1],
+            "reverse": true
+          }
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 11},
+      "encoding": {
+        "x": {"field": "var1", "type": "nominal", "sort": {"field": "order1"}},
+        "y": {"field": "var2", "type": "nominal", "sort": {"field": "order2"}},
+        "text": {
+          "field": "correlation",
+          "type": "quantitative",
+          "format": ".2f"
+        },
+        "color": {
+          "condition": {
+            "test": "abs(datum.correlation) > 0.7",
+            "value": "white"
+          },
+          "value": "black"
+        }
+      }
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "axis": {"labelAngle": -45}}
+}

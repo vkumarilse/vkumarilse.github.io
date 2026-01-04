@@ -1,0 +1,2779 @@
+{
+  "config": {
+    "view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null},
+    "title": {"font": "Georgia"}
+  },
+  "hconcat": [
+    {
+      "mark": {"type": "circle", "opacity": 0.75},
+      "encoding": {
+        "color": {
+          "field": "CD_Ratio",
+          "legend": null,
+          "scale": {"scheme": "turbo"},
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "CD_Ratio",
+          "legend": null,
+          "scale": {"range": [80, 900]},
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {"field": "Region", "title": "State", "type": "nominal"},
+          {"field": "Deposit", "format": ",.0f", "type": "quantitative"},
+          {"field": "Credit", "format": ",.0f", "type": "quantitative"},
+          {"field": "CD_Ratio", "format": ".2f", "type": "quantitative"}
+        ],
+        "x": {
+          "field": "Deposit",
+          "scale": {"zero": false},
+          "title": "Deposits (₹ Crores)",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "Credit",
+          "scale": {"zero": false},
+          "title": "Credit (₹ Crores)",
+          "type": "quantitative"
+        }
+      },
+      "height": 450,
+      "title": "Credit vs Deposit by State",
+      "transform": [
+        {
+          "filter": "(((datum.Year_col === Year) && (datum.Region !== 'ALL INDIA')) && (!test('REGION',datum.Region)))"
+        }
+      ],
+      "width": 450
+    }
+  ],
+  "data": {"name": "data-a6ae0535defba71656bb43a7c69b4eed"},
+  "params": [
+    {
+      "name": "Year",
+      "bind": {
+        "input": "range",
+        "max": 2024,
+        "min": 2016,
+        "name": "Select Year: ",
+        "step": 1
+      },
+      "value": 2016
+    }
+  ],
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "datasets": {
+    "data-a6ae0535defba71656bb43a7c69b4eed": [
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 9599531.08,
+        "Year_col": 2016,
+        "Credit": 7522644.733,
+        "CD_Ratio": 0.783647104
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 3232.1512,
+        "Year_col": 2016,
+        "Credit": 1429.0935,
+        "CD_Ratio": 0.442149334
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 210237.4793,
+        "Year_col": 2016,
+        "Credit": 222921.289,
+        "CD_Ratio": 1.060330868
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 8732.1238,
+        "Year_col": 2016,
+        "Credit": 2533.1298,
+        "CD_Ratio": 0.290093207
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 102303.8824,
+        "Year_col": 2016,
+        "Credit": 43201.8765,
+        "CD_Ratio": 0.422289707
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 243073.2024,
+        "Year_col": 2016,
+        "Credit": 81270.3833,
+        "CD_Ratio": 0.334345302
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 1225993.942,
+        "Year_col": 2016,
+        "Credit": 603960.2355,
+        "CD_Ratio": 0.492629054
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 55680.532,
+        "Year_col": 2016,
+        "Credit": 54458.0198,
+        "CD_Ratio": 0.978044172
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 104611.7235,
+        "Year_col": 2016,
+        "Credit": 66404.5111,
+        "CD_Ratio": 0.634771218
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 6808.3879,
+        "Year_col": 2016,
+        "Credit": 1955.5564,
+        "CD_Ratio": 0.2872275241544331
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 967058.69,
+        "Year_col": 2016,
+        "Credit": 970511.3848,
+        "CD_Ratio": 1.003570305
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 1231480.367,
+        "Year_col": 2016,
+        "Credit": 552944.7607,
+        "CD_Ratio": 0.449008182
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 55948.1882,
+        "Year_col": 2016,
+        "Credit": 15142.4262,
+        "CD_Ratio": 0.270650877
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 518453.2643,
+        "Year_col": 2016,
+        "Credit": 390758.109,
+        "CD_Ratio": 0.753699776
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 252602.4404,
+        "Year_col": 2016,
+        "Credit": 176541.8771,
+        "CD_Ratio": 0.698892207
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 66349.9389,
+        "Year_col": 2016,
+        "Credit": 21800.0859,
+        "CD_Ratio": 0.32856226
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 80314.309,
+        "Year_col": 2016,
+        "Credit": 35484.7429,
+        "CD_Ratio": 0.441823423
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 159622.4077,
+        "Year_col": 2016,
+        "Credit": 47180.1385,
+        "CD_Ratio": 0.295573405
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 696063.4764,
+        "Year_col": 2016,
+        "Credit": 488116.7912,
+        "CD_Ratio": 0.701253273
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 366136.6759,
+        "Year_col": 2016,
+        "Credit": 227364.3876,
+        "CD_Ratio": 0.620982279
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": null,
+        "Year_col": 2016,
+        "Credit": null,
+        "CD_Ratio": null
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 754.8396,
+        "Year_col": 2016,
+        "Credit": 79.0709,
+        "CD_Ratio": 0.104751923
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 282590.4752,
+        "Year_col": 2016,
+        "Credit": 172929.2921,
+        "CD_Ratio": 0.611943102
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 2181768.992,
+        "Year_col": 2016,
+        "Credit": 2244286.201,
+        "CD_Ratio": 1.028654367
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 6036.0538,
+        "Year_col": 2016,
+        "Credit": 2480.0205,
+        "CD_Ratio": 0.410867859
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 18168.2455,
+        "Year_col": 2016,
+        "Credit": 4498.7343,
+        "CD_Ratio": 0.247615231
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 5913.2292,
+        "Year_col": 2016,
+        "Credit": 2370.202,
+        "CD_Ratio": 0.400830396
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 166207.0861,
+        "Year_col": 2016,
+        "Credit": 63830.1851,
+        "CD_Ratio": 0.384040095
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 1971181.47,
+        "Year_col": 2016,
+        "Credit": 1648825.66,
+        "CD_Ratio": 0.836465686
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 7728.3955,
+        "Year_col": 2016,
+        "Credit": 2637.21,
+        "CD_Ratio": 0.341236418
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 209214.9993,
+        "Year_col": 2016,
+        "Credit": 85435.9547,
+        "CD_Ratio": 0.408364386
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 12676.2542,
+        "Year_col": 2016,
+        "Credit": 8501.5544,
+        "CD_Ratio": 0.670667712
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 290177.9983,
+        "Year_col": 2016,
+        "Credit": 202470.6233,
+        "CD_Ratio": 0.697746295
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 258997.5616,
+        "Year_col": 2016,
+        "Credit": 187558.926,
+        "CD_Ratio": 0.724172555
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 2241689.382,
+        "Year_col": 2016,
+        "Credit": 2000941.599,
+        "CD_Ratio": 0.892604308
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 6353.9559,
+        "Year_col": 2016,
+        "Credit": 1781.7006,
+        "CD_Ratio": 0.280408084
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 600034.7778,
+        "Year_col": 2016,
+        "Credit": 682047.1398,
+        "CD_Ratio": 1.136679348
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 355785.8791,
+        "Year_col": 2016,
+        "Credit": 371911.3659,
+        "CD_Ratio": 1.045323572
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 17325.1559,
+        "Year_col": 2016,
+        "Credit": 6109.012,
+        "CD_Ratio": 0.352609352
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 742274.1811,
+        "Year_col": 2016,
+        "Credit": 330923.1806,
+        "CD_Ratio": 0.445823375
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 96517.5624,
+        "Year_col": 2016,
+        "Credit": 33703.2517,
+        "CD_Ratio": 0.349192943
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 2762978.833,
+        "Year_col": 2016,
+        "Credit": 2652142.293,
+        "CD_Ratio": 0.959885129
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 609983.6503,
+        "Year_col": 2016,
+        "Credit": 335847.4901,
+        "CD_Ratio": 0.550584413
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 10730029.49,
+        "Year_col": 2017,
+        "Credit": 7917868.499,
+        "CD_Ratio": 0.737916751
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 4101.7344,
+        "Year_col": 2017,
+        "Credit": 1578.5449,
+        "CD_Ratio": 0.384848151
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 249228.6611,
+        "Year_col": 2017,
+        "Credit": 252039.7119,
+        "CD_Ratio": 1.011279003
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 11865.7176,
+        "Year_col": 2017,
+        "Credit": 2843.0178,
+        "CD_Ratio": 0.239599314
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 120975.735,
+        "Year_col": 2017,
+        "Credit": 48753.8169,
+        "CD_Ratio": 0.403004924
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 295172.989,
+        "Year_col": 2017,
+        "Credit": 91293.7723,
+        "CD_Ratio": 0.309289046
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 1431164.273,
+        "Year_col": 2017,
+        "Credit": 657938.2959,
+        "CD_Ratio": 0.459722415
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 59618.0159,
+        "Year_col": 2017,
+        "Credit": 60025.4635,
+        "CD_Ratio": 1.006834303
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 118872.463,
+        "Year_col": 2017,
+        "Credit": 74178.5359,
+        "CD_Ratio": 0.624017826
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 7882.4839,
+        "Year_col": 2017,
+        "Credit": 2316.3429,
+        "CD_Ratio": 0.2938595155265714
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1092454.834,
+        "Year_col": 2017,
+        "Credit": 965047.3394,
+        "CD_Ratio": 0.883375046
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 1417856.6919999998,
+        "Year_col": 2017,
+        "Credit": 581185.9726,
+        "CD_Ratio": 0.409904595
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 61693.2176,
+        "Year_col": 2017,
+        "Credit": 15856.0863,
+        "CD_Ratio": 0.257015064
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 603972.7436,
+        "Year_col": 2017,
+        "Credit": 415845.9074,
+        "CD_Ratio": 0.688517672
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 309629.0791,
+        "Year_col": 2017,
+        "Credit": 183071.0427,
+        "CD_Ratio": 0.591259204
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 78523.0475,
+        "Year_col": 2017,
+        "Credit": 23338.5558,
+        "CD_Ratio": 0.29721918
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 93345.8413,
+        "Year_col": 2017,
+        "Credit": 37194.1482,
+        "CD_Ratio": 0.398455332
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 184171.5703,
+        "Year_col": 2017,
+        "Credit": 49963.0317,
+        "CD_Ratio": 0.271285257
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 783250.4174,
+        "Year_col": 2017,
+        "Credit": 524756.4682,
+        "CD_Ratio": 0.669972791
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 411408.1076,
+        "Year_col": 2017,
+        "Credit": 245826.5758,
+        "CD_Ratio": 0.597524869
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": null,
+        "Year_col": 2017,
+        "Credit": null,
+        "CD_Ratio": null
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 960.762,
+        "Year_col": 2017,
+        "Credit": 80.4949,
+        "CD_Ratio": 0.083782352
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 313014.299,
+        "Year_col": 2017,
+        "Credit": 190639.1379,
+        "CD_Ratio": 0.609042905
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 2195510.919,
+        "Year_col": 2017,
+        "Credit": 2327350.593,
+        "CD_Ratio": 1.060049655
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 7773.5124,
+        "Year_col": 2017,
+        "Credit": 3005.3262,
+        "CD_Ratio": 0.386611103
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 20449.9429,
+        "Year_col": 2017,
+        "Credit": 5290.0293,
+        "CD_Ratio": 0.258681862
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 7165.7892,
+        "Year_col": 2017,
+        "Credit": 2606.8409,
+        "CD_Ratio": 0.363789783
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 198133.8911,
+        "Year_col": 2017,
+        "Credit": 72823.2939,
+        "CD_Ratio": 0.367545873
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 2278199.921,
+        "Year_col": 2017,
+        "Credit": 1709769.718,
+        "CD_Ratio": 0.750491518
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 9421.8378,
+        "Year_col": 2017,
+        "Credit": 2969.7652,
+        "CD_Ratio": 0.315200204
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 245280.6316,
+        "Year_col": 2017,
+        "Credit": 93366.3959,
+        "CD_Ratio": 0.380651319
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 14606.3741,
+        "Year_col": 2017,
+        "Credit": 9336.4838,
+        "CD_Ratio": 0.639206126
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 330956.1533,
+        "Year_col": 2017,
+        "Credit": 228314.3705,
+        "CD_Ratio": 0.689862896
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 313672.9505,
+        "Year_col": 2017,
+        "Credit": 212778.7981,
+        "CD_Ratio": 0.678346022
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 2535615.347,
+        "Year_col": 2017,
+        "Credit": 2134782.289,
+        "CD_Ratio": 0.841918823
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 6954.4402,
+        "Year_col": 2017,
+        "Credit": 1905.3184,
+        "CD_Ratio": 0.273971498
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 668507.2448,
+        "Year_col": 2017,
+        "Credit": 707383.2627,
+        "CD_Ratio": 1.058153473
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 407653.7795,
+        "Year_col": 2017,
+        "Credit": 395359.2916,
+        "CD_Ratio": 0.969840859
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 20481.3562,
+        "Year_col": 2017,
+        "Credit": 7354.4976,
+        "CD_Ratio": 0.359082549
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 885163.3069,
+        "Year_col": 2017,
+        "Credit": 354026.6619,
+        "CD_Ratio": 0.399956323
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 114114.2043,
+        "Year_col": 2017,
+        "Credit": 39093.9602,
+        "CD_Ratio": 0.342586275
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 2869059.364,
+        "Year_col": 2017,
+        "Credit": 2761368.93,
+        "CD_Ratio": 0.962464899
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 682175.3265,
+        "Year_col": 2017,
+        "Credit": 343078.9094,
+        "CD_Ratio": 0.502918965
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 11434450.94,
+        "Year_col": 2018,
+        "Credit": 8766972.582,
+        "CD_Ratio": 0.766715659
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 4683.3509,
+        "Year_col": 2018,
+        "Credit": 1842.9808,
+        "CD_Ratio": 0.393517556
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 274565.8859,
+        "Year_col": 2018,
+        "Credit": 309165.1525,
+        "CD_Ratio": 1.126014441
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 13448.9272,
+        "Year_col": 2018,
+        "Credit": 3361.8697,
+        "CD_Ratio": 0.249973076
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 134287.0908,
+        "Year_col": 2018,
+        "Credit": 57185.9855,
+        "CD_Ratio": 0.425848718
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 314811.2411,
+        "Year_col": 2018,
+        "Credit": 101253.0086,
+        "CD_Ratio": 0.321630855
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 1549975.313,
+        "Year_col": 2018,
+        "Credit": 743082.3126,
+        "CD_Ratio": 0.479415579
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 61928.3963,
+        "Year_col": 2018,
+        "Credit": 69673.1373,
+        "CD_Ratio": 1.125059609
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 132428.8082,
+        "Year_col": 2018,
+        "Credit": 83655.6985,
+        "CD_Ratio": 0.631703174
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 8473.0576,
+        "Year_col": 2018,
+        "Credit": 2946.3044,
+        "CD_Ratio": 0.3477262328536513
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1144641.523,
+        "Year_col": 2018,
+        "Credit": 1076997.6,
+        "CD_Ratio": 0.940903836
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 1511204.2561,
+        "Year_col": 2018,
+        "Credit": 627978.1474,
+        "CD_Ratio": 0.41554816
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 65275.4331,
+        "Year_col": 2018,
+        "Credit": 17426.6031,
+        "CD_Ratio": 0.266970318
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 640357.9003,
+        "Year_col": 2018,
+        "Credit": 483920.7747,
+        "CD_Ratio": 0.755703606
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 366392.9075,
+        "Year_col": 2018,
+        "Credit": 214887.7972,
+        "CD_Ratio": 0.586495516
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 84896.1811,
+        "Year_col": 2018,
+        "Credit": 26373.1996,
+        "CD_Ratio": 0.310652367
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 103991.1491,
+        "Year_col": 2018,
+        "Credit": 44585.4783,
+        "CD_Ratio": 0.42874301
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 195691.0753,
+        "Year_col": 2018,
+        "Credit": 54268.4121,
+        "CD_Ratio": 0.277316745
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 835662.1836,
+        "Year_col": 2018,
+        "Credit": 582491.0826,
+        "CD_Ratio": 0.697041333
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 441923.4521,
+        "Year_col": 2018,
+        "Credit": 282033.6608,
+        "CD_Ratio": 0.638195732
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": null,
+        "Year_col": 2018,
+        "Credit": null,
+        "CD_Ratio": null
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 997.3094,
+        "Year_col": 2018,
+        "Credit": 82.3505,
+        "CD_Ratio": 0.08257267
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 341432.6776,
+        "Year_col": 2018,
+        "Credit": 222152.5994,
+        "CD_Ratio": 0.650648324
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 2292825.446,
+        "Year_col": 2018,
+        "Credit": 2450159.933,
+        "CD_Ratio": 1.068620351
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 9018.7422,
+        "Year_col": 2018,
+        "Credit": 4021.002,
+        "CD_Ratio": 0.445849533
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 21502.6243,
+        "Year_col": 2018,
+        "Credit": 5843.604,
+        "CD_Ratio": 0.271762363
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 8467.9457,
+        "Year_col": 2018,
+        "Credit": 3029.2483,
+        "CD_Ratio": 0.357731191
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 218759.64920000004,
+        "Year_col": 2018,
+        "Credit": 85892.9864,
+        "CD_Ratio": 0.392636333
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 2443655.727,
+        "Year_col": 2018,
+        "Credit": 1909186.366,
+        "CD_Ratio": 0.781282873
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 10014.0852,
+        "Year_col": 2018,
+        "Credit": 3478.5149,
+        "CD_Ratio": 0.347362223
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 268905.4205,
+        "Year_col": 2018,
+        "Credit": 101018.9301,
+        "CD_Ratio": 0.375667139
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 16241.5102,
+        "Year_col": 2018,
+        "Credit": 10357.9514,
+        "CD_Ratio": 0.637745584
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 347797.4044,
+        "Year_col": 2018,
+        "Credit": 220941.4061,
+        "CD_Ratio": 0.635258927
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 334008.1655,
+        "Year_col": 2018,
+        "Credit": 255727.7477,
+        "CD_Ratio": 0.765633221
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 2703924.153,
+        "Year_col": 2018,
+        "Credit": 2446379.155,
+        "CD_Ratio": 0.904751397
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 8532.8445,
+        "Year_col": 2018,
+        "Credit": 2272.1698,
+        "CD_Ratio": 0.266285153
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 716716.4979,
+        "Year_col": 2018,
+        "Credit": 813599.7525,
+        "CD_Ratio": 1.135176538
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 417817.3143,
+        "Year_col": 2018,
+        "Credit": 448649.2044,
+        "CD_Ratio": 1.073792754
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 22020.2338,
+        "Year_col": 2018,
+        "Credit": 8972.762,
+        "CD_Ratio": 0.407478053
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 953577.9099,
+        "Year_col": 2018,
+        "Credit": 392665.6434,
+        "CD_Ratio": 0.411781396
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 122535.9172,
+        "Year_col": 2018,
+        "Credit": 44608.3713,
+        "CD_Ratio": 0.364043232
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 3006931.837,
+        "Year_col": 2018,
+        "Credit": 2954453.615,
+        "CD_Ratio": 0.982547585
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 718580.3238,
+        "Year_col": 2018,
+        "Credit": 367322.646,
+        "CD_Ratio": 0.511178269
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 12639009,
+        "Year_col": 2019,
+        "Credit": 9897595.122,
+        "CD_Ratio": 0.783098985
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 5186,
+        "Year_col": 2019,
+        "Credit": 2173.1822,
+        "CD_Ratio": 0.41904786
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 300452,
+        "Year_col": 2019,
+        "Credit": 365356.5502,
+        "CD_Ratio": 1.216023026
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 16659,
+        "Year_col": 2019,
+        "Credit": 3833.6355,
+        "CD_Ratio": 0.230123987
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 147091,
+        "Year_col": 2019,
+        "Credit": 65150.0734,
+        "CD_Ratio": 0.442923587
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 353169,
+        "Year_col": 2019,
+        "Credit": 122446.4031,
+        "CD_Ratio": 0.346707676
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 1690154,
+        "Year_col": 2019,
+        "Credit": 836775.2344,
+        "CD_Ratio": 0.49508816
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 68300,
+        "Year_col": 2019,
+        "Credit": 76110.9325,
+        "CD_Ratio": 1.114362116
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 142656,
+        "Year_col": 2019,
+        "Credit": 90253.0561,
+        "CD_Ratio": 0.632662181
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 9049,
+        "Year_col": 2019,
+        "Credit": 3585.4592999999995,
+        "CD_Ratio": 0.3962271300696209
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1210108,
+        "Year_col": 2019,
+        "Credit": 1300025.519,
+        "CD_Ratio": 1.074305367
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 1675417,
+        "Year_col": 2019,
+        "Credit": 693178.8741,
+        "CD_Ratio": 0.413735132
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 71135,
+        "Year_col": 2019,
+        "Credit": 18802.8204,
+        "CD_Ratio": 0.264325865
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 674922,
+        "Year_col": 2019,
+        "Credit": 532149.6538,
+        "CD_Ratio": 0.788460969
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 409974,
+        "Year_col": 2019,
+        "Credit": 250429.4392,
+        "CD_Ratio": 0.610842247
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 95529,
+        "Year_col": 2019,
+        "Credit": 29432.955,
+        "CD_Ratio": 0.308104921
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 118122,
+        "Year_col": 2019,
+        "Credit": 53696.5598,
+        "CD_Ratio": 0.454585596
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 218585,
+        "Year_col": 2019,
+        "Credit": 60470.4558,
+        "CD_Ratio": 0.276645039
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 934364,
+        "Year_col": 2019,
+        "Credit": 651148.6778,
+        "CD_Ratio": 0.696889732
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 495762,
+        "Year_col": 2019,
+        "Credit": 326845.8959,
+        "CD_Ratio": 0.659279848
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": null,
+        "Year_col": 2019,
+        "Credit": null,
+        "CD_Ratio": null
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 1096,
+        "Year_col": 2019,
+        "Credit": 88.9274,
+        "CD_Ratio": 0.081138139
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 368951,
+        "Year_col": 2019,
+        "Credit": 250692.1237,
+        "CD_Ratio": 0.679472677
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 2607845,
+        "Year_col": 2019,
+        "Credit": 2744200.36,
+        "CD_Ratio": 1.052286604
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 9927,
+        "Year_col": 2019,
+        "Credit": 4899.8527,
+        "CD_Ratio": 0.493588466
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 24063,
+        "Year_col": 2019,
+        "Credit": 6479.951,
+        "CD_Ratio": 0.269291069
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 9255,
+        "Year_col": 2019,
+        "Credit": 3404.8274,
+        "CD_Ratio": 0.367890589
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 243058,
+        "Year_col": 2019,
+        "Credit": 98097.5464,
+        "CD_Ratio": 0.403597275
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 2660619,
+        "Year_col": 2019,
+        "Credit": 2247018.995,
+        "CD_Ratio": 0.844547451
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 11183,
+        "Year_col": 2019,
+        "Credit": 3958.9161,
+        "CD_Ratio": 0.354011991
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 309554,
+        "Year_col": 2019,
+        "Credit": 119893.1128,
+        "CD_Ratio": 0.387309202
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 17818,
+        "Year_col": 2019,
+        "Credit": 11890.1897,
+        "CD_Ratio": 0.667313374
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 379577,
+        "Year_col": 2019,
+        "Credit": 228852.7093,
+        "CD_Ratio": 0.602915112
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 379008,
+        "Year_col": 2019,
+        "Credit": 308470.8799,
+        "CD_Ratio": 0.813890155
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 3006810,
+        "Year_col": 2019,
+        "Credit": 2723786.179,
+        "CD_Ratio": 0.905872396
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 9632,
+        "Year_col": 2019,
+        "Credit": 2731.2178,
+        "CD_Ratio": 0.283556665
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 798738,
+        "Year_col": 2019,
+        "Credit": 880961.3587,
+        "CD_Ratio": 1.102941589
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 458581,
+        "Year_col": 2019,
+        "Credit": 487494.5797,
+        "CD_Ratio": 1.063050104
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 24880,
+        "Year_col": 2019,
+        "Credit": 10370.2903,
+        "CD_Ratio": 0.416812311
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 1041507,
+        "Year_col": 2019,
+        "Credit": 444368.1071,
+        "CD_Ratio": 0.426658781
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 137040,
+        "Year_col": 2019,
+        "Credit": 51461.9475,
+        "CD_Ratio": 0.375525011
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 3362951,
+        "Year_col": 2019,
+        "Credit": 3298738.293,
+        "CD_Ratio": 0.980905845
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 779291,
+        "Year_col": 2019,
+        "Credit": 385464.5024,
+        "CD_Ratio": 0.49463487
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 13748655,
+        "Year_col": 2020,
+        "Credit": 10518811.62,
+        "CD_Ratio": 0.76507932
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 5811,
+        "Year_col": 2020,
+        "Credit": 2381.34,
+        "CD_Ratio": 0.409798658
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 324873,
+        "Year_col": 2020,
+        "Credit": 407142.1467,
+        "CD_Ratio": 1.253234792
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 17171,
+        "Year_col": 2020,
+        "Credit": 4277.2346,
+        "CD_Ratio": 0.249096418
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 164299,
+        "Year_col": 2020,
+        "Credit": 70625.1139,
+        "CD_Ratio": 0.429857235
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 375707,
+        "Year_col": 2020,
+        "Credit": 135678.8473,
+        "CD_Ratio": 0.36112941
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 1851772,
+        "Year_col": 2020,
+        "Credit": 904362.321,
+        "CD_Ratio": 0.488376712
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 72552,
+        "Year_col": 2020,
+        "Credit": 78689.9836,
+        "CD_Ratio": 1.084601163
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 160542,
+        "Year_col": 2020,
+        "Credit": 100163.6531,
+        "CD_Ratio": 0.623909339
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 9979,
+        "Year_col": 2020,
+        "Credit": 4458,
+        "CD_Ratio": 0.446738150115242
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1238245,
+        "Year_col": 2020,
+        "Credit": 1365109.854,
+        "CD_Ratio": 1.102455373
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 1794725,
+        "Year_col": 2020,
+        "Credit": 750927.821,
+        "CD_Ratio": 0.418408292
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 76533,
+        "Year_col": 2020,
+        "Credit": 19241.7067,
+        "CD_Ratio": 0.251417123
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 738912,
+        "Year_col": 2020,
+        "Credit": 552428.2138,
+        "CD_Ratio": 0.747623822
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 475352,
+        "Year_col": 2020,
+        "Credit": 260618.5872,
+        "CD_Ratio": 0.548264417
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 103545,
+        "Year_col": 2020,
+        "Credit": 31305.9284,
+        "CD_Ratio": 0.302341285
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 128026,
+        "Year_col": 2020,
+        "Credit": 58663.03,
+        "CD_Ratio": 0.458211848
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 234106,
+        "Year_col": 2020,
+        "Credit": 66703.3735,
+        "CD_Ratio": 0.284928082
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 1061242,
+        "Year_col": 2020,
+        "Credit": 692031.9869,
+        "CD_Ratio": 0.652096305
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 545024,
+        "Year_col": 2020,
+        "Credit": 354383.8292,
+        "CD_Ratio": 0.650216925
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": 4955,
+        "Year_col": 2020,
+        "Credit": 1790.827,
+        "CD_Ratio": 0.361418163
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 1115,
+        "Year_col": 2020,
+        "Credit": 96.5768,
+        "CD_Ratio": 0.086615964
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 396779,
+        "Year_col": 2020,
+        "Credit": 274404.6373,
+        "CD_Ratio": 0.691580546
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 2807751,
+        "Year_col": 2020,
+        "Credit": 2863779.209,
+        "CD_Ratio": 1.019954835
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 10369,
+        "Year_col": 2020,
+        "Credit": 5930.7897,
+        "CD_Ratio": 0.57197316
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 23756,
+        "Year_col": 2020,
+        "Credit": 8374.382,
+        "CD_Ratio": 0.352516501
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 11332,
+        "Year_col": 2020,
+        "Credit": 4087.0241,
+        "CD_Ratio": 0.360662204
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 265655,
+        "Year_col": 2020,
+        "Credit": 109136.14,
+        "CD_Ratio": 0.41081907
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 2853810,
+        "Year_col": 2020,
+        "Credit": 2365364.328,
+        "CD_Ratio": 0.828844362
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 12242,
+        "Year_col": 2020,
+        "Credit": 4595.6733,
+        "CD_Ratio": 0.375402165
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 341140,
+        "Year_col": 2020,
+        "Credit": 134861.7759,
+        "CD_Ratio": 0.395326775
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 20043,
+        "Year_col": 2020,
+        "Credit": 12822.6431,
+        "CD_Ratio": 0.639756678
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 410987,
+        "Year_col": 2020,
+        "Credit": 234737.578,
+        "CD_Ratio": 0.571155725
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 420150,
+        "Year_col": 2020,
+        "Credit": 334448.5403,
+        "CD_Ratio": 0.796021755
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 3349517,
+        "Year_col": 2020,
+        "Credit": 2949114.01,
+        "CD_Ratio": 0.880459484
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 10130,
+        "Year_col": 2020,
+        "Credit": 3158.7149,
+        "CD_Ratio": 0.311817858
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 899038,
+        "Year_col": 2020,
+        "Credit": 966505.8906,
+        "CD_Ratio": 1.075044537
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 498184,
+        "Year_col": 2020,
+        "Credit": 516130.9364,
+        "CD_Ratio": 1.036024715
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 26487,
+        "Year_col": 2020,
+        "Credit": 11245.9224,
+        "CD_Ratio": 0.424582716
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 1144902,
+        "Year_col": 2020,
+        "Credit": 475156.5625,
+        "CD_Ratio": 0.415019419
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 149549,
+        "Year_col": 2020,
+        "Credit": 54637.4681,
+        "CD_Ratio": 0.365348268
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 3633175,
+        "Year_col": 2020,
+        "Credit": 3439907.005,
+        "CD_Ratio": 0.946804656
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 827832,
+        "Year_col": 2020,
+        "Credit": 408143.7694,
+        "CD_Ratio": 0.493027292
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 15443510,
+        "Year_col": 2021,
+        "Credit": 11078049.79,
+        "CD_Ratio": 0.7173272
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 6043,
+        "Year_col": 2021,
+        "Credit": 2795.2096,
+        "CD_Ratio": 0.462553301
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 359770,
+        "Year_col": 2021,
+        "Credit": 473132.513,
+        "CD_Ratio": 1.315097182
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 19525,
+        "Year_col": 2021,
+        "Credit": 4920.1164,
+        "CD_Ratio": 0.251990597
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 173014,
+        "Year_col": 2021,
+        "Credit": 80870.842,
+        "CD_Ratio": 0.467423688
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 397492,
+        "Year_col": 2021,
+        "Credit": 159317.7522,
+        "CD_Ratio": 0.400807443
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 2069799,
+        "Year_col": 2021,
+        "Credit": 1004655.726,
+        "CD_Ratio": 0.485388062
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 81320,
+        "Year_col": 2021,
+        "Credit": 78152.8793,
+        "CD_Ratio": 0.961053607
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 173217,
+        "Year_col": 2021,
+        "Credit": 108588.1767,
+        "CD_Ratio": 0.62689099
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 11586,
+        "Year_col": 2021,
+        "Credit": 4089,
+        "CD_Ratio": 0.3529259451061626
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1400864,
+        "Year_col": 2021,
+        "Credit": 1315663.422,
+        "CD_Ratio": 0.939179979
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 1922787,
+        "Year_col": 2021,
+        "Credit": 799786.4596,
+        "CD_Ratio": 0.415951668
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 85771,
+        "Year_col": 2021,
+        "Credit": 21037.7284,
+        "CD_Ratio": 0.245277872
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 830161,
+        "Year_col": 2021,
+        "Credit": 580273.0527,
+        "CD_Ratio": 0.698988573
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 538565,
+        "Year_col": 2021,
+        "Credit": 287498.7941,
+        "CD_Ratio": 0.533823761
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 112344,
+        "Year_col": 2021,
+        "Credit": 34770.0759,
+        "CD_Ratio": 0.30949651
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 142897,
+        "Year_col": 2021,
+        "Credit": 69301.5679,
+        "CD_Ratio": 0.484975667
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 256070,
+        "Year_col": 2021,
+        "Credit": 76370.9036,
+        "CD_Ratio": 0.298242292
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 1256023,
+        "Year_col": 2021,
+        "Credit": 750843.3526,
+        "CD_Ratio": 0.59779427
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 607649,
+        "Year_col": 2021,
+        "Credit": 378761.9015,
+        "CD_Ratio": 0.6233235
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": 6161,
+        "Year_col": 2021,
+        "Credit": 2152.9126,
+        "CD_Ratio": 0.349442071
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 1239,
+        "Year_col": 2021,
+        "Credit": 97.2256,
+        "CD_Ratio": 0.078471025
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 453372,
+        "Year_col": 2021,
+        "Credit": 307614.1719,
+        "CD_Ratio": 0.678502801
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 3163108,
+        "Year_col": 2021,
+        "Credit": 2926015.477,
+        "CD_Ratio": 0.925044443
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 12323,
+        "Year_col": 2021,
+        "Credit": 7115.395,
+        "CD_Ratio": 0.577407693
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 25821,
+        "Year_col": 2021,
+        "Credit": 9718.8826,
+        "CD_Ratio": 0.376394508
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 12000,
+        "Year_col": 2021,
+        "Credit": 5038.0691,
+        "CD_Ratio": 0.419839092
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 283662,
+        "Year_col": 2021,
+        "Credit": 125047.5042,
+        "CD_Ratio": 0.440832766
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 3215617,
+        "Year_col": 2021,
+        "Credit": 2409598.535,
+        "CD_Ratio": 0.749342516
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 12579,
+        "Year_col": 2021,
+        "Credit": 5432.0144,
+        "CD_Ratio": 0.431831974
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 363567,
+        "Year_col": 2021,
+        "Credit": 143676.3768,
+        "CD_Ratio": 0.395185418
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 22138,
+        "Year_col": 2021,
+        "Credit": 14337.4936,
+        "CD_Ratio": 0.647641774
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 459027,
+        "Year_col": 2021,
+        "Credit": 252684.5586,
+        "CD_Ratio": 0.55047864
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 474438,
+        "Year_col": 2021,
+        "Credit": 369374.3245,
+        "CD_Ratio": 0.778551306
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 3861018,
+        "Year_col": 2021,
+        "Credit": 3207545.896,
+        "CD_Ratio": 0.830751345
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 10604,
+        "Year_col": 2021,
+        "Credit": 3799.5892,
+        "CD_Ratio": 0.358316598
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 1008731,
+        "Year_col": 2021,
+        "Credit": 1025780.957,
+        "CD_Ratio": 1.016902382
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 605468,
+        "Year_col": 2021,
+        "Credit": 564592.4532,
+        "CD_Ratio": 0.932489336
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 28400,
+        "Year_col": 2021,
+        "Credit": 11952.1847,
+        "CD_Ratio": 0.420851574
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 1277878,
+        "Year_col": 2021,
+        "Credit": 530105.5711,
+        "CD_Ratio": 0.414832692
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 165333,
+        "Year_col": 2021,
+        "Credit": 58347.806,
+        "CD_Ratio": 0.352910828
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 4090626,
+        "Year_col": 2021,
+        "Credit": 3531415.67,
+        "CD_Ratio": 0.863294682
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 889011,
+        "Year_col": 2021,
+        "Credit": 413826.6282,
+        "CD_Ratio": 0.46549101
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 17008795.08,
+        "Year_col": 2022,
+        "Credit": 12258748,
+        "CD_Ratio": 0.720729948
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 6772.6593,
+        "Year_col": 2022,
+        "Credit": 3461.9983,
+        "CD_Ratio": 0.511172664
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 385881.0001,
+        "Year_col": 2022,
+        "Credit": 550560.4517,
+        "CD_Ratio": 1.42676227
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 24121.2383,
+        "Year_col": 2022,
+        "Credit": 6053.2528,
+        "CD_Ratio": 0.250951163
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 189482.7869,
+        "Year_col": 2022,
+        "Credit": 95992.3302,
+        "CD_Ratio": 0.506601849
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 442416.927,
+        "Year_col": 2022,
+        "Credit": 195592.2905,
+        "CD_Ratio": 0.442099474
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 2282524.101,
+        "Year_col": 2022,
+        "Credit": 1211459.929,
+        "CD_Ratio": 0.530754496
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 89738.4708,
+        "Year_col": 2022,
+        "Credit": 82007.4504,
+        "CD_Ratio": 0.91384943
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 197250.3787,
+        "Year_col": 2022,
+        "Credit": 138103.2514,
+        "CD_Ratio": 0.700141882
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 13210.0566,
+        "Year_col": 2022,
+        "Credit": 6765.5241,
+        "CD_Ratio": 0.5121495164524882
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1489929.93,
+        "Year_col": 2022,
+        "Credit": 1425078.9,
+        "CD_Ratio": 0.956473771
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 2144187.211,
+        "Year_col": 2022,
+        "Credit": 959292.7936,
+        "CD_Ratio": 0.447392275
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 92899.5292,
+        "Year_col": 2022,
+        "Credit": 24091.651,
+        "CD_Ratio": 0.259330173
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 928467.6584,
+        "Year_col": 2022,
+        "Credit": 758867.8973,
+        "CD_Ratio": 0.81733369
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 614013.9498,
+        "Year_col": 2022,
+        "Credit": 372954.8839,
+        "CD_Ratio": 0.607404578
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 123671.7909,
+        "Year_col": 2022,
+        "Credit": 40941.7548,
+        "CD_Ratio": 0.331051685
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 153228.8565,
+        "Year_col": 2022,
+        "Credit": 79961.2903,
+        "CD_Ratio": 0.521842244
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 282989.1434,
+        "Year_col": 2022,
+        "Credit": 92188.0607,
+        "CD_Ratio": 0.325765362
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 1382551.744,
+        "Year_col": 2022,
+        "Credit": 888922.0632,
+        "CD_Ratio": 0.642957536
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 670289.4697,
+        "Year_col": 2022,
+        "Credit": 424246.8842,
+        "CD_Ratio": 0.632930851
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": 7454.8305,
+        "Year_col": 2022,
+        "Credit": 2754.1715,
+        "CD_Ratio": 0.369447904
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 1230.4191,
+        "Year_col": 2022,
+        "Credit": 117.9041,
+        "CD_Ratio": 0.095824341
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 510313.0058,
+        "Year_col": 2022,
+        "Credit": 359321.5618,
+        "CD_Ratio": 0.704119938
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 3491987.694,
+        "Year_col": 2022,
+        "Credit": 2717399.273,
+        "CD_Ratio": 0.778181228
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 13813.2222,
+        "Year_col": 2022,
+        "Credit": 9163.2631,
+        "CD_Ratio": 0.663368978
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 29440.6962,
+        "Year_col": 2022,
+        "Credit": 9511.6857,
+        "CD_Ratio": 0.32307951
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 13101.6704,
+        "Year_col": 2022,
+        "Credit": 5982.1554,
+        "CD_Ratio": 0.456594863
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 315843.16,
+        "Year_col": 2022,
+        "Credit": 146645.8921,
+        "CD_Ratio": 0.464299724
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 3518809.696,
+        "Year_col": 2022,
+        "Credit": 2734759.206,
+        "CD_Ratio": 0.777183037
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 14579.2979,
+        "Year_col": 2022,
+        "Credit": 6380.9351,
+        "CD_Ratio": 0.437670946
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 421412.6277,
+        "Year_col": 2022,
+        "Credit": 183405.2208,
+        "CD_Ratio": 0.435215294
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 24552.4056,
+        "Year_col": 2022,
+        "Credit": 16155.9249,
+        "CD_Ratio": 0.658018003
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 510137.9739,
+        "Year_col": 2022,
+        "Credit": 288330.7519,
+        "CD_Ratio": 0.565201508
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 530633.8932,
+        "Year_col": 2022,
+        "Credit": 442730.0036,
+        "CD_Ratio": 0.834341736
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 4220865.969,
+        "Year_col": 2022,
+        "Credit": 3699465.83,
+        "CD_Ratio": 0.876470813
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 12410.573,
+        "Year_col": 2022,
+        "Credit": 5181.7264,
+        "CD_Ratio": 0.417525154
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 1117411.805,
+        "Year_col": 2022,
+        "Credit": 1158605.879,
+        "CD_Ratio": 1.036865616
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 638949.1259,
+        "Year_col": 2022,
+        "Credit": 660856.722,
+        "CD_Ratio": 1.034286918
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 31304.2481,
+        "Year_col": 2022,
+        "Credit": 13562.2698,
+        "CD_Ratio": 0.433240554
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 1394176.531,
+        "Year_col": 2022,
+        "Credit": 646284.2283,
+        "CD_Ratio": 0.463559825
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 180784.1851,
+        "Year_col": 2022,
+        "Credit": 67750.8878,
+        "CD_Ratio": 0.374761143
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 4526564.938,
+        "Year_col": 2022,
+        "Credit": 3507124.345,
+        "CD_Ratio": 0.774787149
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 978185.2807,
+        "Year_col": 2022,
+        "Credit": 479463.4969,
+        "CD_Ratio": 0.490156115
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 18742310.88,
+        "Year_col": 2023,
+        "Credit": 14198005.61,
+        "CD_Ratio": 0.757537622
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 7121.6694,
+        "Year_col": 2023,
+        "Credit": 3674.7137,
+        "CD_Ratio": 0.515990492
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 429718.6632,
+        "Year_col": 2023,
+        "Credit": 621698.5535,
+        "CD_Ratio": 1.446757162
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 26656.4016,
+        "Year_col": 2023,
+        "Credit": 7279.4896,
+        "CD_Ratio": 0.273085982
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 207312.2152,
+        "Year_col": 2023,
+        "Credit": 107839.2955,
+        "CD_Ratio": 0.520178203
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 478429.1163,
+        "Year_col": 2023,
+        "Credit": 220827.1673,
+        "CD_Ratio": 0.461567158
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 2512826.283,
+        "Year_col": 2023,
+        "Credit": 1335352.417,
+        "CD_Ratio": 0.531414538
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 99918.1913,
+        "Year_col": 2023,
+        "Credit": 75587.2819,
+        "CD_Ratio": 0.756491695
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 216407.0054,
+        "Year_col": 2023,
+        "Credit": 156809.708,
+        "CD_Ratio": 0.724605508
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 14188.1721,
+        "Year_col": 2023,
+        "Credit": 5407.1938,
+        "CD_Ratio": 0.3811057380675556
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1658865.954,
+        "Year_col": 2023,
+        "Credit": 1496251.473,
+        "CD_Ratio": 0.901972501
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 2322833.52,
+        "Year_col": 2023,
+        "Credit": 1042140.283,
+        "CD_Ratio": 0.448650441
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 102037.7539,
+        "Year_col": 2023,
+        "Credit": 25565.91,
+        "CD_Ratio": 0.250553438
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 1027452.765,
+        "Year_col": 2023,
+        "Credit": 734431.1753,
+        "CD_Ratio": 0.714807727
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 702370.0609,
+        "Year_col": 2023,
+        "Credit": 411060.1366,
+        "CD_Ratio": 0.585247236
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 136485.6652,
+        "Year_col": 2023,
+        "Credit": 45324.9554,
+        "CD_Ratio": 0.33208583
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 162908.2564,
+        "Year_col": 2023,
+        "Credit": 90524.5105,
+        "CD_Ratio": 0.555677855
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 304044.0182,
+        "Year_col": 2023,
+        "Credit": 104090.3466,
+        "CD_Ratio": 0.342352884
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 1485252.916,
+        "Year_col": 2023,
+        "Credit": 958443.8634,
+        "CD_Ratio": 0.645306838
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 724012.8399,
+        "Year_col": 2023,
+        "Credit": 476456.7649,
+        "CD_Ratio": 0.658077783
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": 8248.7287,
+        "Year_col": 2023,
+        "Credit": 3330.9477,
+        "CD_Ratio": 0.403813463
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 1412.509,
+        "Year_col": 2023,
+        "Credit": 144.8379,
+        "CD_Ratio": 0.102539453
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 547367.403,
+        "Year_col": 2023,
+        "Credit": 393179.0105,
+        "CD_Ratio": 0.718309144
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 3922907.833,
+        "Year_col": 2023,
+        "Credit": 3905706.917,
+        "CD_Ratio": 0.995615264
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 14850.5826,
+        "Year_col": 2023,
+        "Credit": 10767.6216,
+        "CD_Ratio": 0.725063918
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 31274.5838,
+        "Year_col": 2023,
+        "Credit": 11735.7819,
+        "CD_Ratio": 0.375249819
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 14681.8489,
+        "Year_col": 2023,
+        "Credit": 6910.236,
+        "CD_Ratio": 0.470665244
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 344420.3898,
+        "Year_col": 2023,
+        "Credit": 166287.6168,
+        "CD_Ratio": 0.482804218
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 3923497.971,
+        "Year_col": 2023,
+        "Credit": 2907946.572,
+        "CD_Ratio": 0.741161737
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 15579.4457,
+        "Year_col": 2023,
+        "Credit": 7627.5409,
+        "CD_Ratio": 0.489590005
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 463318.1299,
+        "Year_col": 2023,
+        "Credit": 203732.2686,
+        "CD_Ratio": 0.439724361
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 26468.5339,
+        "Year_col": 2023,
+        "Credit": 17607.8071,
+        "CD_Ratio": 0.665235452
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 560275.3074,
+        "Year_col": 2023,
+        "Credit": 300769.7004,
+        "CD_Ratio": 0.536824837
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 594425.8077,
+        "Year_col": 2023,
+        "Credit": 485097.5664,
+        "CD_Ratio": 0.816077566
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 4572146.192,
+        "Year_col": 2023,
+        "Credit": 4075167.523,
+        "CD_Ratio": 0.891302979
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 13553.9585,
+        "Year_col": 2023,
+        "Credit": 5803.6072,
+        "CD_Ratio": 0.428185404
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 1211393.864,
+        "Year_col": 2023,
+        "Credit": 1281172.941,
+        "CD_Ratio": 1.057602303
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 693886.8658,
+        "Year_col": 2023,
+        "Credit": 719642.7561,
+        "CD_Ratio": 1.037118285
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 34065.312,
+        "Year_col": 2023,
+        "Credit": 14127.6513,
+        "CD_Ratio": 0.414722498
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 1548627.202,
+        "Year_col": 2023,
+        "Credit": 712313.998,
+        "CD_Ratio": 0.459964798
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 200424.6734,
+        "Year_col": 2023,
+        "Credit": 73049.7009,
+        "CD_Ratio": 0.364474591
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 5066586.524,
+        "Year_col": 2023,
+        "Credit": 4671111.196,
+        "CD_Ratio": 0.921944424
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 1056366.627,
+        "Year_col": 2023,
+        "Credit": 504012.1792,
+        "CD_Ratio": 0.477118612
+      },
+      {
+        "Region": "ALL INDIA",
+        "Deposit": 21253358.07,
+        "Year_col": 2024,
+        "Credit": 16913694.25,
+        "CD_Ratio": 0.795812793
+      },
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Deposit": 7745.6798,
+        "Year_col": 2024,
+        "Credit": 4109.8492,
+        "CD_Ratio": 0.530598902
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Deposit": 480579.6867,
+        "Year_col": 2024,
+        "Credit": 737695.5337,
+        "CD_Ratio": 1.535011891
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Deposit": 29204.6564,
+        "Year_col": 2024,
+        "Credit": 8735.3169,
+        "CD_Ratio": 0.299106991
+      },
+      {
+        "Region": "Assam",
+        "Deposit": 220474.2979,
+        "Year_col": 2024,
+        "Credit": 127802.9205,
+        "CD_Ratio": 0.57967265
+      },
+      {
+        "Region": "Bihar",
+        "Deposit": 524251.0505,
+        "Year_col": 2024,
+        "Credit": 264745.613,
+        "CD_Ratio": 0.504997773
+      },
+      {
+        "Region": "CENTRAL REGION",
+        "Deposit": 2830410.925,
+        "Year_col": 2024,
+        "Credit": 1615571.618,
+        "CD_Ratio": 0.570790483
+      },
+      {
+        "Region": "Chandigarh",
+        "Deposit": 114088.583,
+        "Year_col": 2024,
+        "Credit": 83007.7182,
+        "CD_Ratio": 0.727572523
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Deposit": 243955.1691,
+        "Year_col": 2024,
+        "Credit": 185446.6502,
+        "CD_Ratio": 0.760166923
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Deposit": 15654.5042,
+        "Year_col": 2024,
+        "Credit": 6899.6149,
+        "CD_Ratio": 0.4407431121325452
+      },
+      {
+        "Region": "Delhi",
+        "Deposit": 1855609.45,
+        "Year_col": 2024,
+        "Credit": 1680085.21,
+        "CD_Ratio": 0.905408846
+      },
+      {
+        "Region": "EASTERN REGION",
+        "Deposit": 2549474.354,
+        "Year_col": 2024,
+        "Credit": 1217905.875,
+        "CD_Ratio": 0.47770862
+      },
+      {
+        "Region": "Goa",
+        "Deposit": 112021.356,
+        "Year_col": 2024,
+        "Credit": 29810.4135,
+        "CD_Ratio": 0.266113664
+      },
+      {
+        "Region": "Gujarat",
+        "Deposit": 1195365.011,
+        "Year_col": 2024,
+        "Credit": 888933.8089,
+        "CD_Ratio": 0.743650518
+      },
+      {
+        "Region": "Haryana",
+        "Deposit": 788798.2172,
+        "Year_col": 2024,
+        "Credit": 525579.0641,
+        "CD_Ratio": 0.666303565
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Deposit": 150334.4192,
+        "Year_col": 2024,
+        "Credit": 53600.5273,
+        "CD_Ratio": 0.356541952
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Deposit": 175966.8132,
+        "Year_col": 2024,
+        "Credit": 102722.1507,
+        "CD_Ratio": 0.583758658
+      },
+      {
+        "Region": "Jharkhand",
+        "Deposit": 336723.934,
+        "Year_col": 2024,
+        "Credit": 125013.5278,
+        "CD_Ratio": 0.371264158
+      },
+      {
+        "Region": "Karnataka",
+        "Deposit": 1682410.987,
+        "Year_col": 2024,
+        "Credit": 1160358.146,
+        "CD_Ratio": 0.689699577
+      },
+      {
+        "Region": "Kerala",
+        "Deposit": 803411.0902,
+        "Year_col": 2024,
+        "Credit": 564938.3562,
+        "CD_Ratio": 0.703174705
+      },
+      {
+        "Region": "Ladakh",
+        "Deposit": 8847.7694,
+        "Year_col": 2024,
+        "Credit": 3861.3491,
+        "CD_Ratio": 0.43642063
+      },
+      {
+        "Region": "Lakshadweep",
+        "Deposit": 1531.569,
+        "Year_col": 2024,
+        "Credit": 167.448,
+        "CD_Ratio": 0.109331019
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Deposit": 617814.2023,
+        "Year_col": 2024,
+        "Credit": 468541.1196,
+        "CD_Ratio": 0.758385155
+      },
+      {
+        "Region": "Maharashtra",
+        "Deposit": 4667846.792,
+        "Year_col": 2024,
+        "Credit": 4695200.833,
+        "CD_Ratio": 1.005860098
+      },
+      {
+        "Region": "Manipur",
+        "Deposit": 15669.124,
+        "Year_col": 2024,
+        "Credit": 11600.2367,
+        "CD_Ratio": 0.74032452
+      },
+      {
+        "Region": "Meghalaya",
+        "Deposit": 34372.1282,
+        "Year_col": 2024,
+        "Credit": 14133.667,
+        "CD_Ratio": 0.411195574
+      },
+      {
+        "Region": "Mizoram",
+        "Deposit": 15713.356,
+        "Year_col": 2024,
+        "Credit": 7980.2594,
+        "CD_Ratio": 0.507864736
+      },
+      {
+        "Region": "NORTH EASTERN REGION",
+        "Deposit": 369677.6601,
+        "Year_col": 2024,
+        "Credit": 195524.8664,
+        "CD_Ratio": 0.528906362
+      },
+      {
+        "Region": "NORTHERN REGION",
+        "Deposit": 4382104.071,
+        "Year_col": 2024,
+        "Credit": 3390432.525,
+        "CD_Ratio": 0.773699682
+      },
+      {
+        "Region": "Nagaland",
+        "Deposit": 17135.0695,
+        "Year_col": 2024,
+        "Credit": 8820.936,
+        "CD_Ratio": 0.514788458
+      },
+      {
+        "Region": "Odisha",
+        "Deposit": 522543.0552,
+        "Year_col": 2024,
+        "Credit": 251114.1597,
+        "CD_Ratio": 0.480561663
+      },
+      {
+        "Region": "Puducherry",
+        "Deposit": 30226.0071,
+        "Year_col": 2024,
+        "Credit": 21141.3426,
+        "CD_Ratio": 0.699442124
+      },
+      {
+        "Region": "Punjab",
+        "Deposit": 617488.8581,
+        "Year_col": 2024,
+        "Credit": 360008.0811,
+        "CD_Ratio": 0.583019558
+      },
+      {
+        "Region": "Rajasthan",
+        "Deposit": 670969.9614,
+        "Year_col": 2024,
+        "Credit": 581568.4247,
+        "CD_Ratio": 0.866757766
+      },
+      {
+        "Region": "SOUTHERN REGION",
+        "Deposit": 5130803.395,
+        "Year_col": 2024,
+        "Credit": 4873414.695,
+        "CD_Ratio": 0.94983462
+      },
+      {
+        "Region": "Sikkim",
+        "Deposit": 14748.1132,
+        "Year_col": 2024,
+        "Credit": 6519.6746,
+        "CD_Ratio": 0.442068386
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Deposit": 1344553.303,
+        "Year_col": 2024,
+        "Credit": 1518842.698,
+        "CD_Ratio": 1.129626245
+      },
+      {
+        "Region": "Telangana",
+        "Deposit": 788090.7525,
+        "Year_col": 2024,
+        "Credit": 870271.1706,
+        "CD_Ratio": 1.104277861
+      },
+      {
+        "Region": "Tripura",
+        "Deposit": 37109.0281,
+        "Year_col": 2024,
+        "Credit": 16451.5299,
+        "CD_Ratio": 0.443329582
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Deposit": 1745806.748,
+        "Year_col": 2024,
+        "Credit": 871584.8786,
+        "CD_Ratio": 0.499244764
+      },
+      {
+        "Region": "Uttarakhand",
+        "Deposit": 222834.806,
+        "Year_col": 2024,
+        "Credit": 89998.97,
+        "CD_Ratio": 0.403882013
+      },
+      {
+        "Region": "WESTERN REGION",
+        "Deposit": 5990887.663,
+        "Year_col": 2024,
+        "Credit": 5620844.67,
+        "CD_Ratio": 0.93823236
+      },
+      {
+        "Region": "West Bengal",
+        "Deposit": 1143462.521,
+        "Year_col": 2024,
+        "Credit": 566403.051,
+        "CD_Ratio": 0.495340285
+      }
+    ]
+  }
+}

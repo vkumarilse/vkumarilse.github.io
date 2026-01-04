@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Financial Inclusion: Accounts, Equity, and Sentiment</title>
+  <link rel="stylesheet" href="projectstyle.css">
+  
+  <!-- Vega-Lite Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="pmjdy_data.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="container">
+      <div class="logo">Financial Inclusion India</div>
+      <ul class="nav-links">
+        <li><a href="#aims">Aims</a></li>
+        <li><a href="#growth">Growth</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#engagement">Engagement</a></li>
+        <li><a href="#conclusions">Conclusions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section bg-parchment">
+    <div class="container">
+      <h1 class="hero-title">Financial Inclusion in India</h1>
+      <p class="hero-subtitle">
+        Accounts, Gender Equity, and Citizen Sentiment (2015–2025)
+      </p>
+      <p class="lead-text" style="margin-top: var(--spacing-md);">
+        Visualizing the evolution of financial inclusion across India, integrating quantitative metrics and 
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 1: AIMS ==================== -->
+ <section class="section bg-cream" id="aims">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Aims</h2>
+    </div>
+    
+    <div class="card">
+      <p style="line-height: 1.8; margin-bottom: 1rem;">
+        This project examines Financial Inclusion in India, through Pradhan Mantri Jan Dhan Yojana (PMJDY), the world's largest 
+        financial inclusion programme, through interactive data visualisation.
+      </p>
+      
+      <p style="line-height: 1.8; margin-bottom: 1rem;"><strong>Three research questions guide the analysis:</strong></p>
+      
+      <ol style="margin: 1rem 0 1rem 1.5rem; line-height: 1.9;">
+        <li style="margin-bottom: 0.5rem;"><strong>Geographic variation</strong>: How does PMJDY coverage vary across states, and what explains regional patterns?</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Access versus engagement</strong>: Does account ownership translate into active financial participation, measured through deposits and UPI adoption?</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Gender equity</strong>: How have gender gaps evolved, and where do disparities persist?</li>
+      </ol>
+      
+      <p style="line-height: 1.8;">
+        The analysis integrates state-wise PMJDY data (2015–2025), gender-disaggregated account statistics 
+        (2019–2024), and UPI transaction volumes to assess whether India has achieved <em>substantive</em> 
+        inclusion, where citizens actively use accounts, rather than merely <em>formal</em> access. India's 
+        account ownership rose from 35% (2011) to 89% (2024) according to World Bank Findex data, among 
+        the fastest expansions globally. This project tries to tease out whether such headline figures translate 
+        into meaningful financial inclusion at the state level.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- Ornamental Divider -->
+  <div class="ornament"></div>
+
+  <!-- ==================== SECTION 2: PMJDY GROWTH ==================== -->
+<section class="section" id="growth">
+  
+   <div class="container">
+    <div class="section-header">
+      <h2>Geographic Coverage of Pradhan Mantri Jan Dhan Yojana (PMJDY)</h2>
+      <p>The Pradhan Mantri Jan Dhan Yojana (PMJDY), launched in 2014, is the world's 
+          largest financial inclusion programme, having opened over 500 million bank accounts for 
+          previously unbanked citizens.</p>
+    </div>
+  </div>
+ 
+    
+    
+    <!-- Two-column dashboard layout -->
+    <div class="container">
+      <div class="coverage-dashboard">
+      
+      <!-- LEFT: Map and Insight -->
+      <div class="chart-panel">
+        <div class="card">
+          <div class="card-body">
+            <div id="pmjdy-choropleth"></div>
+          </div>
+        </div>
+        
+        <div class="insight-box">
+          <div class="insight-label">Key Finding</div>
+          <div class="insight-text">
+            Coverage ranges from <span class="highlight-low">6.8 in Ladakh</span> to 
+            <span class="highlight-high">69.8 in Assam</span> : a 10× difference. 
+            Eastern/central states lead penetration, while southern states with higher 
+            pre-existing banking access show lower PMJDY uptake.
+          </div>
+        </div>
+        
+        <!-- Technical Note -->
+        <div class="technical-note">
+          <h4>Technical Note</h4>
+          <p><strong>Implementation:</strong> Direct Vega-Lite specification with embedded GeoJSON and PMJDY data.</p>
+          <ul>
+            <li><strong>Boundary challenges:</strong> J&K bifurcation (2019) created Ladakh UT; standardized GeoJSON definitions were inconsistent across sources</li>
+            <li><strong>State name variations:</strong> Odisha/Orissa, Uttarakhand/Uttaranchal required manual reconciliation between RBI data and geographic boundaries</li>
+            <li><strong>Coordinate systems:</strong> CRS mismatches between Web Mercator (EPSG:3857) and WGS84 (EPSG:4326) required precise projection calibration</li>
+            <li><strong>Population projections:</strong> 2011 Census data projected to 2024 using state-specific growth rates; banking data from RBI PMJDY Progress Reports (Dec 2024)</li>
+            <li><strong>Data embedding:</strong> All geographic and statistical data embedded in specification for reproducibility and offline rendering</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- RIGHT: KPIs, Legend, and Rankings -->
+      <div class="right-sidebar">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-card">
+          <div class="kpi-label">Total Accounts</div>
+          <div class="kpi-value">572.7 <span>million</span></div>
+          <div class="kpi-note">40.4% of India's population</div>
+        </div>
+        
+        <div class="kpi-card">
+          <div class="kpi-label">Total Deposits</div>
+          <div class="kpi-value">₹2.80 <span>lakh crore</span></div>
+          <div class="kpi-note">Avg balance ₹4,884 per account</div>
+        </div>
+        
+        <div class="kpi-card">
+          <div class="kpi-label">RuPay Cards</div>
+          <div class="kpi-value">395.3 <span>million</span></div>
+          <div class="kpi-note">69% card penetration</div>
+        </div>
+        
+        <!-- Color Legend -->
+        <div class="legend-card">
+          <div class="legend-label">Accounts per 100 Population</div>
+          <div class="legend-gradient"></div>
+          <div class="legend-ticks">
+            <span>5</span>
+            <span>20</span>
+            <span>35</span>
+            <span>50</span>
+            <span>70</span>
+          </div>
+        </div>
+        
+        <!-- Top 5 Rankings -->
+        <div class="ranking-card">
+          <div class="ranking-title">Top 5 States</div>
+          <div class="rank-row">
+            <span class="rank-num">1</span>
+            <span class="rank-name">Assam</span>
+            <span class="rank-val">69.8</span>
+            <div class="rank-bar"><div class="rank-bar-fill" style="width:100%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num">2</span>
+            <span class="rank-name">Chhattisgarh</span>
+            <span class="rank-val">59.8</span>
+            <div class="rank-bar"><div class="rank-bar-fill" style="width:86%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num">3</span>
+            <span class="rank-name">West Bengal</span>
+            <span class="rank-val">55.1</span>
+            <div class="rank-bar"><div class="rank-bar-fill" style="width:79%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num">4</span>
+            <span class="rank-name">Madhya Pradesh</span>
+            <span class="rank-val">52.2</span>
+            <div class="rank-bar"><div class="rank-bar-fill" style="width:75%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num">5</span>
+            <span class="rank-name">Bihar</span>
+            <span class="rank-val">51.2</span>
+            <div class="rank-bar"><div class="rank-bar-fill" style="width:73%"></div></div>
+          </div>
+        </div>
+        
+        <!-- Bottom 5 Rankings -->
+        <div class="ranking-card">
+          <div class="ranking-title">Bottom 5 States/UTs</div>
+          <div class="rank-row">
+            <span class="rank-num bottom">36</span>
+            <span class="rank-name">Ladakh</span>
+            <span class="rank-val low-coverage">6.8</span>
+            <div class="rank-bar"><div class="rank-bar-fill low" style="width:10%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num bottom">35</span>
+            <span class="rank-name">Goa</span>
+            <span class="rank-val low-coverage">14.2</span>
+            <div class="rank-bar"><div class="rank-bar-fill low" style="width:20%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num bottom">34</span>
+            <span class="rank-name">Sikkim</span>
+            <span class="rank-val low-coverage">15.3</span>
+            <div class="rank-bar"><div class="rank-bar-fill low" style="width:22%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num bottom">33</span>
+            <span class="rank-name">Lakshadweep</span>
+            <span class="rank-val low-coverage">15.3</span>
+            <div class="rank-bar"><div class="rank-bar-fill low" style="width:22%"></div></div>
+          </div>
+          <div class="rank-row">
+            <span class="rank-num bottom">32</span>
+            <span class="rank-name">Puducherry</span>
+            <span class="rank-val low-coverage">15.9</span>
+            <div class="rank-bar"><div class="rank-bar-fill low" style="width:23%"></div></div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ==================== SECTION 3: STATE-LEVEL COVERAGE ==================== -->
+  <section class="section bg-canvas" id="coverage">
+    
+    <div class="container">
+    
+    <div class="section-header">
+      <h2>Gender-Wise Account Distribution of PMJDY Accounts (2019-24)</h2>
+    </div>
+
+    <!-- Brief -->
+    <div class="content-card">
+      <h3 style="font-family: 'Garamond', Georgia, serif; color: #2C2416; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #8B4513; padding-bottom: 12px;">Overview</h3>
+      
+      <p style="line-height: 1.7; margin-bottom: 16px;">
+        Female participation ranges from <strong style="color: #8B4513;">46.4% to 58.5%</strong> 
+        across states: a 12.1 percentage point gap. Tamil Nadu and Meghalaya lead (58.5%) driven by extensive microfinance and 
+        SHG networks and state-level incentive schemes. Urban centers (Delhi 48.1%, Chandigarh 46.4%) surprisingly 
+        lag behind, suggesting pre-existing banking was male-skewed.
+      </p>
+
+      <h4 style="font-family: Garamond, Georgia, serif; color: #5D2E0F; margin-top: 24px; margin-bottom: 12px;">Key Insights</h4>
+      <ul style="line-height: 1.7; padding-left: 28px;">
+        <li style="margin: 10px 0;"><strong>Culture > Development:</strong> Kerala and Meghalaya both 58.5% despite different HDI</li>
+        <li style="margin: 10px 0;"><strong>SHG correlation:</strong> States with good Self-Help Group networks rank highest</li>
+        <li style="margin: 10px 0;"><strong>Urban paradox:</strong> Metropolitan areas show lower female shares</li>
+      </ul>
+    </div>
+
+    <!-- Dashboard -->
+         <div class="content-card">
+      
+      
+      <iframe src="pmjdy-gender-dashboard.html" width="100%" height="900" frameborder="0" style="border: none; border-radius: 2px; border: 1px solid #D4C5B0;"></iframe>
+    </div>
+   
+
+<!-- Data Limitations -->
+    <div style="background: #FFF9E6; padding: 24px; border-radius: 2px; border-left: 5px solid #B8860B; margin: 24px 0;">
+      <h3 style="font-family: Garamond, Georgia, serif; color: #5D2E0F; margin-bottom: 16px;"> Data Limitations</h3>
+      <p style="background: #FFE6E6; padding: 16px; border-left: 4px solid #8B4513; margin-bottom: 16px;">
+        <strong>Critical gap:</strong> No public data on transactions, balances, or credit access by gender limits assessment of actual financial inclusion vs account opening.
+      </p>
+      <ul style="padding-left: 24px; line-height: 1.7;">
+        <li>No transaction data (active vs dormant accounts unknown)</li>
+        <li>No gender-disaggregated balances (savings behavior unknown)</li>
+        <li>No credit uptake data (Overdraft Facility usage unknown)</li>
+        <li>Gender distribution data is not available for all years, the above data has been extracted from a question answered in House of Parliament in India.</li>
+        <a href="https://sansad.in/getFile/annex/263/AU361.pdf?source=pqars">Link to Gender-wise Data for PMJDY</a>
+      </ul>
+    </div>
+</section>
+
+<!-- END GENDER SECTION -->
+  <!-- Ornamental Divider -->
+  <div class="ornament"></div>
+
+  <!-- ==================== SECTION 4: ADOPTION VS ENGAGEMENT ==================== -->
+  <section class="section bg-parchment" id="engagement">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">PMJDY Coverage vs UPI Adoption</h2>
+         <p class="subtitle">A State-Level Analysis of PMJDY and UPI Correlation</p>
+         <div class="analysis-brief"></div>
+      <div class="content-card">
+        <h3 style="font-family: 'Garamond', Georgia, serif; color: #2C2416; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #8B4513; padding-bottom: 12px;">Overview: From Bank Accounts to Digital Transactions</h3>
+        <p style="line-height: 1.7; margin-bottom: 16px;max-width: 900px;">
+          The Unified Payments Interface (UPI) is India's real-time mobile payment system developed by the National Payments Corporation of India (NPCI). Launched in 2016, UPI enables instant fund transfers between bank accounts using a smartphone, and has since become the backbone of India's digital payments ecosystem, processing over 20 billion transactions monthly by late 2025. 
+        </p>
+        <p>
+          This analysis examines the relationship between financial inclusion (PMJDY) and digital 
+          payment adoption (UPI) across 35 Indian states and union territories. Using state-wise 
+          data from official government sources, we employ correlation analysis and regression 
+          modelling to quantify this relationship. Our findings reveal a strong positive association: 
+          states with higher PMJDY penetration tend to exhibit greater UPI transaction volumes, 
+          though the relationship is mediated significantly by urbanisation. The log-log regression 
+          model achieves an R² of 0.90, indicating that a 1% increase in PMJDY account balances is 
+          associated with a 1.15% increase in UPI transaction volume, suggesting that active financial 
+          engagement, rather than mere account opening, drives digital payment adoption.
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- Regression Charts (Side by Side) -->
+    <div class="subsection">
+      <h3 class="subsection-title">Regression Analysis</h3>
+      
+      <div class=container>
+        <div class="chart-row">
+        <div class="chart-box">
+          <div id="upi-chart1"></div>
+        </div>
+        <div class="chart-box">
+          <div id="upi-chart2"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <script>
+  // Embedding options
+  const vegaOpts = {
+    actions: { export: true, source: false, compiled: false, editor: true },
+    renderer: 'svg'
+  };
+
+  // Load and embed charts from external JSON files
+  // UPDATE THESE PATHS to match where you place the JSON files
+  
+  vegaEmbed('#upi-chart1', 'upi-chart1.json', vegaOpts);
+  vegaEmbed('#upi-chart2', 'upi-chart2.json', vegaOpts);
+  vegaEmbed('#upi-chart4', 'correlationmatrix.json', vegaOpts);
+  vegaEmbed('#upi-chart7', 'clusterurbaneffect.json', vegaOpts);
+  vegaEmbed('#upi-chart8', 'clusterstate.json', vegaOpts);
+</script>
+    <!-- Correlation Matrix -->
+    <div class="subsection">
+      <h3 class="subsection-title">Correlation Matrix</h3>
+      <div class="chart-single">
+        <div class="chart-box">
+          <div id="upi-chart4"></div>
+        </div>
+      </div>
+      
+      <!-- Correlation Findings -->
+      <div class="analysis-brief">
+        <div class="brief-card">
+        <h3>Findings</h3>
+          <p>
+            The Pearson correlation matrix reveals several important patterns. UPI Volume and UPI 
+            Value are nearly perfectly correlated (r = 0.99), as expected. PMJDY Balance shows 
+            stronger correlation with UPI metrics (r = 0.63–0.66) than raw account counts 
+            (r = 0.56–0.58), suggesting that active account usage matters more than account 
+            opening alone. Most notably, Urban Accounts exhibit the strongest relationship with 
+            UPI adoption (r = 0.82–0.84), while Rural Accounts show substantially weaker 
+            correlations (r = 0.46–0.48). This urban-rural disparity highlights a persistent 
+            digital divide:<strong> financial inclusion has succeeded in rural penetration, but digital 
+            payment adoption remains concentrated in urban areas.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Urbanisation & Cluster Analysis -->
+    <div class="subsection">
+      <h3 class="subsection-title">Urbanisation Effect and State Clusters</h3>
+      
+      <!-- Findings Box -->
+      <div class="analysis-brief">
+        <div class="brief-card">
+          <p>
+            Urbanisation emerges as a critical mediator of the PMJDY-UPI relationship. States 
+            with higher urban PMJDY account ratios demonstrate significantly greater UPI adoption, 
+            independent of total account numbers. K-means clustering identifies four distinct 
+            state groups: "High Digital Leaders" (Maharashtra, Karnataka, Tamil Nadu), 
+            "Urban-Centric" states (Delhi, Chandigarh), "Large Emerging States" with high PMJDY 
+            but moderate UPI (Bihar, Uttar Pradesh), and "Early Stage" smaller states. This 
+            classification suggests differentiated policy approaches may be needed to accelerate 
+            digital payment adoption across diverse state contexts.
+          </p>
+        </div>
+      </div>
+      
+      <div class="chart-row">
+        <div class="chart-box">
+          <div id="upi-chart7"></div>
+        </div>
+        <div class="chart-box">
+          <div id="upi-chart8"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Note -->
+    <div class="technical-note">
+      <h4>Data Sources & Methodology</h4>
+      <p>
+        PMJDY data sourced from <strong>pmjdy.gov.in</strong> (December 2025); UPI state-wise 
+        statistics from <strong>NPCI Ecosystem Statistics</strong> (November 2025). Analysis 
+        performed using Python (pandas, scipy, statsmodels, scikit-learn). Visualisations 
+        rendered with Vega-Lite v5.
+      </p>
+      <p>
+        <strong>Limitations:</strong> Approximately 42% of UPI transactions are classified as 
+        "unclassified" in NPCI data due to missing location information, which may affect 
+        state-level estimates. Cross-sectional analysis cannot establish causality; the 
+        relationship between PMJDY and UPI adoption may be confounded by unobserved state-level 
+        characteristics such as digital infrastructure quality or smartphone penetration rates.
+      </p>
+    </div>
+
+  </div>
+  </section>
+    <!-- Ornamental Divider -->
+  <div class="ornament"></div>
+  <!-- ==================== SECTION 6: WORLD BANK FINDEX ==================== -->
+  <section class="section bg-canvas" id="findex">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">World Bank Findex: India (2011–2022)</h2>
+        <p class="section-description">
+          Account ownership, digital payments, and formal savings have all increased over the past decade. 
+          Small facet charts show trends and changes in India relative to global benchmarks.
+        </p>
+      </div>
+      
+      <div class="card">
+        <h3 class="card-title">Multi-Indicator Trends</h3>
+        <div id="viz5" class="viz-container"></div>
+      </div>
+    </div>
+  </section>
+ <!-- Ornamental Divider -->
+  <div class="ornament"></div>
+
+ <!-- ==================== SECTION: CONCLUSIONS ==================== -->
+<section class="section bg-canvas" id="conclusions">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Conclusions</h2>
+    </div>
+    
+    <div class="card">
+      <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+        The analysis reveals a nuanced picture of India's financial inclusion. PMJDY has achieved 
+        remarkable scale:572 million accounts, ₹2.8 lakh crore in deposits, but coverage patterns 
+        expose structural variations.
+      </p>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--terracotta, #c1613b); margin-bottom: 0.5rem;">Regional Divergence</h4>
+        <p style="line-height: 1.8;">
+          Eastern states (Assam: 69.8%, Bihar: 51.2%) show highest penetration, while southern states 
+          with pre-existing banking infrastructure show lower PMJDY uptake. This counterintuitive pattern 
+          reflects targeting of previously unbanked populations, not programme weakness.
+        </p>
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--terracotta, #c1613b); margin-bottom: 0.5rem;">Access-Engagement Gap</h4>
+        <p style="line-height: 1.8;">
+          Our regression analysis (R²=0.90) demonstrates that PMJDY <em>balances</em>, not raw account 
+          counts, predict UPI adoption. A 1% increase in account balances associates with 1.15% higher 
+          UPI volume. Urbanisation mediates this relationship: urban accounts correlate with UPI at 
+          r=0.84 versus r=0.47 for rural accounts.
+        </p>
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--terracotta, #c1613b); margin-bottom: 0.5rem;">Gender Progress</h4>
+        <p style="line-height: 1.8;">
+          Women hold 56% of PMJDY accounts : <strong>a significant achievement.</strong> However, female participation 
+          ranges from 46% (Chandigarh) to 58.5% (Tamil Nadu), with urban centres paradoxically lagging. 
+          Data limitations preclude assessing whether women <em>use</em> accounts actively.
+        </p>
+      </div>
+      
+      <p style="line-height: 1.8; font-weight: 500; border-left: 3px solid var(--terracotta, #c1613b); padding-left: 1rem;">
+        <strong>Policy implication:</strong> Converting dormant accounts into active financial 
+        participation—particularly bridging the urban-rural digital divide, represents the critical 
+        "last mile" challenge for India's inclusion agenda.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- Ornamental Divider -->
+  <div class="ornament"></div>
+
+  <!-- ==================== SECTION 10: DATA & METHODS ==================== -->
+  <section class="section bg-parchment" id="data-methods">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Data & Methods</h2>
+      </div>
+      
+      <div class="card">
+        <h4 style="font-family: var(--font-accent); margin-bottom: var(--spacing-md); color: var(--terracotta);">Data Sources</h4>
+        <ul style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-lg);">
+          <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
+            <span style="position: absolute; left: 0; color: var(--terracotta);">•</span>
+            <strong>PMJDY accounts 2015–2025, gender 2019–2024</strong> – PMJDY portal & data.gov.in
+          </li>
+          <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
+            <span style="position: absolute; left: 0; color: var(--terracotta);">•</span>
+            <strong>UPI transactions per capita</strong> – NPCI reports
+          </li>
+                  
+        
+        <p style="margin-top: var(--spacing-md); color: var(--text-secondary); line-height: 1.8;">
+          Full reproducibility scripts and data snapshots available on 
+          <a href="https://github.com/vkumarilse/vkumarilse.github.io" target="_blank" style="color: var(--terracotta); font-weight: 600;">GitHub</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="footer-text">
+        Data Visualization Project for PP434 | The London School of Economics and Poltical Sciences | January 2026
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== VEGA-LITE CHART SCRIPTS ==================== -->
+  <script>
+    // ==============================================================
+    // Renaissance Color Palette for Your Charts
+    // ==============================================================
+    const renaissanceColors = {
+      terracotta: '#c1613b',
+      ochre: '#d4a574',
+      sienna: '#a0522d',
+      umber: '#6b4423',
+      sepia: '#704214'
+    };
+
+    // Color schemes for different chart types
+    const colorSchemes = {
+      sequential: ['#f9f6f0', '#d4a574', '#c1613b', '#a0522d', '#6b4423', '#704214'],
+      diverging: ['#6b4423', '#a0522d', '#d4a574', '#f9f6f0', '#c1613b', '#704214'],
+      categorical: ['#c1613b', '#a0522d', '#d4a574', '#6b4423', '#704214']
+    };
+
+    // ==============================================================
+    // Chart 1: PMJDY Growth with Gender Lines
+    // ==============================================================
+    // vegaEmbed('#viz1', yourSpec1, {actions: false, renderer: 'svg'});
+
+    // ==============================================================
+    // Chart 2: State-Level Choropleth Map
+    // ==============================================================
+    vegaEmbed('#pmjdy-choropleth', 
+    {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 500,
+    "data": {"values": pmjdyGeoData, "format": {"property": "features"}},
+    "projection": {"type": "mercator", "center": [82, 23], "scale": 850},
+    "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.6},
+    "encoding": {
+    "color": {
+      "field": "properties.coverage",
+      "type": "quantitative",
+      "scale": {"domain": [5,70], "range": ["#f7e4d8","#d4efef","#99d4d4","#4db8b8","#0d7680","#054d52"]},"legend": null
+    },
+    
+    "tooltip": [
+                    {"field": "properties.st_nm", "type": "nominal", "title": "State/UT"},
+                    {"field": "properties.coverage", "type": "quantitative", "title": "Coverage (per 100)", "format": ".1f"},
+                    {"field":"properties.accounts_m", "type": "nominal", "title":"Accounts (in mn)","format": ".2f" },
+                    {"field":"properties.pop_m", "type": "quantitative", "title": "Population (mn)", "format": ".1f"},
+                    {"field": "properties.deposits", "type": "quantitative", "title": "Deposits (₹ Cr)", "format": ",.0f"},
+                    {"field": "properties.avg_balance", "type": "quantitative", "title": "Avg Balance (₹)", "format": ","}
+                                    ]
+    
+     }
+    }, {actions: false});
+
+        const renaissanceConfig = {
+      axis: {
+        labelFont: "Crimson Text",
+        titleFont: "Crimson Text",
+        labelFontSize: 12,
+        titleFontSize: 13,
+        labelColor: "#6b5a4c",
+        titleColor: "#2b1d0e"
+      },
+      legend: {
+        labelFont: "Crimson Text",
+        titleFont: "Libre Baskerville",
+        labelFontSize: 11,
+        titleFontSize: 12,
+        labelColor: "#6b5a4c",
+        titleColor: "#2b1d0e"
+      },
+      title: {
+        font: "EB Garamond",
+        fontSize: 16,
+        color: "#2b1d0e",
+        fontWeight: 600
+      },
+      view: {
+        stroke: "#d4c4b0"
+      }
+    };
+
+   
+  </script>
+
+</body>
+</html>
