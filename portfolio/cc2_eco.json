@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.2.json",
+  "title": {
+    "text": "China's GDP growth (in %)",
+    "anchor": "start",
+    "subtitle": "NBS through ECO API",
+    "fontSize": 12,
+    "fontStyle": "bold", 
+    "subtitleFontSize": 10,
+    "color": "#000000",
+    "subtitleColor": "#525252"
+  },
+  "height": 350,
+  "width": 400,
+  "autosize": {"type": "pad", "contains": "padding", "resize": false},
+  "background": "#f2f2f2",
+  "view": {"fill": "#f2f2f2", "strokeOpacity": 0},
+  "data": {
+    "url": "https://api.economicsobservatory.com/chn/grow?vega",
+    "format": {"type": "json"}
+  },
+  "mark": {"type": "line", "color": "#f4134d", "strokeWidth": 2},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {"title": "", "titleColor": "#122B39", "grid": false}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+        "axis": {"title": null, "titleColor": "#122B39", "grid": false}
+    }
+  },
+  "config": {}
+}

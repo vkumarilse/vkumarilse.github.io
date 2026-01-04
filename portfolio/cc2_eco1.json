@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.2.json",
+  "title": {
+    "text": "India CPI Inflation (in %)",
+    "fontStyle":"bold",
+    "anchor": "start",
+    "subtitle": "Source: CSO (WB) through ECO API",
+    "fontSize": 12,
+    "subtitleFontSize": 10,
+    "color": "#000000",
+    "subtitleColor": "#454545"
+  },
+  "height": 350,
+  "width": 400, 
+  "autosize": {"type": "pad", "contains": "padding", "resize": false},
+  "background": "#f4f4f4",
+  "view": {"fill": "#f4f4f4", "strokeOpacity": 0},
+  "data": {
+    "url": "https://api.economicsobservatory.com/ind/infl?vega",
+    "format": {"type": "json"}
+  },
+  "mark": {"type": "line", "color": "#00995e", "strokeWidth": 2},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {"title": "", "titleColor": "#122B39", "grid": false}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {"title": null, "titleColor": "#122B39", "grid": false}
+    }
+  },
+  "config": {}
+}

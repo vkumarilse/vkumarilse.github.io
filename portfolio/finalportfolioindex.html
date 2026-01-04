@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinod Kumari | Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;600&display=swap');
+        
+        :root {
+            --concrete: #e8e8e8;
+            --concrete-dark: #bfbfbf;
+            --charcoal: #2d2d2d;
+            --corbusier-blue: #4a90e2;
+            --corbusier-ochre: #d4a574;
+            --corbusier-green: #7fa99b;
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand';
+            background: var(--concrete);
+            color: var(--charcoal);
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* Concrete texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Grid overlay - Le Corbusier loved grids */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 99px, rgba(0,0,0,.03) 99px, rgba(0,0,0,.03) 100px),
+                repeating-linear-gradient(90deg, transparent, transparent 99px, rgba(0,0,0,.03) 99px, rgba(0,0,0,.03) 100px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: absolute;
+            margin: 0 auto;
+            position: sticky;
+            z-index: 2;
+        }
+        
+        /* Brutalist header */
+        header {
+            background: var(--charcoal);
+            padding: 3rem 2rem;
+            position: relative;
+            border-bottom: 8px solid var(--corbusier-blue);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--corbusier-ochre);
+        }
+        
+        h1 {
+            font-family: 'Montserrat';
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--concrete);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .subtitle {
+            color: var(--concrete-dark);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        
+        .links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .links a {
+            color: var(--corbusier-blue);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        
+        .links a:hover {
+            border-bottom-color: var(--corbusier-blue);
+        }
+        
+        /* Main content */
+        main {
+            padding: 4rem 2rem;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 4rem;
+            box-shadow: 
+                8px 8px 0 var(--concrete-dark),
+                16px 16px 0 rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid var(--charcoal);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--corbusier-blue);
+        }
+        
+        .section:nth-child(3n+1)::before {
+            background: var(--corbusier-blue);
+        }
+        
+        .section:nth-child(3n+2)::before {
+            background: var(--corbusier-ochre);
+        }
+        
+        .section:nth-child(3n)::before {
+            background: var(--corbusier-green);
+        }
+        
+        .section-header {
+            background: var(--charcoal);
+            padding: 1.5rem 2rem;
+            border-bottom: 4px solid var(--concrete);
+        }
+        
+        .section-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--concrete-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        
+        .section-content {
+            padding: 2rem;
+        }
+        
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--concrete);
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .chart-container { position: "sticky"; }
+
+        .chart-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--charcoal);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .chart-placeholder {
+            background: white;
+            border: 1px solid var(--charcoal);
+            min-height: 350px;
+            position: relative;
+        }
+        
+        .chart-placeholder::before {
+            display: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            padding: 2rem;
+            text-align: center;
+            color: var(--concrete-dark);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 8px solid var(--corbusier-green);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                box-shadow: 
+                    4px 4px 0 var(--concrete-dark),
+                    8px 8px 0 rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vinod Kumari</h1>
+            <div class="subtitle">Data Visualization Portfolio</div>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/vinodkumari/">LinkedIn</a>
+                <a href="https://github.com/vkumarilse">GitHub</a>
+
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 01</div>
+                <h2>CC1-Hosting: Display charts in your own site</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    An exploration of the relationship between economic prosperity and population health outcomes. This visualization examines how gross domestic product correlates with life expectancy across different nations and time periods.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        
+                        <div class="chart-placeholder" id="chart1a"></div>
+                    </div>
+                    <div class="chart-container">
+                        
+                        <div class="chart-placeholder" id="chart1b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 02</div>
+                <h2>CC2-Building: Create your own visualisations</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Analysis of reciprocal tariff policies and their impact on international trade dynamics. This chart illustrates the complex interplay of trade barriers and their economic consequences.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        
+                        <div class="chart-placeholder" id="chart2a"></div>
+                    </div>
+                    <div class="chart-container">
+                        
+                        <div class="chart-placeholder" id="chart2b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 03</div>
+                <h2>CC3-Policy Debate: Income Inequality in India</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    India's income inequality has deepened dramatically since 1951. The line chart reveals a stark divergence: the top 1%'s share doubled from 11.5% to 22.6%, while the top 10% captured 57.7% of national income by 2024. Despite rising absolute incomes, the bottom 50% saw their relative share decline, highlighting concerns about inclusive growth and widening economic divides.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-label">Chart 3A: National Income Growth</div>
+                        <div class="chart-placeholder" id="chart3a"></div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-label">Chart 3B: Growing Inequality</div>
+                        <div class="chart-placeholder" id="chart3b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 04</div>
+                <h2>CC4-Replication, Recreated and then improved chart</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Demonstrates technical proficiency in loading and rendering visualizations from external data sources. This approach enables dynamic data integration and modular chart management.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-label">Original Chart: Financial Times</div>
+                        <div class="chart-placeholder" id="chart4a"></div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-label"> Replicated Chart</div>
+                        <div class="chart-placeholder" id="chart4b"></div>
+                        <div class="chart-container">
+                        <div class="chart-label">Improved Chart: Financial Times Style</div>
+                        <div class="chart-placeholder" id="chart4c"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 05</div>
+                <h2>CC5-Accessing data: Scraper and API</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Data Source: NSE India Nifty 50 API. Challenges: Anti-scraping headers required, nested JSON structure, rate limiting, dynamic content via AJAX. Solved using session cookies and proper user-agent headers."
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-placeholder" id="chart5a"></div>
+                        
+                    </div>
+                    <div class="chart-container">
+                       
+                        <div class="chart-placeholder" id="chart5b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+  
+        
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 06</div>
+                <h2>CC6-Loops: Build a dashboard </h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Python-generated visualizations using the Altair library in Google Colaboratory. Demonstrates programmatic chart generation and reproducible data analysis workflows.
+                </div>
+                                <!-- Vega libraries -->
+                <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+                <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+                <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+                <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.2"></script>
+
+                <!-- Chart containers -->
+                <div class= "chart-grid">
+                <div id="c1"></div>
+                <div id="c2"></div>
+                <div id="c3"></div>
+                <div id="c4"></div>
+                <div id="c5"></div>
+                <div id="c6"></div>
+               
+             </div>
+
+                <!-- Embed script -->
+                <script>
+                document.addEventListener("DOMContentLoaded", function () {
+
+                const baseUrl =
+                    "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/portfolio/";
+
+                const charts = [
+                    {file: "compare_gdp_per_capita.json",      title: "GDP PER CAPITA",      yTitle: "US$",        format: "~s" },
+                    {file: "compare_life_expectancy.json",    title: "LIFE EXPECTANCY",     yTitle: "Years",      format: ".0f" },
+                    {file: "compare_infant_mortality.json",   title: "INFANT MORTALITY",    yTitle: "per 1,000",  format: ".1f" },
+                    { file: "compare_unemployment.json",          title: "UNEMPLOYMENT RATE",          yTitle: "% of labour force.", format: ".0f" },
+                    { file: "compare_urban_population.json",   title: "URBANIZATION",        yTitle: "%",          format: ".1f" },
+                    {file: "compare_forest_area.json", title: "FOREST AREA", yTitle: "% of land area", format: ".0f"},
+                    //{ file: "compare_school_enrollment.json",  title: "SCHOOL ENROLLMENT",   yTitle: "%",          format: ".0f" },
+                
+                ];
+
+                for (let i = 0; i < charts.length; i++) {
+                    const c = charts[i];
+
+                    const spec = {
+                    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+                    "width": 200,
+                    "height": 200,
+                    "background": "#ffffff",
+                    
+                    "padding": {
+                        "top": 2,
+                        "bottom": 2,
+                        "left": 2,
+                        "right":2
+                        },
+                    "title": {
+                        "text": c.title,
+                        "subtitle": "Source:World Bank API",
+                        "anchor": "start",
+                        "fontSize": 11,
+                        "fontWeight": 700
+                    },
+
+                    "data": {
+                        "url": baseUrl + c.file,
+                        "format": { "type": "json", "property": "data" }
+                    },
+
+                    "mark": {
+                        "type": "line",
+                        "strokeWidth": 2
+                    },
+
+                    "encoding": {
+                        "x": {
+                        "field": "date",
+                        "type": "temporal",
+                        "title": null,
+                        "axis": {
+                            "labelFontSize": 9,
+                            "labelAngle": 0,
+                            "labelFlush": true,
+                            "tickCount": 10,
+                            "grid":false,
+                            "domain":true, 
+                            "ticks":true,
+                            
+                            
+                        }
+                        },
+
+                        "y": {
+                        "field": "value",
+                        "type": "quantitative",
+                        "title": c.yTitle,
+                         "scale": {"zero": false,"nice": false},
+                         "axis": {
+                            "tickCount": 4,
+                            "grid": true,
+                            "gridColor": "lightgray",
+                            "gridDash":[2,2],
+                            "gridWidth": 0.5,
+                            "domain": true,
+                            "ticks": false,
+                            "labelFontSize": 10,
+                            "titleFontSize": 10
+                         }
+                        },
+                        
+                        "color": {
+                        "field": "country.value",
+                        "title": "",
+                        "type": "nominal",
+                         "scale": {
+                            "domain": ["India", "China", "OECD members"],
+                            "range": ["#ff6f00", "#c41e3a", "#2196f3"]
+                                      
+                            },
+                        "legend": true
+                        },
+
+                        "tooltip": [
+                        { "field": "country.value", "type": "nominal", "title": "Country" },
+                        { "field": "date", "type": "ordinal", "title": "Year" },
+                        { "field": "value", "type": "quantitative", "title": "Value", "format": ",.2f" }
+                        ]
+                    },
+
+                    "config": {
+                        "view": { "stroke": null },
+                        "font": "Helvetica Neue"
+                    }
+                    };
+
+                    vegaEmbed(`#c${i + 1}`, spec, { actions: false })
+                    .catch(err => console.error(err));
+                }
+
+                });
+              
+                </script>
+
+                <!-- Optional layout -->
+                
+            <style>
+                .chart-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2px;   /* reduce spacing between charts */
+                }
+            </style>
+            </div>
+        </div>
+
+      <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 07</div>
+                <h2>CC7-Maps: Choropleths and Co-ordinate Maps</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Interactive visualizations created using the Vega grammar, showcasing advanced declarative visualization techniques and custom data transformations with sophisticated interactions.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-label">Wales: Interactive Choropleth Map</div>
+                        <div class="chart-placeholder" id="chart7a"></div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-label">Scotland: Interactive Coordinate Map</div>
+                        <div class="chart-placeholder" id="chart7b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 08</div>
+                <h2>CC8-Big Data:Curry and Theatre</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Using ONS consumer price data, I tracked essential curry ingredients from 2005-2024. Chart 1 shows individual ingredient inflation rates, revealing cooking oil (+65%) and rice (+40%) as biggest risers. Chart 2 displays the total 'curry basket' cost evolution, demonstrating how a £8 meal became £12.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-label">Individual Ingredients: Price Changes Over Time</div>
+                        <div class="chart-placeholder" id="chart8a"></div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-label">Small Multiples: Regional Comparison</div>
+                        <div class="chart-placeholder" id="chart8b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 9</div>
+                <h2>CC9-Interactive charts</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Visualization of machine learning model performance and predictions. Demonstrates the application of supervised learning algorithms to policy-relevant datasets with evaluation metrics.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-label">Scatter: Predicted vs Actual Values</div>
+                        <div class="chart-placeholder" id="chart9a"></div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-label">Confusion Matrix: Classification Results</div>
+                        <div class="chart-placeholder" id="chart9b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">Section 10</div>
+                <h2>CC10-Advanced Analysis and Machine Learning</h2>
+            </div>
+            <div class="section-content">
+                <div class="description">
+                    Visualization of machine learning model performance and predictions. Demonstrates the application of supervised learning algorithms to policy-relevant datasets with evaluation metrics.
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-label">Scatter: Predicted vs Actual Values</div>
+                        <div class="chart-placeholder" id="chart10a"></div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-label">Confusion Matrix: Classification Results</div>
+                        <div class="chart-placeholder" id="chart10b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            PP434: Automated Data Visualisation for Policymaking — LSE
+        </div>
+    </footer>
+    
+    <script>
+        // Vega-Embed options for consistent styling
+        const embedOpt = {
+            "actions": false,
+            "theme": "latimes"
+        };
+        
+        vegaEmbed('#chart1a', 'cc1portfolio.json', embedOpt);
+        
+        vegaEmbed('#chart1b', 'cc1eco.json', embedOpt);
+        
+        
+        // ============================================================
+        // SECTION 2: 
+        // ============================================================
+        vegaEmbed('#chart2a', 'cc2_eco.json', embedOpt);
+            
+        vegaEmbed('#chart2b', 'cc2_eco1.json', embedOpt);
+        // ============================================================
+        // SECTION 3: Inequality Debate
+        // ============================================================
+        vegaEmbed('#chart3a', 'cc3inequality.json', embedOpt);
+        
+        vegaEmbed('#chart3b','cc3binequality.json' , embedOpt);
+        
+        // ============================================================
+        // SECTION 4: Replication
+        // ============================================================
+        document.getElementById('chart4a').innerHTML = '<img src="ftorignalchart.png" style="width: 100%; height: auto; display: block;">';
+        vegaEmbed('#chart4b', 'replicateftchat.json', embedOpt);
+        vegaEmbed('#chart4c', 'ftchartrecreated.json', embedOpt);
+        
+        vegaEmbed('#chart5a','wbapichart.json' , embedOpt);
+        vegaEmbed('#chart5b', 'nse_chart_complete.json', embedOpt);
+       
+             
+        vegaEmbed('#chart7a','welshmaphousing.json', embedOpt);
+        vegaEmbed('#chart7b', 'scotcoordinatemap.json', embedOpt);
+        
+        // ============================================================
+        // SECTION 8: 
+        // ============================================================
+        vegaEmbed('#chart8a', 'whatsinthecurry.json', embedOpt);
+        vegaEmbed('#chart8b', 'theatre_tickets_ribbon.json', embedOpt);
+         // ============================================================
+        // SECTION 9: 
+        // ============================================================
+        vegaEmbed('#chart9a', 'cc9scatterplot.json', embedOpt);
+
+        vegaEmbed('#chart9b', 'YOUR_CHART_LINK_OR_FILE.json', embedOpt);
+        // ============================================================
+        // SECTION 10: Supervised Learning
+        // ============================================================
+         vegaEmbed('#chart10a', 'cc10analytics.json', embedOpt);
+          vegaEmbed('#chart10b', 'YOUR_CHART_LINK_OR_FILE.json', embedOpt);
+        
+        
+        
+        
+        </script>
+</body>
+</html>

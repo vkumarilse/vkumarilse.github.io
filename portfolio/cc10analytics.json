@@ -1,0 +1,909 @@
+{
+  "config": {
+    "view": {"continuousWidth": 300, "continuousHeight": 300, "strokeWidth": 0},
+    "axis": {
+      "labelFont": "Arial",
+      "labelFontSize": 11,
+      "titleFont": "Arial",
+      "titleFontSize": 12
+    },
+    "title": {"anchor": "start", "font": "Georgia", "fontSize": 14}
+  },
+  "vconcat": [
+    {
+      "layer": [
+        {
+          "data": {"name": "data-0ae9e420021e8205345315e34a2b5fbd"},
+          "mark": {
+            "type": "line",
+            "color": "gray",
+            "opacity": 0.5,
+            "strokeDash": [5, 5]
+          },
+          "encoding": {
+            "x": {"field": "x", "type": "quantitative"},
+            "y": {"field": "y", "type": "quantitative"}
+          }
+        },
+        {
+          "data": {"name": "data-5237a3552e1a8d56c3e2fa796ba48084"},
+          "mark": {"type": "circle", "opacity": 0.8, "size": 200},
+          "encoding": {
+            "color": {
+              "field": "Cluster_Ranked",
+              "legend": {"labelLimit": 300, "title": "Growth Cluster", "symbolType":"circle"},
+              "scale": {"scheme": "turbo"},
+              "type": "nominal"
+            },
+            "size": {
+              "field": "Latest_CD_Ratio",
+              "legend": {"title": "Current CD Ratio","symbolType":"circle"},
+              "scale": {"range": [100, 800]},
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {"field": "Region", "title": "State", "type": "nominal"},
+              {
+                "field": "Credit_CAGR",
+                "format": ".2f",
+                "title": "Credit CAGR (%)",
+                "type": "quantitative"
+              },
+              {
+                "field": "Deposit_CAGR",
+                "format": ".2f",
+                "title": "Deposit CAGR (%)",
+                "type": "quantitative"
+              },
+              {
+                "field": "Latest_CD_Ratio",
+                "format": ".2f",
+                "title": "Latest CD Ratio",
+                "type": "quantitative"
+              },
+              {"field": "Cluster_Label", "title": "Cluster", "type": "nominal"}
+            ],
+            "x": {
+              "field": "Deposit_CAGR",
+              "scale": {"zero": false},
+              "title": "Deposit Growth Rate (CAGR %)",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Credit_CAGR",
+              "scale": {"zero": false},
+              "title": "Credit Growth Rate (CAGR %)",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "data": {"name": "data-67876d130267fc8143eedbbe7f2eab94"},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 7,
+            "fontSize": 9,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "color": {"value": "black"},
+            "text": {"field": "Region", "type": "nominal"},
+            "x": {"field": "Deposit_CAGR", "type": "quantitative"},
+            "y": {"field": "Credit_CAGR", "type": "quantitative"}
+          }
+        }
+      ],
+      "height": 500,
+      "title": {
+        "text": "Interstate Disparity in Banking Growth (2016-2024)",
+        "subtitle": "Credit vs Deposit CAGR by State • Circle size = Current CD Ratio",
+        "fontSize": 16,
+        "font": "Georgia",
+        "anchor": "start"
+      },
+      "width": 600
+    },
+    {
+      "hconcat": [
+        {
+          "mark": {"type": "bar", "opacity": 0.7},
+          "encoding": {
+            "color": {
+              "field": "Cluster_Ranked",
+              "legend": null,
+              "scale": {"scheme": "turbo"},
+              "type": "nominal"
+            },
+            "tooltip": [
+              {"aggregate": "count", "title": "Count", "type": "quantitative"}
+            ],
+            "x": {
+              "bin": {"maxbins": 15},
+              "field": "Credit_CAGR",
+              "title": "Credit CAGR (%)",
+              "type": "quantitative"
+            },
+            "y": {
+              "aggregate": "count",
+              "title": "Number of States",
+              "type": "quantitative"
+            }
+          },
+          "height": 200,
+          "title": "Credit Growth Distribution",
+          "width": 280
+        },
+        {
+          "mark": {"type": "bar", "opacity": 0.7},
+          "encoding": {
+            "color": {
+              "field": "Cluster_Ranked",
+              "legend": null,
+              "scale": {"scheme": "turbo"},
+              "type": "nominal"
+            },
+            "tooltip": [
+              {"aggregate": "count", "title": "Count", "type": "quantitative"}
+            ],
+            "x": {
+              "bin": {"maxbins": 15},
+              "field": "Deposit_CAGR",
+              "title": "Deposit CAGR (%)",
+              "type": "quantitative"
+            },
+            "y": {
+              "aggregate": "count",
+              "title": "Number of States",
+              "type": "quantitative"
+            }
+          },
+          "height": 200,
+          "title": "Deposit Growth Distribution",
+          "width": 280
+        }
+      ],
+      "data": {"name": "data-5237a3552e1a8d56c3e2fa796ba48084"}
+    }
+  ],
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "datasets": {
+    "data-0ae9e420021e8205345315e34a2b5fbd": [
+      {"x": 5.410064427267369, "y": 5.410064427267369},
+      {"x": 21.269461067614692, "y": 21.269461067614692}
+    ],
+    "data-5237a3552e1a8d56c3e2fa796ba48084": [
+      {
+        "Region": "Andaman and Nicobar Islands",
+        "Credit_CAGR": 14.115767464716388,
+        "Deposit_CAGR": 11.543940795162722,
+        "CD_Change": 0.08844956800000003,
+        "Latest_Credit": 4109.8492,
+        "Latest_Deposit": 7745.6798,
+        "Latest_CD_Ratio": 0.530598902,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Andhra Pradesh",
+        "Credit_CAGR": 16.13568906249816,
+        "Deposit_CAGR": 10.887325454963825,
+        "CD_Change": 0.4746810229999998,
+        "Latest_Credit": 737695.5337,
+        "Latest_Deposit": 480579.6867,
+        "Latest_CD_Ratio": 1.535011891,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Arunachal Pradesh",
+        "Credit_CAGR": 16.735420652093282,
+        "Deposit_CAGR": 16.289774157120117,
+        "CD_Change": 0.00901378399999997,
+        "Latest_Credit": 8735.3169,
+        "Latest_Deposit": 29204.6564,
+        "Latest_CD_Ratio": 0.299106991,
+        "Years": "2016-2024",
+        "Cluster": 2,
+        "Cluster_Ranked": 1,
+        "Cluster_Label": "Cluster 2: Credit 15.7%, Deposit 15.8%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Assam",
+        "Credit_CAGR": 14.519586412536079,
+        "Deposit_CAGR": 10.073615494847331,
+        "CD_Change": 0.157382943,
+        "Latest_Credit": 127802.9205,
+        "Latest_Deposit": 220474.2979,
+        "Latest_CD_Ratio": 0.57967265,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Bihar",
+        "Credit_CAGR": 15.907638612267782,
+        "Deposit_CAGR": 10.084272915176173,
+        "CD_Change": 0.17065247100000003,
+        "Latest_Credit": 264745.613,
+        "Latest_Deposit": 524251.0505,
+        "Latest_CD_Ratio": 0.504997773,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Chandigarh",
+        "Credit_CAGR": 5.410064427267369,
+        "Deposit_CAGR": 9.381116289976998,
+        "CD_Change": -0.2504716490000001,
+        "Latest_Credit": 83007.7182,
+        "Latest_Deposit": 114088.583,
+        "Latest_CD_Ratio": 0.727572523,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Chhattisgarh",
+        "Credit_CAGR": 13.697960952440823,
+        "Deposit_CAGR": 11.164522906529006,
+        "CD_Change": 0.12539570499999997,
+        "Latest_Credit": 185446.6502,
+        "Latest_Deposit": 243955.1691,
+        "Latest_CD_Ratio": 0.760166923,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Credit_CAGR": 17.069648174412567,
+        "Deposit_CAGR": 10.968413819406697,
+        "CD_Change": 0.1535155879781121,
+        "Latest_Credit": 6899.6149,
+        "Latest_Deposit": 15654.5042,
+        "Latest_CD_Ratio": 0.4407431121325452,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Delhi",
+        "Credit_CAGR": 7.100459543304849,
+        "Deposit_CAGR": 8.487379242939475,
+        "CD_Change": -0.09816145899999995,
+        "Latest_Credit": 1680085.21,
+        "Latest_Deposit": 1855609.45,
+        "Latest_CD_Ratio": 0.905408846,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Goa",
+        "Credit_CAGR": 8.835748101534202,
+        "Deposit_CAGR": 9.065990992051965,
+        "CD_Change": -0.004537212999999984,
+        "Latest_Credit": 29810.4135,
+        "Latest_Deposit": 112021.356,
+        "Latest_CD_Ratio": 0.266113664,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Gujarat",
+        "Credit_CAGR": 10.820518582946415,
+        "Deposit_CAGR": 11.00661657995552,
+        "CD_Change": -0.010049258000000005,
+        "Latest_Credit": 888933.8089,
+        "Latest_Deposit": 1195365.011,
+        "Latest_CD_Ratio": 0.743650518,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Haryana",
+        "Credit_CAGR": 14.610337033800814,
+        "Deposit_CAGR": 15.296479683219566,
+        "CD_Change": -0.032588642,
+        "Latest_Credit": 525579.0641,
+        "Latest_Deposit": 788798.2172,
+        "Latest_CD_Ratio": 0.666303565,
+        "Years": "2016-2024",
+        "Cluster": 2,
+        "Cluster_Ranked": 1,
+        "Cluster_Label": "Cluster 2: Credit 15.7%, Deposit 15.8%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Himachal Pradesh",
+        "Credit_CAGR": 11.902259856220688,
+        "Deposit_CAGR": 10.7649197285274,
+        "CD_Change": 0.027979692,
+        "Latest_Credit": 53600.5273,
+        "Latest_Deposit": 150334.4192,
+        "Latest_CD_Ratio": 0.356541952,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Jammu and Kashmir",
+        "Credit_CAGR": 14.20965117451589,
+        "Deposit_CAGR": 10.301071216385704,
+        "CD_Change": 0.14193523500000005,
+        "Latest_Credit": 102722.1507,
+        "Latest_Deposit": 175966.8132,
+        "Latest_CD_Ratio": 0.583758658,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Jharkhand",
+        "Credit_CAGR": 12.953508407118331,
+        "Deposit_CAGR": 9.779820459609656,
+        "CD_Change": 0.075690753,
+        "Latest_Credit": 125013.5278,
+        "Latest_Deposit": 336723.934,
+        "Latest_CD_Ratio": 0.371264158,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Karnataka",
+        "Credit_CAGR": 11.431644147628717,
+        "Deposit_CAGR": 11.663286563189335,
+        "CD_Change": -0.011553696000000002,
+        "Latest_Credit": 1160358.146,
+        "Latest_Deposit": 1682410.987,
+        "Latest_CD_Ratio": 0.689699577,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Kerala",
+        "Credit_CAGR": 12.049475395179932,
+        "Deposit_CAGR": 10.321923043608972,
+        "CD_Change": 0.08219242599999999,
+        "Latest_Credit": 564938.3562,
+        "Latest_Deposit": 803411.0902,
+        "Latest_CD_Ratio": 0.703174705,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Lakshadweep",
+        "Credit_CAGR": 9.833016226789093,
+        "Deposit_CAGR": 9.24718027857605,
+        "CD_Change": 0.004579096000000005,
+        "Latest_Credit": 167.448,
+        "Latest_Deposit": 1531.569,
+        "Latest_CD_Ratio": 0.109331019,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Madhya Pradesh",
+        "Credit_CAGR": 13.268694087801535,
+        "Deposit_CAGR": 10.271313061088549,
+        "CD_Change": 0.14644205300000002,
+        "Latest_Credit": 468541.1196,
+        "Latest_Deposit": 617814.2023,
+        "Latest_CD_Ratio": 0.758385155,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Maharashtra",
+        "Credit_CAGR": 9.665997136210525,
+        "Deposit_CAGR": 9.973609251770888,
+        "CD_Change": -0.02279426899999981,
+        "Latest_Credit": 4695200.833,
+        "Latest_Deposit": 4667846.792,
+        "Latest_CD_Ratio": 1.005860098,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Manipur",
+        "Credit_CAGR": 21.269461067614692,
+        "Deposit_CAGR": 12.664333521017967,
+        "CD_Change": 0.32945666100000004,
+        "Latest_Credit": 11600.2367,
+        "Latest_Deposit": 15669.124,
+        "Latest_CD_Ratio": 0.74032452,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Meghalaya",
+        "Credit_CAGR": 15.383992916721123,
+        "Deposit_CAGR": 8.295816283833268,
+        "CD_Change": 0.16358034300000002,
+        "Latest_Credit": 14133.667,
+        "Latest_Deposit": 34372.1282,
+        "Latest_CD_Ratio": 0.411195574,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Mizoram",
+        "Credit_CAGR": 16.386861206109305,
+        "Deposit_CAGR": 12.994038156075982,
+        "CD_Change": 0.10703434000000006,
+        "Latest_Credit": 7980.2594,
+        "Latest_Deposit": 15713.356,
+        "Latest_CD_Ratio": 0.507864736,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Nagaland",
+        "Credit_CAGR": 16.291037371779815,
+        "Deposit_CAGR": 10.464966812009479,
+        "CD_Change": 0.17355203999999996,
+        "Latest_Credit": 8820.936,
+        "Latest_Deposit": 17135.0695,
+        "Latest_CD_Ratio": 0.514788458,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Odisha",
+        "Credit_CAGR": 14.42708002835622,
+        "Deposit_CAGR": 12.122083100719273,
+        "CD_Change": 0.07219727699999995,
+        "Latest_Credit": 251114.1597,
+        "Latest_Deposit": 522543.0552,
+        "Latest_CD_Ratio": 0.480561663,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Puducherry",
+        "Credit_CAGR": 12.060944414858543,
+        "Deposit_CAGR": 11.47403720251332,
+        "CD_Change": 0.028774412000000082,
+        "Latest_Credit": 21141.3426,
+        "Latest_Deposit": 30226.0071,
+        "Latest_CD_Ratio": 0.699442124,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Punjab",
+        "Credit_CAGR": 7.459243461402232,
+        "Deposit_CAGR": 9.899465605311875,
+        "CD_Change": -0.11472673699999991,
+        "Latest_Credit": 360008.0811,
+        "Latest_Deposit": 617488.8581,
+        "Latest_CD_Ratio": 0.583019558,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Rajasthan",
+        "Credit_CAGR": 15.194802698067122,
+        "Deposit_CAGR": 12.635664438869188,
+        "CD_Change": 0.142585211,
+        "Latest_Credit": 581568.4247,
+        "Latest_Deposit": 670969.9614,
+        "Latest_CD_Ratio": 0.866757766,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Sikkim",
+        "Credit_CAGR": 17.604489016463788,
+        "Deposit_CAGR": 11.099353891304675,
+        "CD_Change": 0.16166030199999998,
+        "Latest_Credit": 6519.6746,
+        "Latest_Deposit": 14748.1132,
+        "Latest_CD_Ratio": 0.442068386,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Tamil Nadu",
+        "Credit_CAGR": 10.525452265862011,
+        "Deposit_CAGR": 10.611479200177776,
+        "CD_Change": -0.0070531029999998385,
+        "Latest_Credit": 1518842.698,
+        "Latest_Deposit": 1344553.303,
+        "Latest_CD_Ratio": 1.129626245,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Telangana",
+        "Credit_CAGR": 11.21206202645839,
+        "Deposit_CAGR": 10.451963454674207,
+        "CD_Change": 0.05895428899999988,
+        "Latest_Credit": 870271.1706,
+        "Latest_Deposit": 788090.7525,
+        "Latest_CD_Ratio": 1.104277861,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Tripura",
+        "Credit_CAGR": 13.182534300259485,
+        "Deposit_CAGR": 9.989265939959214,
+        "CD_Change": 0.09072023000000001,
+        "Latest_Credit": 16451.5299,
+        "Latest_Deposit": 37109.0281,
+        "Latest_CD_Ratio": 0.443329582,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Uttar Pradesh",
+        "Credit_CAGR": 12.868515267119228,
+        "Deposit_CAGR": 11.283038866459316,
+        "CD_Change": 0.053421388999999986,
+        "Latest_Credit": 871584.8786,
+        "Latest_Deposit": 1745806.748,
+        "Latest_CD_Ratio": 0.499244764,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "Uttarakhand",
+        "Credit_CAGR": 13.06305522534188,
+        "Deposit_CAGR": 11.02533320857344,
+        "CD_Change": 0.054689070000000006,
+        "Latest_Credit": 89998.97,
+        "Latest_Deposit": 222834.806,
+        "Latest_CD_Ratio": 0.403882013,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": false
+      },
+      {
+        "Region": "West Bengal",
+        "Credit_CAGR": 6.751241531659624,
+        "Deposit_CAGR": 8.171528750139,
+        "CD_Change": -0.05524412800000006,
+        "Latest_Credit": 566403.051,
+        "Latest_Deposit": 1143462.521,
+        "Latest_CD_Ratio": 0.495340285,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      }
+    ],
+    "data-67876d130267fc8143eedbbe7f2eab94": [
+      {
+        "Region": "Arunachal Pradesh",
+        "Credit_CAGR": 16.735420652093282,
+        "Deposit_CAGR": 16.289774157120117,
+        "CD_Change": 0.00901378399999997,
+        "Latest_Credit": 8735.3169,
+        "Latest_Deposit": 29204.6564,
+        "Latest_CD_Ratio": 0.299106991,
+        "Years": "2016-2024",
+        "Cluster": 2,
+        "Cluster_Ranked": 1,
+        "Cluster_Label": "Cluster 2: Credit 15.7%, Deposit 15.8%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Chandigarh",
+        "Credit_CAGR": 5.410064427267369,
+        "Deposit_CAGR": 9.381116289976998,
+        "CD_Change": -0.2504716490000001,
+        "Latest_Credit": 83007.7182,
+        "Latest_Deposit": 114088.583,
+        "Latest_CD_Ratio": 0.727572523,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Dadra and Nagar Haveli and Daman and Diu",
+        "Credit_CAGR": 17.069648174412567,
+        "Deposit_CAGR": 10.968413819406697,
+        "CD_Change": 0.1535155879781121,
+        "Latest_Credit": 6899.6149,
+        "Latest_Deposit": 15654.5042,
+        "Latest_CD_Ratio": 0.4407431121325452,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Delhi",
+        "Credit_CAGR": 7.100459543304849,
+        "Deposit_CAGR": 8.487379242939475,
+        "CD_Change": -0.09816145899999995,
+        "Latest_Credit": 1680085.21,
+        "Latest_Deposit": 1855609.45,
+        "Latest_CD_Ratio": 0.905408846,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Goa",
+        "Credit_CAGR": 8.835748101534202,
+        "Deposit_CAGR": 9.065990992051965,
+        "CD_Change": -0.004537212999999984,
+        "Latest_Credit": 29810.4135,
+        "Latest_Deposit": 112021.356,
+        "Latest_CD_Ratio": 0.266113664,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Haryana",
+        "Credit_CAGR": 14.610337033800814,
+        "Deposit_CAGR": 15.296479683219566,
+        "CD_Change": -0.032588642,
+        "Latest_Credit": 525579.0641,
+        "Latest_Deposit": 788798.2172,
+        "Latest_CD_Ratio": 0.666303565,
+        "Years": "2016-2024",
+        "Cluster": 2,
+        "Cluster_Ranked": 1,
+        "Cluster_Label": "Cluster 2: Credit 15.7%, Deposit 15.8%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Lakshadweep",
+        "Credit_CAGR": 9.833016226789093,
+        "Deposit_CAGR": 9.24718027857605,
+        "CD_Change": 0.004579096000000005,
+        "Latest_Credit": 167.448,
+        "Latest_Deposit": 1531.569,
+        "Latest_CD_Ratio": 0.109331019,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Maharashtra",
+        "Credit_CAGR": 9.665997136210525,
+        "Deposit_CAGR": 9.973609251770888,
+        "CD_Change": -0.02279426899999981,
+        "Latest_Credit": 4695200.833,
+        "Latest_Deposit": 4667846.792,
+        "Latest_CD_Ratio": 1.005860098,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Manipur",
+        "Credit_CAGR": 21.269461067614692,
+        "Deposit_CAGR": 12.664333521017967,
+        "CD_Change": 0.32945666100000004,
+        "Latest_Credit": 11600.2367,
+        "Latest_Deposit": 15669.124,
+        "Latest_CD_Ratio": 0.74032452,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Meghalaya",
+        "Credit_CAGR": 15.383992916721123,
+        "Deposit_CAGR": 8.295816283833268,
+        "CD_Change": 0.16358034300000002,
+        "Latest_Credit": 14133.667,
+        "Latest_Deposit": 34372.1282,
+        "Latest_CD_Ratio": 0.411195574,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Mizoram",
+        "Credit_CAGR": 16.386861206109305,
+        "Deposit_CAGR": 12.994038156075982,
+        "CD_Change": 0.10703434000000006,
+        "Latest_Credit": 7980.2594,
+        "Latest_Deposit": 15713.356,
+        "Latest_CD_Ratio": 0.507864736,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Nagaland",
+        "Credit_CAGR": 16.291037371779815,
+        "Deposit_CAGR": 10.464966812009479,
+        "CD_Change": 0.17355203999999996,
+        "Latest_Credit": 8820.936,
+        "Latest_Deposit": 17135.0695,
+        "Latest_CD_Ratio": 0.514788458,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Odisha",
+        "Credit_CAGR": 14.42708002835622,
+        "Deposit_CAGR": 12.122083100719273,
+        "CD_Change": 0.07219727699999995,
+        "Latest_Credit": 251114.1597,
+        "Latest_Deposit": 522543.0552,
+        "Latest_CD_Ratio": 0.480561663,
+        "Years": "2016-2024",
+        "Cluster": 3,
+        "Cluster_Ranked": 2,
+        "Cluster_Label": "Cluster 3: Credit 12.5%, Deposit 10.9%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Punjab",
+        "Credit_CAGR": 7.459243461402232,
+        "Deposit_CAGR": 9.899465605311875,
+        "CD_Change": -0.11472673699999991,
+        "Latest_Credit": 360008.0811,
+        "Latest_Deposit": 617488.8581,
+        "Latest_CD_Ratio": 0.583019558,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Rajasthan",
+        "Credit_CAGR": 15.194802698067122,
+        "Deposit_CAGR": 12.635664438869188,
+        "CD_Change": 0.142585211,
+        "Latest_Credit": 581568.4247,
+        "Latest_Deposit": 670969.9614,
+        "Latest_CD_Ratio": 0.866757766,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "Sikkim",
+        "Credit_CAGR": 17.604489016463788,
+        "Deposit_CAGR": 11.099353891304675,
+        "CD_Change": 0.16166030199999998,
+        "Latest_Credit": 6519.6746,
+        "Latest_Deposit": 14748.1132,
+        "Latest_CD_Ratio": 0.442068386,
+        "Years": "2016-2024",
+        "Cluster": 0,
+        "Cluster_Ranked": 0,
+        "Cluster_Label": "Cluster 1: Credit 16.4%, Deposit 11.0%",
+        "is_outlier": true
+      },
+      {
+        "Region": "West Bengal",
+        "Credit_CAGR": 6.751241531659624,
+        "Deposit_CAGR": 8.171528750139,
+        "CD_Change": -0.05524412800000006,
+        "Latest_Credit": 566403.051,
+        "Latest_Deposit": 1143462.521,
+        "Latest_CD_Ratio": 0.495340285,
+        "Years": "2016-2024",
+        "Cluster": 1,
+        "Cluster_Ranked": 3,
+        "Cluster_Label": "Cluster 4: Credit 7.9%, Deposit 9.2%",
+        "is_outlier": true
+      }
+    ]
+  }
+}

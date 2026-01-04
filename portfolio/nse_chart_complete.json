@@ -1,0 +1,378 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "NSE Nifty 50: Market Overview",
+    "subtitle": "Each company has unique color | Volume bars uniform| Source : NSE",
+    "anchor": "start",
+    "font": "Georgia",
+    "fontSize": 14,
+    "fontWeight": "bold",
+    "subtitleFont": "Arial",
+    "subtitleFontSize": 10,
+    "subtitleColor": "#666666"
+  },
+  "background": "white",
+  "data": {
+    "values": [
+      {
+        "Symbol": "MARUTI",
+        "Last_Price": 16405.0,
+        "Percent_Change": 0.47,
+        "Volume": 360190,
+        "Company_Name": "MARUTI"
+      },
+      {
+        "Symbol": "INDIGO",
+        "Last_Price": 5113.0,
+        "Percent_Change": -0.05,
+        "Volume": 9087607,
+        "Company_Name": "INDIGO"
+      },
+      {
+        "Symbol": "LT",
+        "Last_Price": 4075.0,
+        "Percent_Change": 1.09,
+        "Volume": 1327935,
+        "Company_Name": "LT"
+      },
+      {
+        "Symbol": "M&M",
+        "Last_Price": 3605.0,
+        "Percent_Change": 0.51,
+        "Volume": 1647819,
+        "Company_Name": "M&M"
+      },
+      {
+        "Symbol": "TCS",
+        "Last_Price": 3285.0,
+        "Percent_Change": 0.13,
+        "Volume": 3902511,
+        "Company_Name": "TCS"
+      },
+      {
+        "Symbol": "ASIANPAINT",
+        "Last_Price": 2788.3,
+        "Percent_Change": 1.04,
+        "Volume": 3895542,
+        "Company_Name": "ASIANPAINT"
+      },
+      {
+        "Symbol": "KOTAKBANK",
+        "Last_Price": 2159.6,
+        "Percent_Change": -0.23,
+        "Volume": 2300934,
+        "Company_Name": "KOTAKBANK"
+      },
+      {
+        "Symbol": "BHARTIARTL",
+        "Last_Price": 2090.9,
+        "Percent_Change": -0.05,
+        "Volume": 10127415,
+        "Company_Name": "BHARTIARTL"
+      },
+      {
+        "Symbol": "SUNPHARMA",
+        "Last_Price": 1745.5,
+        "Percent_Change": -0.02,
+        "Volume": 2768986,
+        "Company_Name": "SUNPHARMA"
+      },
+      {
+        "Symbol": "HCLTECH",
+        "Last_Price": 1641.8,
+        "Percent_Change": -1.18,
+        "Volume": 3487150,
+        "Company_Name": "HCLTECH"
+      },
+      {
+        "Symbol": "INFY",
+        "Last_Price": 1638.0,
+        "Percent_Change": 0.69,
+        "Volume": 13149023,
+        "Company_Name": "INFY"
+      },
+      {
+        "Symbol": "RELIANCE",
+        "Last_Price": 1564.9,
+        "Percent_Change": 1.33,
+        "Volume": 13937275,
+        "Company_Name": "RELIANCE"
+      },
+      {
+        "Symbol": "ICICIBANK",
+        "Last_Price": 1354.3,
+        "Percent_Change": -0.18,
+        "Volume": 14318512,
+        "Company_Name": "ICICIBANK"
+      },
+      {
+        "Symbol": "AXISBANK",
+        "Last_Price": 1231.4,
+        "Percent_Change": 0.13,
+        "Volume": 5055047,
+        "Company_Name": "AXISBANK"
+      },
+      {
+        "Symbol": "BAJFINANCE",
+        "Last_Price": 1006.2,
+        "Percent_Change": 0.59,
+        "Volume": 5126009,
+        "Company_Name": "BAJFINANCE"
+      },
+      {
+        "Symbol": "HDFCBANK",
+        "Last_Price": 985.2,
+        "Percent_Change": 0.56,
+        "Volume": 25952384,
+        "Company_Name": "HDFCBANK"
+      },
+      {
+        "Symbol": "SBIN",
+        "Last_Price": 980.0,
+        "Percent_Change": 0.25,
+        "Volume": 5376584,
+        "Company_Name": "SBIN"
+      },
+      {
+        "Symbol": "SHRIRAMFIN",
+        "Last_Price": 905.1,
+        "Percent_Change": 4.1,
+        "Volume": 35297309,
+        "Company_Name": "SHRIRAMFIN"
+      },
+      {
+        "Symbol": "TMPV",
+        "Last_Price": 354.2,
+        "Percent_Change": 2.43,
+        "Volume": 74052760,
+        "Company_Name": "TMPV"
+      },
+      {
+        "Symbol": "ETERNAL",
+        "Last_Price": 286.25,
+        "Percent_Change": 0.53,
+        "Volume": 17783844,
+        "Company_Name": "ETERNAL"
+      }
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "abs(datum.Percent_Change)",
+      "as": "Abs_Change"
+    }
+  ],
+  "spacing": 20,
+  "vconcat": [
+    {
+      "width": 400,
+      "height": 270,
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "strokeWidth": 1.5,
+            "color": "#999",
+            "strokeDash": [
+              4,
+              4
+            ]
+          },
+          "encoding": {
+            "y": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "circle",
+            "opacity": 0.85,
+            "stroke": "white",
+            "strokeWidth": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "Symbol",
+              "type": "nominal",
+              "title": null,
+              "sort": {
+                "field": "Last_Price",
+                "order": "descending"
+              },
+              "axis": {
+                "labelAngle": -45,
+                "labelFontSize": 9,
+                "labelFont": "Arial",
+                "labelColor": "#1e1e1e",
+                "domainColor": "#999",
+                "tickColor": "#999",
+                "labelPadding": 8
+              }
+            },
+            "y": {
+              "field": "Percent_Change",
+              "type": "quantitative",
+              "title": "% Change",
+              "axis": {
+                "labelFontSize": 9,
+                "labelFont": "Arial",
+                "labelColor": "#232323",
+                "titleFont": "Arial",
+                "titleFontSize": 10,
+                "titleColor": "#666",
+                "gridColor": "#e0e0e0",
+                "gridDash": [
+                  2,
+                  2
+                ],
+                "domainColor": "#999",
+                "tickColor": "#999",
+                "format": "+.2f"
+              }
+            },
+            "size": {
+              "field": "Abs_Change",
+              "type": "quantitative",
+              "scale": {
+                "type": "sqrt",
+                "domain": [
+                  0,
+                  2
+                ],
+                "range": [
+                  100,
+                  1000
+                ]
+              },
+              "legend": null
+            },
+            "color": {
+              "field": "Symbol",
+              "type": "nominal",
+              "scale": {
+                "scheme": "tableau20"
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "Symbol",
+                "type": "nominal",
+                "title": "Stock"
+              },
+              {
+                "field": "Company_Name",
+                "type": "nominal",
+                "title": "Company"
+              },
+              {
+                "field": "Last_Price",
+                "type": "quantitative",
+                "title": "Price (\u20b9)",
+                "format": ",.2f"
+              },
+              {
+                "field": "Percent_Change",
+                "type": "quantitative",
+                "title": "Change (%)",
+                "format": "+.2f"
+              },
+              {
+                "field": "Volume",
+                "type": "quantitative",
+                "title": "Volume",
+                "format": ",.0f"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "width": 400,
+      "height": 120,
+      "mark": {
+        "type": "bar",
+        "opacity": 0.75,
+        "cornerRadiusTopLeft": 3,
+        "cornerRadiusTopRight": 3,
+        "color": "#5a9fd4"
+      },
+      "encoding": {
+        "x": {
+          "field": "Symbol",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "field": "Last_Price",
+            "order": "descending"
+          },
+          "axis": {
+            "labels": false,
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "y": {
+          "field": "Volume",
+          "type": "quantitative",
+          "title": "Trading Volume (shares)",
+          "axis": {
+            "labelFontSize": 9,
+            "labelFont": "Arial",
+            "labelColor": "#666",
+            "titleFont": "Arial",
+            "titleFontSize": 10,
+            "titleColor": "#666",
+            "gridColor": "#e0e0e0",
+            "gridDash": [
+              2,
+              2
+            ],
+            "domainColor": "#999",
+            "tickColor": "#999",
+            "format": "~s"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Symbol",
+            "type": "nominal",
+            "title": "Stock"
+          },
+          {
+            "field": "Company_Name",
+            "type": "nominal",
+            "title": "Company"
+          },
+          {
+            "field": "Volume",
+            "type": "quantitative",
+            "title": "Volume",
+            "format": ",.0f"
+          },
+          {
+            "field": "Percent_Change",
+            "type": "quantitative",
+            "title": "Change (%)",
+            "format": "+.2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Arial",
+      "titleFont": "Arial"
+    },
+    "legend": {
+      "labelFont": "Arial",
+      "titleFont": "Arial"
+    }
+  }
+}

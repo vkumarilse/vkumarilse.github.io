@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Income Inequality in India, 1951-2024",
+    "subtitle": "Share of pre-tax national income by income group",
+    "anchor": "start",
+    "font": "Georgia",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "subtitleFont": "Arial",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/portfolio/InequalitydataWID.csv"
+  },
+  "transform": [
+    {"calculate": "datum.Top_1_Share_pct * 100", "as": "Top 1% Share"},
+    {"calculate": "datum.Top_10_Share_pct * 100", "as": "Top 10% Share"},
+    {"calculate": "datum['Bottom 50%'] * 100", "as": "Bottom 50% Share"},
+    {
+      "fold": ["Top 1% Share", "Top 10% Share", "Bottom 50% Share"],
+      "as": ["Income_Group", "Share"]
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "strokeWidth": 3,
+    "point": false,
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "quantitative",
+      "axis": {
+        "title": null,
+        "grid": false,
+        "labelFont": "Arial",
+        "labelFontSize": 11,
+        "format": "d",
+        "labelColor": "#666"
+      },
+      "scale": {"domain": [1950, 2025]}
+    },
+    "y": {
+      "field": "Share",
+      "type": "quantitative",
+      "axis": {
+        "title": "Share of National Income (%)",
+        "titleFont": "Arial",
+        "titleFontSize": 12,
+        "labelFont": "Arial",
+        "labelFontSize": 11,
+        "grid": true,
+        "gridColor": "#e0e0e0",
+        "gridDash": [2, 2],
+        "labelColor": "#666",
+        "titleColor": "#333"
+      },
+      "scale": {"domain": [0, 100]}
+    },
+    "color": {
+      "field": "Income_Group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Bottom 50% Share", "Top 10% Share", "Top 1% Share"],
+        "range": ["#E63946", "#0F5499", "#2A9D8F"]
+      },
+      "legend": {
+        "title": null,
+        "orient": "top-right",
+        "direction": "vertical",
+        "labelFont": "Arial",
+        "labelFontSize": 12,
+        "symbolSize": 100,
+        "symbolStrokeWidth": 3
+      }
+    },
+    "tooltip": [
+      {"field": "Year", "type": "quantitative", "format": "d", "title": "Year"},
+      {"field": "Income_Group", "type": "nominal", "title": "Group"},
+      {
+        "field": "Share",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Share (%)"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"domain": false},
+    "background": "#FFFFFF"
+  }
+}

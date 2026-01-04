@@ -11,8 +11,8 @@
     "subtitleFontSize": 12,
     "subtitleColor": "#666666"
   },
-  "width": 350,
-  "height": 350,
+  "width": 250,
+  "height": 250,
   "background": "#fff1e5",
   "data": {
     "values": [
@@ -153,7 +153,7 @@
           },
           "legend": {
             "title": null,
-            "orient": "top",
+            "orient": "bottom",
             "direction": "horizontal",
             "labelFontSize": 11,
             "labelFont": "Arial",

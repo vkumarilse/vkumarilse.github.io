@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Chart du jour: War on Europe",
+    "subtitle": "Europe is far and away the most important investment partner of the US",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "font": "Georgia",
+    "anchor": "start",
+    "subtitleFontSize": 14,
+    "subtitleFont": "Arial",
+    "subtitleFontWeight": "normal",
+    "subtitlePadding": 0,
+    "offset": 0
+  },
+  "width": 300,
+  "height": 300,
+  "padding": {"top": 10, "left": 10, "right": 10, "bottom": 10},
+  "data": {
+    "values": [
+      {"region": "Europe", "type": "US overseas direct investment", "value": -3500},
+      {"region": "Europe", "type": "Foreign direct investment in the US", "value": 4000},
+      {"region": "Asia-Pacific", "type": "US overseas direct investment", "value": -1500},
+      {"region": "Asia-Pacific", "type": "Foreign direct investment in the US", "value": 1200},
+      {"region": "Canada", "type": "US overseas direct investment", "value": -600},
+      {"region": "Canada", "type": "Foreign direct investment in the US", "value": 800},
+      {"region": "Latin America and other western hemisphere", "type": "US overseas direct investment", "value": -800},
+      {"region": "Latin America and other western hemisphere", "type": "Foreign direct investment in the US", "value": 300},
+      {"region": "Middle East", "type": "US overseas direct investment", "value": -100},
+      {"region": "Middle East", "type": "Foreign direct investment in the US", "value": 50},
+      {"region": "Africa", "type": "US overseas direct investment", "value": -50},
+      {"region": "Africa", "type": "Foreign direct investment in the US", "value": 30}
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "region",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFontSize": 11,
+        "labelFont": "Arial",
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 10,
+        "labelLimit": 120
+      },
+      "sort": ["Europe", "Asia-Pacific", "Canada", "Latin America and other western hemisphere", "Middle East", "Africa"]
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": null,
+        "labelFontSize": 11,
+        "labelFont": "Arial",
+        "labelExpr": "abs(datum.value)",
+        "format": "",
+        "tickCount": 8,
+        "gridDash": [2, 2],
+        "gridColor": "#ddd"
+      },
+      "scale": {
+        "domain": [-4000, 4000]
+      }
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["US overseas direct investment", "Foreign direct investment in the US"],
+        "range": ["#d6766f", "#4aaed9"]
+      },
+      "legend": {
+        "title": "Direct investment positions in 2024 ($bn)",
+        "titleFontSize": 11,
+        "titleFont": "Arial",
+        "titleFontWeight": "normal",
+        "labelFontSize": 10,
+        "labelFont": "Arial",
+        "orient": "left",
+        "direction": "vertical",
+        "symbolType": "square",
+        "symbolSize": 100,
+        "offset": 0,
+        "titlePadding": 5,
+        "labelOffset": 5
+      }
+    }
+  },
+  "mark": {
+    "type": "bar",
+    "height": {"band": 0.6}
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {
+      "labelColor": "#666",
+      "titleColor": "#666",
+      "gridColor": "#f0f0f0"
+    },
+    "background": "#fff1e5",
+    "text": {
+      "font": "Arial",
+      "fontSize": 10,
+      "color": "#666"
+    }
+  }
+}

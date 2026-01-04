@@ -4,10 +4,11 @@
   "title": {
     "text": "Scotland: Universal Credit Claimants by Constituency",
     "subtitle": "National Average: 9.05%",
+    "font":"Georgia",
     "fontSize": 16
   },
   "width": 400,
-  "height": 500,
+  "height": 400,
   "layer": [
     {
       "data": {

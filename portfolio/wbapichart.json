@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Renewable Energy Consumption Trends",
+    "subtitle": "India, China, US and World (1990-2021) using World Bank API",
+    "anchor": "start",
+    "fontSize": 18,
+    "font": "Helvetica",
+    "fontWeight": "bold",
+    "subtitleFontSize": 12,
+    "subtitleFont": "Helvetica",
+    "subtitleColor": "#686666"
+  },
+  "width": 400,
+  "height": 400,
+  "background": "#fcfcfc",
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/IN;1W;CN;US/indicator/EG.FEC.RNEW.ZS?date=1990:2023&format=json&per_page=500",
+    "format": {"type": "json", "property": "[1]"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true, "strokeWidth": 3},
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": -45,
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Renewable Energy (% of total consumption)",
+          "axis": {"format": ".1f", "grid": false}
+        },
+        "color": {
+          "field": "country.value",
+          "type": "nominal",
+          "scale": {
+            "domain": ["India", "China", "United States", "World"],
+            "range": ["#F57C00", "#C62828", "#0288D1", "#689F38"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "country.value", "type": "nominal", "title": "Country"},
+          {"field": "date", "type": "temporal", "title": "Year"},
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Renewable Energy (%)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "year(datum.date) == '2020'"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 12,
+        "fontWeight": "italic",
+        "font": "Helvetica"
+      },
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {"field": "value", "type": "quantitative"},
+        "text": {"field": "country.value", "type": "nominal"},
+        "color": {
+          "field": "country.value",
+          "type": "nominal",
+          "scale": {
+            "domain": ["India", "China", "United States", "World"],
+            "range": ["#F57C00", "#C62828", "#0288D1", "#689F38"]
+          },
+          "legend": null
+        }
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}, "font": "Helvetica"}
+}

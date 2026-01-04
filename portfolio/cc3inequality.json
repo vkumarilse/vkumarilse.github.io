@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "India's Rising Prosperity: National Income Growth, 1951-2024",
+    "subtitle": "Pre-tax national income per capita (PPP constant 2024 prices)",
+    "anchor": "start",
+    "font": "Georgia",
+    "fontSize": 14,
+    "fontWeight": "bold",
+    "subtitleFont": "Arial",
+    "subtitleFontSize": 12,
+    "subtitleColor": "#666",
+    "offset": 20
+  },
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/portfolio/InequalitydataWID.csv"
+  },
+  "mark": {
+    "type": "area",
+    "line": {"color": "#0F5499", "strokeWidth": 2.5},
+    "color": {
+      "x1": 1,
+      "y1": 1,
+      "x2": 1,
+      "y2": 0,
+      "gradient": "linear",
+      "stops": [
+        {"offset": 0, "color": "#E8F2F7"},
+        {"offset": 1, "color": "#0F5499"}
+      ]
+    },
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "quantitative",
+      "axis": {
+        "title": null,
+        "grid": false,
+        "labelFont": "Arial",
+        "labelFontSize": 11,
+        "tickCount": 10,
+        "format": "d",
+        "labelColor": "#666"
+      },
+      "scale": {"domain": [1950, 2025]}
+    },
+    "y": {
+      "field": "National income (PPP constant (2024))",
+      "type": "quantitative",
+      "axis": {
+        "title": "Income (PPP constant 2024 ₹)",
+        "titleFont": "Arial",
+        "titleFontSize": 12,
+        "labelFont": "Arial",
+        "labelFontSize": 11,
+        "grid": true,
+        "gridColor": "#e0e0e0",
+        "gridDash": [2, 2],
+        "format": ",.0f",
+        "labelColor": "#666",
+        "titleColor": "#333"
+      },
+      "scale": {"domain": [0, 10000]}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "quantitative", "format": "d", "title": "Year"},
+      {
+        "field": "National income (PPP constant (2024))",
+        "type": "quantitative",
+        "format": ",.2f",
+        "title": "National Income (PPP ₹)"
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"domain": false, "labelAngle": 0},
+    "background": "#FFFFFF"
+  }
+}
