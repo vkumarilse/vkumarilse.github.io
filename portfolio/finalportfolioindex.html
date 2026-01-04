@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;600&display=swap');
         
         :root {
             --concrete: #e8e8e8;
@@ -29,7 +29,7 @@
         body {
             font-family: 'Quicksand';
             background: var(--concrete);
-            color: var(--charcoal);
+            color: var(--#191919);
             line-height: 1.6;
             position: relative;
         }
@@ -283,7 +283,7 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    An exploration of the relationship between economic prosperity and population health outcomes. This visualization examines how gross domestic product correlates with life expectancy across different nations and time periods.
+                    This section demonstrates the foundational skill of hosting visualizations on a personal GitHub Pages site. Two charts are embedded using the vegaEmbed function, showcasing the ability to display interactive Vega-Lite specifications within a custom HTML page.
                 </div>
                 <div class="charts-grid">
                     <div class="chart-container">
@@ -305,7 +305,8 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Analysis of reciprocal tariff policies and their impact on international trade dynamics. This chart illustrates the complex interplay of trade barriers and their economic consequences.
+                    Two original visualizations created using the Economics Observatory Data Hub's "create" tool. The JSON specifications were exported and embedded into this portfolio using the vegaEmbed function, demonstrating the workflow from chart design to web deployment.
+                
                 </div>
                 <div class="charts-grid">
                     <div class="chart-container">
@@ -342,30 +343,35 @@
         </div>
 
         <div class="section">
-            <div class="section-header">
-                <div class="section-number">Section 04</div>
-                <h2>CC4-Replication, Recreated and then improved chart</h2>
+    <div class="section-header">
+        <div class="section-number">Section 04</div>
+        <h2>CC4-Replication: Recreate and Improve</h2>
+    </div>
+    <div class="section-content">
+        <div class="description">
+            <p><strong>Original chart (Financial Times): </strong>Original chart (Financial Times)
+The original chart uses mirrored bars around a central axis to show inward and outward US FDI, but duplicated scales make precise magnitude comparison and net positions harder to read.
+
+<p><strong>Replicated & improved chart: </strong>
+The improved version retains FT styling while using a single axis with interactive (hover) colour-coded dots, making investment imbalances immediately legible and easier to compare across regions.</p>
+        </div>
+        <!-- Special 3-column grid for this section -->
+        <div class="charts-grid charts-grid-three">
+            <div class="chart-container">
+                <div class="chart-label">Original: Financial Times</div>
+                <div class="chart-placeholder" id="chart4a"></div>
             </div>
-            <div class="section-content">
-                <div class="description">
-                    Demonstrates technical proficiency in loading and rendering visualizations from external data sources. This approach enables dynamic data integration and modular chart management.
-                </div>
-                <div class="charts-grid">
-                    <div class="chart-container">
-                        <div class="chart-label">Original Chart: Financial Times</div>
-                        <div class="chart-placeholder" id="chart4a"></div>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-label"> Replicated Chart</div>
-                        <div class="chart-placeholder" id="chart4b"></div>
-                        <div class="chart-container">
-                        <div class="chart-label">Improved Chart: Financial Times Style</div>
-                        <div class="chart-placeholder" id="chart4c"></div>
-                    </div>
-                </div>
+            <div class="chart-container">
+                <div class="chart-label">Replicated Chart</div>
+                <div class="chart-placeholder" id="chart4b"></div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-label">Improved Version</div>
+                <div class="chart-placeholder" id="chart4c"></div>
             </div>
         </div>
-        </div>
+    </div>
+</div>
 
         <div class="section">
             <div class="section-header">
@@ -374,8 +380,12 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Data Source: NSE India Nifty 50 API. Challenges: Anti-scraping headers required, nested JSON structure, rate limiting, dynamic content via AJAX. Solved using session cookies and proper user-agent headers."
-                </div>
+                <p><strong>API Task:</strong> Chart 5A uses live data from the World Bank API to visualize and compare Renewable Energy Consumption of China, India and US with the World. The API structure follows: <code>https://api.worldbank.org/v2/country/{code}/indicator/{indicator}?format=json</code>. Full URL used: <code>https://api.worldbank.org/v2/country/IN;1W;CN;US/indicator/EG.FEC.RNEW.ZS?date=1990:2023&format=json&per_page=500</code></p>
+            
+                <p><strong>Scraper Task:</strong> Chart 5B displays Nifty 50 stock data scraped from NSE India's website using Python. The chart displays stock performance metrics including price movements and trading volumes (for one day). The scraping process required bypassing anti-bot measures through session management and proper HTTP headers. Data was cleaned and transformed from nested JSON into tidy format, this meant that data extraction was feasible for smaller timeframe. Challenges included anti-bot headers, nested JSON responses, rate limiting, and AJAX-loaded content. Solutions: Python requests with session cookies, custom user-agent headers, and JSON parsing for nested structures.</p>
+                
+            
+            <p><a href="https://colab.research.google.com/drive/1B0oFFm7SRKpNZ-OMDKnQReYAiy4uy_Hh?usp=sharing" target="_blank"> Google Colab Notebook (Scraper)</a></p>
                 <div class="charts-grid">
                     <div class="chart-container">
                         <div class="chart-placeholder" id="chart5a"></div>
@@ -384,13 +394,16 @@
                     <div class="chart-container">
                        
                         <div class="chart-placeholder" id="chart5b"></div>
+                        <div class="chart-container">
+                
+              
+                
                     </div>
                 </div>
             </div>
         </div>
-       
-        
-  
+        </div>
+  </div>
         
         <div class="section">
             <div class="section-header">
@@ -399,8 +412,11 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Python-generated visualizations using the Altair library in Google Colaboratory. Demonstrates programmatic chart generation and reproducible data analysis workflows.
-                </div>
+                    <p>A dashboard of six time-series charts comparing India, China, and OECD development indicators. Data was batch-downloaded from the World Bank API using a Python loop, then saved as JSON files to GitHub. The embed code also works through loops, therefore we write the embed code once instead of six times and the code loops through chart specifications</p>
+            <p><a href="https://colab.research.google.com/drive/16eL5NVuh36CN_jWcQ_L9B7T47B3uKFua?usp=sharing" target="_blank"> Google Colab Notebook (Loops) </a></p>
+                
+                        
+            </div>
                                 <!-- Vega libraries -->
                 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
                 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -527,14 +543,15 @@
 
                     "config": {
                         "view": { "stroke": null },
-                        "font": "Helvetica Neue"
+                        "font": "Georgia"
                     }
                     };
 
-                    vegaEmbed(`#c${i + 1}`, spec, { actions: false })
+                    vegaEmbed(`#c${i + 1}`, spec, { actions:true  })
                     .catch(err => console.error(err));
                 }
-
+  
+  
                 });
               
                 </script>
@@ -550,6 +567,7 @@
             </style>
             </div>
         </div>
+        </div>
 
       <div class="section">
             <div class="section-header">
@@ -558,7 +576,8 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Interactive visualizations created using the Vega grammar, showcasing advanced declarative visualization techniques and custom data transformations with sophisticated interactions.
+                    Two maps demonstrating different cartographic techniques as required: one choropleth and one coordinate map, covering Wales and Scotland respectively.
+                <p><strong>Note:</strong> The Wales Map incorporate advanced interactivity beyond simple tooltips, including clickable filtering, before and after effect of housing cost on disposable incomes in Wales.</p>
                 </div>
                 <div class="charts-grid">
                     <div class="chart-container">
@@ -581,15 +600,18 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Using ONS consumer price data, I tracked essential curry ingredients from 2005-2024. Chart 1 shows individual ingredient inflation rates, revealing cooking oil (+65%) and rice (+40%) as biggest risers. Chart 2 displays the total 'curry basket' cost evolution, demonstrating how a £8 meal became £12.
-                </div>
+                   <p>Two charts built from the UK Long Run Prices Database (LRPD), containing millions of price observations from 1988-2024. Data was grouped and aggregated in Python to create plottable summaries from the raw dataset.</p>
+            <p><strong>Chart 8A:</strong> Tracks essential curry ingredient prices over time like, chicken, vegetable oil, tomatoes, onions and peppers.</p>
+            <p><strong>Chart 8B:</strong> Analyses theatre ticket price trends using ribbon visualisation, which shows the decile price range of the tickets alongwith the median prices of tickets. </p>
+        <p><a href="https://colab.research.google.com/drive/1MqufQj58J0mjvoLXvLYUYV-2GrYEdgC-?usp=sharing"> Google Colab Notebook (Big Data) </a></p>       
+        </div>
                 <div class="charts-grid">
                     <div class="chart-container">
-                        <div class="chart-label">Individual Ingredients: Price Changes Over Time</div>
+                        
                         <div class="chart-placeholder" id="chart8a"></div>
                     </div>
                     <div class="chart-container">
-                        <div class="chart-label">Small Multiples: Regional Comparison</div>
+                        
                         <div class="chart-placeholder" id="chart8b"></div>
                     </div>
                 </div>
@@ -602,16 +624,16 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Visualization of machine learning model performance and predictions. Demonstrates the application of supervised learning algorithms to policy-relevant datasets with evaluation metrics.
+                        <p>I have created a interactive scatter plot visualizing Credit and Deposit growth across Indian states from 2016-2024. The chart includes a slider for years, which allows us to visualise the trends in Credit and Deposit across states.Further, the scatter dots are weighted on Credit Deposit Ratio. This allows exploration of how different state exhibit distinct credit-deposit dynamics.
+                    <p>The interactive scatter plot displays Indian states banking data with Credit on the x-axis and Deposit on the y-axis in absolute values. Each point represents a state, sized by CD Ratio. The year slider allows us to animate through 2016-2024, revealing how state positions shift over time. We can observe the evolution of credit-deposit dynamics, tracking which states improved their CD ratios and which saw declining credit mobilisation relative to deposits across the eight-year period.</p>
+                    <a href=https://colab.research.google.com/drive/10sRtOD4tRDwN_4xGtLt_RYVEOoFozsW2?usp=sharing>Interactive Chart and Unsupervised Learning Colab Notebook</a>
                 </div>
-                <div class="charts-grid">
                     <div class="chart-container">
-                        <div class="chart-label">Scatter: Predicted vs Actual Values</div>
+                        
                         <div class="chart-placeholder" id="chart9a"></div>
                     </div>
                     <div class="chart-container">
-                        <div class="chart-label">Confusion Matrix: Classification Results</div>
-                        <div class="chart-placeholder" id="chart9b"></div>
+                        
                     </div>
                 </div>
             </div>
@@ -624,16 +646,20 @@
             </div>
             <div class="section-content">
                 <div class="description">
-                    Visualization of machine learning model performance and predictions. Demonstrates the application of supervised learning algorithms to policy-relevant datasets with evaluation metrics.
+                    <p><strong>Cluster Analysis:</strong> Indian states are grouped into distinct clusters based on their banking sector growth patterns (Credit and Deposit CAGR).</p>
+          
+            <p><strong>Method:</strong> Unsupervised learning using K-Means clustering in sklearn. Input features (X matrix) included standardised Credit CAGR and Deposit CAGR for each state (2016-2024). Optimal cluster count (k=4) was determined using elbow method analysis.</p>
+            
+            <p><strong>Findings:</strong> Four distinct clusters emerged: (1) High credit growth states averaging 16.4% Credit CAGR (Blue); (2) Balanced high-growth states at 15.7% credit/15.8% deposit (Green); (3) Moderate growth states (Yellow); (4) Low-growth states at 7.9% credit/9.2% deposit (Orange). Northeastern states dominated the high-growth clusters.</p>
+            <p>This composite visualization presents the K-Means clustering results for Indian state banking data. The main scatter plot displays all 36 states/UTs positioned by their Credit CAGR (x-axis) and Deposit CAGR (y-axis), with four distinct cluster colours revealing growth pattern groupings. Cluster 1 captures high-credit-growth states like Manipur (21.3%) and Sikkim (17.6%), primarily northeastern regions experiencing rapid financial deepening. Cluster 4 contains slower-growth states including West Bengal and Punjab, and also includes states which already have sufficient credit deposit penetration like Maharashtra and Delhi.The histogram panel below shows the distribution of states based on credit and deposit CAGR individually, the colour scale is based on the clusters assigned i.e High, Balanced, Moderate and Low growth</p>
                 </div>
                 <div class="charts-grid">
                     <div class="chart-container">
-                        <div class="chart-label">Scatter: Predicted vs Actual Values</div>
+                        
                         <div class="chart-placeholder" id="chart10a"></div>
                     </div>
                     <div class="chart-container">
-                        <div class="chart-label">Confusion Matrix: Classification Results</div>
-                        <div class="chart-placeholder" id="chart10b"></div>
+                        
                     </div>
                 </div>
             </div>
@@ -648,59 +674,60 @@
     
     <script>
         // Vega-Embed options for consistent styling
-        const embedOpt = {
-            "actions": false,
-            "theme": "latimes"
-        };
+        const vegaOpts = {
+    actions: { export: true, source: false, compiled: false, editor: true },
+    renderer: 'svg'
+  };
+
         
-        vegaEmbed('#chart1a', 'cc1portfolio.json', embedOpt);
+        vegaEmbed('#chart1a', 'cc1portfolio.json',vegaOpts );
         
-        vegaEmbed('#chart1b', 'cc1eco.json', embedOpt);
+        vegaEmbed('#chart1b', 'cc1eco.json', vegaOpts);
         
         
         // ============================================================
         // SECTION 2: 
         // ============================================================
-        vegaEmbed('#chart2a', 'cc2_eco.json', embedOpt);
+        vegaEmbed('#chart2a', 'cc2_eco.json', vegaOpts);
             
-        vegaEmbed('#chart2b', 'cc2_eco1.json', embedOpt);
+        vegaEmbed('#chart2b', 'cc2_eco1.json', vegaOpts);
         // ============================================================
         // SECTION 3: Inequality Debate
         // ============================================================
-        vegaEmbed('#chart3a', 'cc3inequality.json', embedOpt);
+        vegaEmbed('#chart3a', 'cc3inequality.json', vegaOpts);
         
-        vegaEmbed('#chart3b','cc3binequality.json' , embedOpt);
+        vegaEmbed('#chart3b','cc3binequality.json' , vegaOpts);
         
         // ============================================================
         // SECTION 4: Replication
         // ============================================================
         document.getElementById('chart4a').innerHTML = '<img src="ftorignalchart.png" style="width: 100%; height: auto; display: block;">';
-        vegaEmbed('#chart4b', 'replicateftchat.json', embedOpt);
-        vegaEmbed('#chart4c', 'ftchartrecreated.json', embedOpt);
+        vegaEmbed('#chart4b', 'replicateftchat.json', vegaOpts);
+        vegaEmbed('#chart4c', 'ftchartrecreated.json', vegaOpts);
         
-        vegaEmbed('#chart5a','wbapichart.json' , embedOpt);
-        vegaEmbed('#chart5b', 'nse_chart_complete.json', embedOpt);
+        vegaEmbed('#chart5a','wbapichart.json' , vegaOpts);
+        vegaEmbed('#chart5b', 'nse_chart_complete.json', vegaOpts);
        
              
-        vegaEmbed('#chart7a','welshmaphousing.json', embedOpt);
-        vegaEmbed('#chart7b', 'scotcoordinatemap.json', embedOpt);
+        vegaEmbed('#chart7a','welshmaphousing.json', vegaOpts);
+        vegaEmbed('#chart7b', 'scotcoordinatemap.json', vegaOpts);
         
         // ============================================================
         // SECTION 8: 
         // ============================================================
-        vegaEmbed('#chart8a', 'whatsinthecurry.json', embedOpt);
-        vegaEmbed('#chart8b', 'theatre_tickets_ribbon.json', embedOpt);
+        vegaEmbed('#chart8a', 'whatsinthecurry.json', vegaOpts);
+        vegaEmbed('#chart8b', 'theatre_tickets_ribbon.json', vegaOpts);
          // ============================================================
         // SECTION 9: 
         // ============================================================
-        vegaEmbed('#chart9a', 'cc9scatterplot.json', embedOpt);
+        vegaEmbed('#chart9a', 'cc9scatterplot.json', vegaOpts);
 
-        vegaEmbed('#chart9b', 'YOUR_CHART_LINK_OR_FILE.json', embedOpt);
+        vegaEmbed('#chart9b', 'YOUR_CHART_LINK_OR_FILE.json', vegaOpts);
         // ============================================================
         // SECTION 10: Supervised Learning
         // ============================================================
-         vegaEmbed('#chart10a', 'cc10analytics.json', embedOpt);
-          vegaEmbed('#chart10b', 'YOUR_CHART_LINK_OR_FILE.json', embedOpt);
+         vegaEmbed('#chart10a', 'cc10analytics.json', vegaOpts);
+          vegaEmbed('#chart10b', 'YOUR_CHART_LINK_OR_FILE.json', vegaOpts);
         
         
         
