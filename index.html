@@ -1,202 +1,510 @@
-<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
-<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
-<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
-<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
-
-<!-- Take a look around and make your own copy to adapt for your own use. -->
-
-<!-- This is a comment -->
-<!-- Comments are not displayed in the browser -->
-<!-- They can be used to leave notes in the code -->
-
 <!DOCTYPE html>
-<html> 
-    <!-- HTML is heirarchial: tags like this define elements on the page. 
-    Each tag does something different. For example:
-        - The <html> tag defines the whole document.
-        - The <h1> tag defines a large heading
-        - The <p> tag defines a paragraph
-        - Tags appear as an opening <div> and closing </div> pair
-    -->
-
-<head>    
-    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
-
-    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
-    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
-    <link rel="stylesheet" type="text/css" href="Example3.css">
-    <title>My Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
-
-    <!-- This is a link to the vega-lite which we're using to make graphs -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinod | Data & Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <style>
-        #chartGrid {
-            display: flex;
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #79b8ff;
+            --border: #30363d;
+            --gradient-start: #667eea;
+            --gradient-end: #764ba2;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 3.5rem;
+            font-weight: 500;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .intro p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .intro strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            margin-bottom: 4rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .about-details {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .detail-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .detail-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--accent);
+            margin-bottom: 0.35rem;
+        }
+
+        .detail-value {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.35rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            margin-bottom: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-preview-placeholder {
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .card-link svg {
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover .card-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.25rem;
+            }
+        }
+
+        /* Subtle animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header, .intro, .about-section, .project-card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .intro { animation-delay: 0.1s; }
+        .about-section { animation-delay: 0.15s; }
+        .project-card:nth-child(1) { animation-delay: 0.25s; }
+        .project-card:nth-child(2) { animation-delay: 0.35s; }
     </style>
 </head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="profile-img">V</div>
+            <h1 class="name">Vinod Kumari</h1>
+            <p class="tagline">Data Visualization & Policy Analysis</p>
+            <nav class="nav-links">
+                <a href="mailto:your.email@lse.ac.uk">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Email
+                </a>
+                <a href="https://linkedin.com/in/vinodkumari" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://vkumarilse.github.io" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    GitHub
+                </a>
+            </nav>
+        </header>
 
-<body> 
-<!-- The body tag contains the elements that visitors to our page will see. -->
-    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
-        <!-- This is a header, it is the largest text on the page -->
-        Vinod Kumari
-    </h1>
-    <p style="margin-top: 0px; color: darkblue">
-        <!-- we're setting the margin to 0px so the header and authour name are close together -->
-       Vinod Kumari | <a href="https://www.linkedin.com/in/vinodkumari/">LinkedIn</a> | <a
-            href="https://vkumarilse.github.io">GitHub</a>
-    </p>
-    <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
-        This page acts as your portfolio of charts created for PP434: Automated Data Visualisation for Policymaking.  
-    </h3>
+        <!-- Intro -->
+        <section class="intro">
+            <p>
+                Hello! I build interactive data visualizations to make policy stories accessible. 
+                Currently exploring <strong>India's financial inclusion</strong> through the lens of data.
+            </p>
+        </section>
 
-    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
-    <section>
-        <div class="chart-description">
-            <h2>Section 1: GDP vs. Life Expectancy</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-<section>
-        <div class="chart-description">
-            <h2>Section 2: Reciprocal Tariff</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-    <section>
-        <div class="chart-description">
-            <h2>Section 3: Survey of Tariff Harm</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-        <section>
-        <div class="chart-description">
-            <h2>Section 4: Chart from the file</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-       <section>
-        <div class="chart-description">
-            <h2>Section 5: Chart from Vega Editor</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-     <section>
-        <div class="chart-description">
-            <h2>Section 6: Chart from Altair and Google Collab</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location6"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-    <section>
-        <div class="chart-description">
-            <h2>Section 7: API Chart</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location7"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-    <section>
-        <div class="chart-description">
-            <h2>Section 8: Chart for Week 8 showing Change in Milk prices</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location8"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-       <section>
-        <div class="chart-description">
-            <h2>Section 10: Supervised Learning Chart</h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
-        </div>
-        <figure id="Location10"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-    <!-- Do you want to add more sections? -->
-        <!-- Try copying pasting the section above -->
-        <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
-        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
+        <!-- About Section -->
+        <section class="about-section">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a Master's student at the <strong>London School of Economics</strong>, 
+                        pursuing coursework in data visualization and policy analysis. My work sits at 
+                        the intersection of <strong>data science</strong> and <strong>public policy</strong>, 
+                        with a particular focus on development economics in South Asia.
+                    </p>
+                    <p>
+                        Currently, I'm exploring India's financial inclusion landscape—examining how 
+                        programs like <strong>PMJDY</strong> and the rise of <strong>UPI</strong> are 
+                        reshaping access to banking across states. I build interactive visualizations 
+                        to make complex policy stories accessible and compelling.
+                    </p>
+                    <p>
+                        When I'm not wrangling datasets, you'll find me refining chart aesthetics 
+                        (FT-style, always), debugging GeoJSON boundaries, or thinking about how 
+                        institutional design shapes policy outcomes.
+                    </p>
+                </div>
+                <div class="about-details">
+                    <div class="detail-group">
+                        <div class="detail-label">Currently</div>
+                        <div class="detail-value">MPA Candidate, LSE</div>
+                    </div>
+                    <div class="detail-group">
+                        <div class="detail-label">Courses</div>
+                        <div class="detail-value">PP434 · PP402</div>
+                    </div>
+                    <div class="detail-group">
+                        <div class="detail-label">Focus Areas</div>
+                        <div class="detail-value">Financial Inclusion · Economic Development · Policy Evaluation</div>
+                    </div>
+                    <div class="detail-group">
+                        <div class="detail-label">Tools</div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Vega-Lite</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Econometrics</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Projects -->
+        <section class="projects-section">
+        <h2 class="section-title">Work</h2>
+        <div class="projects-grid">
+            <!-- Portfolio Card -->
+            <a href="https://vkumarilse.github.io/portfolio/finalportfolioindex.html" class="project-card">
+                <div class="card-preview">
+                    <!-- Replace with: <img src="images/portfolio-preview.png" alt="Portfolio Preview"> -->
+                    <span class="card-preview-placeholder">📊</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-label">PP434 Portfolio</span>
+                    <h3 class="card-title">Data Visualization Portfolio</h3>
+                    <p class="card-description">
+                        A collection of interactive charts and dashboards built through 10 coding challenges, 
+                        featuring Vega-Lite visualizations with FT-inspired styling.
+                    </p>
+                    <span class="card-link">
+                        Explore Portfolio
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
 
-    <!-- This is a script, it's a way to run JavaScript code on the page -->
-    <script>
-        // This is a comment in JavaScript - it's a different language to HTML and CSS
+            <!-- Project Card -->
+            <a href="https://vkumarilse.github.io/main/project/project.html" class="project-card">
+                <div class="card-preview">
+                    <!-- Replace with: <img src="images/project-preview.png" alt="Project Preview"> -->
+                    <span class="card-preview-placeholder">🇮🇳</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-label">Research Project</span>
+                    <h3 class="card-title">India's Financial Inclusion</h3>
+                    <p class="card-description">
+                        Interactive analysis of PMJDY and UPI adoption across Indian states, 
+                        combining World Bank Findex data with regression and cluster analysis.
+                    </p>
+                    <span class="card-link">
+                        View Project
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
+        </div>
+        </section>
 
-        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"; // We're storing the URL of the graph we want to display in a variable
-                                                                                                                    // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
-        let figure_2_spec = "https://raw.githubusercontent.com/EconomicsObservatory/datavis/refs/heads/main/newsletters/2025-04-05-liberation-day/visualisation/fig1_reciprocal-tariffs.json"; 
-        
-        let figure_3_spec = "https://raw.githubusercontent.com/EconomicsObservatory/datavis/refs/heads/main/newsletters/2025-04-05-liberation-day/visualisation/fig5_survey-tariff-harm.json"
-        let figure_4_spec = "wk1_chart1.json"
-        let figure_5_spec ="verticalcharts.json"
-        let figure_6_spec ="shiller_pe_ratio_chart.json"
-        let figure_7_spec ="wbapi.json"
-        let figure_8_spec ="https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/w8-seminarprice%20chart.json"
-        let figure_10_spec ="https://raw.githubusercontent.com/vkumarilse/vkumarilse.github.io/refs/heads/main/regressionchart.json"
-        // We're storing the URL of the graph we want to display in a variable
-        
-        
-        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
-        vegaEmbed('#Location2',figure_2_spec)// Vegaembed for Chart 2
-        vegaEmbed('#Location3',figure_3_spec)
-        vegaEmbed('#Location4',figure_4_spec)
-        vegaEmbed('#Location5',figure_5_spec)
-        vegaEmbed('#Location6',figure_6_spec)
-        vegaEmbed('#Location7',figure_7_spec)
-        vegaEmbed('#Location8',figure_8_spec)
-        vegaEmbed('#Location10',figure_10_spec)
-        // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
-        // e.g. 
-        // let figure_3_spec = ...
-        // vegaEmbed('#Location3', figure_3_spec)
-
-            console.log("0")
-            console.log("1")
-            console.log("2")
-            console.log("3")
-            
-            for (let i = 0; i < 4; i++) {
-            console.log(i)
-            }
-        vegaEmbed('#Location8',figure_8_spec)
-
-
-    </script>
-
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Vinod Kumari · Data Visualisation <a href="https://www.lse.ac.uk" target="_blank">LSE</a></p>
+        </footer>
+    </div>
 </body>
-    
 </html>
