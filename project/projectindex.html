@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>India Financial Inclusion: Accounts, Equity, and Sentiment</title>
+  <title>Financial Inclusion in India: Coverage, Distribution and Engagement</title>
   <link rel="stylesheet" href="projectstyle.css">
   
   <!-- Vega-Lite Dependencies -->
@@ -14,29 +14,48 @@
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <nav class="container">
-      <div class="logo">Financial Inclusion India</div>
-      <ul class="nav-links">
-        <li><a href="#aims">Aims</a></li>
-        <li><a href="#growth">Growth</a></li>
-        <li><a href="#coverage">Coverage</a></li>
-        <li><a href="#engagement">Engagement</a></li>
-        <li><a href="#conclusions">Conclusions</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header>
+  <nav class="container">
+    <div class="logo">Financial Inclusion India</div>
+    
+    <ul class="nav-links">
+      <li><a href="#aims">Aims</a></li>
+      <li><a href="#growth">Coverage</a></li>
+      <li><a href="#coverage">Gender</a></li>
+      <li><a href="#engagement">Engagement</a></li>
+      <li><a href="#conclusions">Conclusions</a></li>
+    </ul>
+    
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://github.com/vkumarilse" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com/in/vinodkumari" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+      </a>
+      <a href="https://vkumarilse.github.io/portfolio/finalportfolioindex.html" target="_blank" rel="noopener" aria-label="Portfolio" title="Portfolio">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+</header>
 
   <!-- ==================== HERO SECTION ==================== -->
   <section class="hero-section bg-parchment">
     <div class="container">
       <h1 class="hero-title">Financial Inclusion in India</h1>
       <p class="hero-subtitle">
-        Accounts, Gender Equity, and Citizen Sentiment (2015–2025)
+        Accounts, Gender Equity, and Citizen Engagement (2015–2025)
       </p>
-      <p class="lead-text" style="margin-top: var(--spacing-md);">
-        Visualizing the evolution of financial inclusion across India, integrating quantitative metrics and 
+      <p class="lead-text" style="margin-top: var(0%);">
+        Visualizing the evolution of financial inclusion across India, integrating quantitative and usage metrics
       </p>
     </div>
   </section>
@@ -63,8 +82,8 @@
       </ol>
       
       <p style="line-height: 1.8;">
-        The analysis integrates state-wise PMJDY data (2015–2025), gender-disaggregated account statistics 
-        (2019–2024), and UPI transaction volumes to assess whether India has achieved <em>substantive</em> 
+        The analysis integrates state-wise PMJDY data (2015-2025), gender-disaggregated account statistics 
+        (2019-2024), and UPI transaction volumes to assess whether India has achieved <em>substantive</em> 
         inclusion, where citizens actively use accounts, rather than merely <em>formal</em> access. India's 
         account ownership rose from 35% (2011) to 89% (2024) according to World Bank Findex data, among 
         the fastest expansions globally. This project tries to tease out whether such headline figures translate 
@@ -305,6 +324,11 @@
         <p style="line-height: 1.7; margin-bottom: 16px;max-width: 900px;">
           The Unified Payments Interface (UPI) is India's real-time mobile payment system developed by the National Payments Corporation of India (NPCI). Launched in 2016, UPI enables instant fund transfers between bank accounts using a smartphone, and has since become the backbone of India's digital payments ecosystem, processing over 20 billion transactions monthly by late 2025. 
         </p>
+        
+  <p>
+    Our log-log regression model (R²=0.90) reveals that PMJDY <em>balances</em>,not raw account counts, predict UPI adoption: a 1% increase in balances associates with 1.15% higher UPI volume. This suggests active financial engagement, rather than mere account opening, drives digital payment behaviour.
+  </p>
+</div>
         <p>
           This analysis examines the relationship between financial inclusion (PMJDY) and digital 
           payment adoption (UPI) across 35 Indian states and union territories. Using state-wise 
@@ -323,7 +347,7 @@
 
     <!-- Regression Charts (Side by Side) -->
     <div class="subsection">
-      <h3 class="subsection-title">Regression Analysis</h3>
+      <h3 style="font-family: 'Garamond', Georgia, serif; color: #2C2416; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #8B4513; padding-bottom: 12px;">Regression Analysis</h3>
       
       <div class=container>
         <div class="chart-row">
@@ -354,7 +378,7 @@
 </script>
     <!-- Correlation Matrix -->
     <div class="subsection">
-      <h3 class="subsection-title">Correlation Matrix</h3>
+      <h3 style="font-family: 'Garamond', Georgia, serif; color: #2C2416; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #8B4513; padding-bottom: 12px;">Correlation Matrix</h3>
       <div class="chart-single">
         <div class="chart-box">
           <div id="upi-chart4"></div>
@@ -367,22 +391,17 @@
         <h3>Findings</h3>
           <p>
             The Pearson correlation matrix reveals several important patterns. UPI Volume and UPI 
-            Value are nearly perfectly correlated (r = 0.99), as expected. PMJDY Balance shows 
-            stronger correlation with UPI metrics (r = 0.63–0.66) than raw account counts 
-            (r = 0.56–0.58), suggesting that active account usage matters more than account 
-            opening alone. Most notably, Urban Accounts exhibit the strongest relationship with 
-            UPI adoption (r = 0.82–0.84), while Rural Accounts show substantially weaker 
-            correlations (r = 0.46–0.48). This urban-rural disparity highlights a persistent 
-            digital divide:<strong> financial inclusion has succeeded in rural penetration, but digital 
-            payment adoption remains concentrated in urban areas.</strong>
+            Value are nearly perfectly correlated (r = 0.99), as expected.PMJDY Balance shows stronger correlation with UPI metrics (r=0.63-0.66) than raw account counts (r=0.56-0.58), confirming that active usage matters more than account opening. Critically, Urban Accounts correlate with UPI at r=0.82-0.84, while Rural Accounts show r=0.46-0.48. <strong>Financial inclusion has succeeded in rural penetration, but digital payment adoption remains concentrated in urban areas.</strong>
+          </strong>
           </p>
         </div>
       </div>
     </div>
-
+    </div>
+    
     <!-- Urbanisation & Cluster Analysis -->
     <div class="subsection">
-      <h3 class="subsection-title">Urbanisation Effect and State Clusters</h3>
+      <h3 style="font-family: 'Garamond', Georgia, serif; color: #2C2416; font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #8B4513; padding-bottom: 12px;">Urbanisation Effect and State Clusters</h3>
       
       <!-- Findings Box -->
       <div class="analysis-brief">
@@ -400,6 +419,8 @@
         </div>
       </div>
       
+      
+      
       <div class="chart-row">
         <div class="chart-box">
           <div id="upi-chart7"></div>
@@ -409,7 +430,8 @@
         </div>
       </div>
     </div>
-
+  </div>
+</section>
     <!-- Technical Note -->
     <div class="technical-note">
       <h4>Data Sources & Methodology</h4>
@@ -417,7 +439,7 @@
         PMJDY data sourced from <strong>pmjdy.gov.in</strong> (December 2025); UPI state-wise 
         statistics from <strong>NPCI Ecosystem Statistics</strong> (November 2025). Analysis 
         performed using Python (pandas, scipy, statsmodels, scikit-learn). Visualisations 
-        rendered with Vega-Lite v5.
+        rendered with Vega-Lite.
       </p>
       <p>
         <strong>Limitations:</strong> Approximately 42% of UPI transactions are classified as 
@@ -432,26 +454,6 @@
   </section>
     <!-- Ornamental Divider -->
   <div class="ornament"></div>
-  <!-- ==================== SECTION 6: WORLD BANK FINDEX ==================== -->
-  <section class="section bg-canvas" id="findex">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">World Bank Findex: India (2011–2022)</h2>
-        <p class="section-description">
-          Account ownership, digital payments, and formal savings have all increased over the past decade. 
-          Small facet charts show trends and changes in India relative to global benchmarks.
-        </p>
-      </div>
-      
-      <div class="card">
-        <h3 class="card-title">Multi-Indicator Trends</h3>
-        <div id="viz5" class="viz-container"></div>
-      </div>
-    </div>
-  </section>
- <!-- Ornamental Divider -->
-  <div class="ornament"></div>
-
  <!-- ==================== SECTION: CONCLUSIONS ==================== -->
 <section class="section bg-canvas" id="conclusions">
   <div class="container">
@@ -462,7 +464,7 @@
     <div class="card">
       <p style="line-height: 1.8; margin-bottom: 1.5rem;">
         The analysis reveals a nuanced picture of India's financial inclusion. PMJDY has achieved 
-        remarkable scale:572 million accounts, ₹2.8 lakh crore in deposits, but coverage patterns 
+        remarkable scale: 572 million accounts, ₹2.8 lakh crore in deposits, but coverage patterns 
         expose structural variations.
       </p>
       
@@ -496,7 +498,7 @@
       
       <p style="line-height: 1.8; font-weight: 500; border-left: 3px solid var(--terracotta, #c1613b); padding-left: 1rem;">
         <strong>Policy implication:</strong> Converting dormant accounts into active financial 
-        participation—particularly bridging the urban-rural digital divide, represents the critical 
+        participation, particularly bridging the urban-rural digital divide, represents the critical 
         "last mile" challenge for India's inclusion agenda.
       </p>
     </div>
@@ -518,17 +520,13 @@
         <ul style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-lg);">
           <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
             <span style="position: absolute; left: 0; color: var(--terracotta);">•</span>
-            <strong>PMJDY accounts 2015–2025, gender 2019–2024</strong> – PMJDY portal & data.gov.in
-          </li>
+            This project draws on data from the PMJDY Dashboard (pmjdy.gov.in) for state-wise account statistics and gender distribution, National Payments Corporation of India (NPCI) for UPI transaction volumes, and Census of India 2011 for population baselines. State boundary files use India GeoJSON repositories with corrections for post-2019 administrative changes (J&K/Ladakh bifurcation).</li>
           <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-md); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--terracotta);">•</span>
-            <strong>UPI transactions per capita</strong> – NPCI reports
-          </li>
-                  
-        
+              <span style="position: absolute; left: 0; color: var(--terracotta);">•</span>                     
         <p style="margin-top: var(--spacing-md); color: var(--text-secondary); line-height: 1.8;">
-          Full reproducibility scripts and data snapshots available on 
-          <a href="https://github.com/vkumarilse/vkumarilse.github.io" target="_blank" style="color: var(--terracotta); font-weight: 600;">GitHub</a>.
+          <strong>AI Disclosure & Disclaimer:</strong>
+          This project was developed with assistance from Claude for code development, HTML/CSS design elements (Raphael's Cartoons-inspired styling) and troubleshooting the India mapping. 
+          Full reproducibility scripts and data snapshots available on <a href="https://github.com/vkumarilse/vkumarilse.github.io" target="_blank" style="color: var(--terracotta); font-weight: 600;">GitHub</a>.
         </p>
       </div>
     </div>

@@ -272,6 +272,52 @@ nav {
   color: var(--terracotta);
 }
 
+.social-links {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.social-links a:hover {
+  color: var(--terracotta);
+  transform: translateY(-2px);
+  border-color: var(--border-sketch);
+  background: var(--bg-cream);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-links {
+    order: 2;
+    justify-content: center;
+  }
+  
+  .social-links {
+    order: 3;
+    margin-top: var(--spacing-sm);
+  }
+}
 /* ====================================
    10. HERO SECTION
    Modify main title area here
@@ -1301,7 +1347,7 @@ footer {
    Subsection Headers
    -------------------------------- */
 .subsection {
-  margin: 40px 0;
+  margin: 40px 60px;
 }
 
 .subsection-title {
