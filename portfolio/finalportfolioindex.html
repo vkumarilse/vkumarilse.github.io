@@ -270,8 +270,7 @@
             <div class="links">
                 <a href="https://www.linkedin.com/in/vinodkumari/">LinkedIn</a>
                 <a href="https://github.com/vkumarilse">GitHub</a>
-                <a href="https://vkumarilse.io/project/projectindex.html">Project</a>
-
+                <a href="https://vkumarilse.github.io/project/projectindex.html">Project</a>
             </div>
         </div>
     </header>
@@ -628,6 +627,7 @@ The improved version retains FT styling while using a single axis with interacti
                         <p>I have created a interactive scatter plot visualizing Credit and Deposit growth across Indian states from 2016-2024. The chart includes a slider for years, which allows us to visualise the trends in Credit and Deposit across states.Further, the scatter dots are weighted on Credit Deposit Ratio. This allows exploration of how different state exhibit distinct credit-deposit dynamics.
                     <p>The interactive scatter plot displays Indian states banking data with Credit on the x-axis and Deposit on the y-axis in absolute values. Each point represents a state, sized by CD Ratio. The year slider allows us to animate through 2016-2024, revealing how state positions shift over time. We can observe the evolution of credit-deposit dynamics, tracking which states improved their CD ratios and which saw declining credit mobilisation relative to deposits across the eight-year period.</p>
                     <a href=https://colab.research.google.com/drive/10sRtOD4tRDwN_4xGtLt_RYVEOoFozsW2?usp=sharing>Interactive Chart and Unsupervised Learning Colab Notebook</a>
+                <p>Note:I have included one interactive chart here since my Welsh Map chart also has interative elements (hover and drop down features).  </p>
                 </div>
                     <div class="chart-container">
                         
@@ -652,7 +652,7 @@ The improved version retains FT styling while using a single axis with interacti
             <p><strong>Method:</strong> Unsupervised learning using K-Means clustering in sklearn. Input features (X matrix) included standardised Credit CAGR and Deposit CAGR for each state (2016-2024). Optimal cluster count (k=4) was determined using elbow method analysis.</p>
             
             <p><strong>Findings:</strong> Four distinct clusters emerged: (1) High credit growth states averaging 16.4% Credit CAGR (Blue); (2) Balanced high-growth states at 15.7% credit/15.8% deposit (Green); (3) Moderate growth states (Yellow); (4) Low-growth states at 7.9% credit/9.2% deposit (Orange). Northeastern states dominated the high-growth clusters.</p>
-            <p>This composite visualization presents the K-Means clustering results for Indian state banking data. The main scatter plot displays all 36 states/UTs positioned by their Credit CAGR (x-axis) and Deposit CAGR (y-axis), with four distinct cluster colours revealing growth pattern groupings. Cluster 1 captures high-credit-growth states like Manipur (21.3%) and Sikkim (17.6%), primarily northeastern regions experiencing rapid financial deepening. Cluster 4 contains slower-growth states including West Bengal and Punjab, and also includes states which already have sufficient credit deposit penetration like Maharashtra and Delhi.The histogram panel below shows the distribution of states based on credit and deposit CAGR individually, the colour scale is based on the clusters assigned i.e High, Balanced, Moderate and Low growth</p>
+            <p>This composite visualization presents the K-Means clustering results for Indian state banking data. The main scatter plot displays all 36 states/UTs positioned by their Credit CAGR (x-axis) and Deposit CAGR (y-axis), with four distinct cluster colours revealing growth pattern groupings. Cluster 1 captures high-credit-growth states like Manipur (21.3%) and Sikkim (17.6%), primarily northeastern regions experiencing rapid financial deepening. Cluster 4 contains slower-growth states including West Bengal and Punjab, and also includes states which already have sufficient credit deposit penetration like Maharashtra and Delhi.The histogram panel below shows the distribution of states based on credit and deposit CAGR individually, the colour scale is based on the clusters assigned i.e High, Balanced, Moderate and Low growth. As this chart shows a composite chart I have kept the count of charts for this section to one. </p>
                 </div>
                 <div class="charts-grid">
                     <div class="chart-container">
@@ -662,6 +662,17 @@ The improved version retains FT styling while using a single axis with interacti
                     <div class="chart-container">
                         
                     </div>
+                </div>
+            </div>
+        </div>
+        
+            <div class="section-content">
+                <div class="description">
+                    <p><strong>Sources and Disclamers:</strong>This portfolio draws on data from the World Inequality Database (income shares), World Bank Open Data API (development indicators, renewable energy), Economic Survey of India (state-wise credit and deposit statistics), Office for National Statistics and Scottish Government (UK regional data), National Stock Exchange of India (Nifty 50 via web scraping), UK Long Run Prices Database (historical prices), and the Financial Times (replication source). All visualisations were built using Vega-Lite and embedded via Vega-Embed, with data processing in Python (Pandas, requests, scikit-learn for clustering). Google Colab notebooks document the scraping, API calls, and machine learning workflows.</p>
+<p>AI Disclosure & Disclaimer: This portfolio was developed with assistance from Claude for code debugging, HTML/CSS design elements, and documentation. All analytical interpretations remain the author's responsibility.
+</p>
+          
+                 </div>
                 </div>
             </div>
         </div>
@@ -735,5 +746,4 @@ The improved version retains FT styling while using a single axis with interacti
         
         </script>
 </body>
-
 </html>
